@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyViewController" customModule="SurveyNativeExample">
+            <connections>
+                <outlet property="tableView" destination="hQQ-0e-uZe" id="zWe-d1-H3e"/>
+                <outlet property="view" destination="xoE-al-q4h" id="Yhl-tZ-zQX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="xoE-al-q4h">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGm-eX-zhH">
+                    <rect key="frame" x="0.0" y="10" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="dYm-iu-gtG"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Example Survey" id="9jq-UJ-ISl"/>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hQQ-0e-uZe">
+                    <rect key="frame" x="0.0" y="54" width="414" height="682"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hQQ-0e-uZe" firstAttribute="leading" secondItem="xoE-al-q4h" secondAttribute="leading" id="05g-SQ-HwO"/>
+                <constraint firstAttribute="trailing" secondItem="hGm-eX-zhH" secondAttribute="trailing" id="0u3-pm-heY"/>
+                <constraint firstAttribute="bottom" secondItem="hQQ-0e-uZe" secondAttribute="bottom" id="OOR-kW-vWs"/>
+                <constraint firstItem="hQQ-0e-uZe" firstAttribute="top" secondItem="hGm-eX-zhH" secondAttribute="bottom" id="fNm-yv-90q"/>
+                <constraint firstAttribute="trailing" secondItem="hQQ-0e-uZe" secondAttribute="trailing" id="fUW-o8-bSi"/>
+                <constraint firstItem="hGm-eX-zhH" firstAttribute="leading" secondItem="xoE-al-q4h" secondAttribute="leading" id="ha8-LZ-3cG"/>
+                <constraint firstItem="hGm-eX-zhH" firstAttribute="top" secondItem="xoE-al-q4h" secondAttribute="top" constant="10" id="ht9-7i-6uE"/>
+            </constraints>
+            <point key="canvasLocation" x="-71" y="-41"/>
+        </view>
+    </objects>
+</document>

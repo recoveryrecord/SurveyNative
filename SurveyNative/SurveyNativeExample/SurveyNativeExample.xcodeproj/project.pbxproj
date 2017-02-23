@@ -1,0 +1,329 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		888C66AE1E5F9FBE0004EDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C66AD1E5F9FBE0004EDB6 /* AppDelegate.swift */; };
+		888C66B01E5F9FBE0004EDB6 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C66AF1E5F9FBE0004EDB6 /* MyViewController.swift */; };
+		888C66B31E5F9FBE0004EDB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888C66B11E5F9FBE0004EDB6 /* Main.storyboard */; };
+		888C66B51E5F9FBE0004EDB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888C66B41E5F9FBE0004EDB6 /* Assets.xcassets */; };
+		888C66B81E5F9FBE0004EDB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888C66B61E5F9FBE0004EDB6 /* LaunchScreen.storyboard */; };
+		888C66C61E5FA0440004EDB6 /* ExampleQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 888C66C51E5FA0440004EDB6 /* ExampleQuestions.json */; };
+		888C66C91E5FA0AF0004EDB6 /* SurveyNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888C66C81E5FA0AF0004EDB6 /* SurveyNative.framework */; };
+		888C66D31E60B7590004EDB6 /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888C66D21E60B7590004EDB6 /* MyViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		888C66AA1E5F9FBE0004EDB6 /* SurveyNativeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyNativeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		888C66AD1E5F9FBE0004EDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		888C66AF1E5F9FBE0004EDB6 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		888C66B21E5F9FBE0004EDB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		888C66B41E5F9FBE0004EDB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		888C66B71E5F9FBE0004EDB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		888C66B91E5F9FBE0004EDB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		888C66C51E5FA0440004EDB6 /* ExampleQuestions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExampleQuestions.json; sourceTree = "<group>"; };
+		888C66C81E5FA0AF0004EDB6 /* SurveyNative.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SurveyNative.framework; path = "../../../../Library/Developer/Xcode/DerivedData/SurveyNative-bpmgwvznrbqlcmcuppooxiqvdtbl/Build/Products/Debug-iphonesimulator/SurveyNative.framework"; sourceTree = "<group>"; };
+		888C66D21E60B7590004EDB6 /* MyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		888C66A71E5F9FBE0004EDB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888C66C91E5FA0AF0004EDB6 /* SurveyNative.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		888C66A11E5F9FBE0004EDB6 = {
+			isa = PBXGroup;
+			children = (
+				888C66AC1E5F9FBE0004EDB6 /* SurveyNativeExample */,
+				888C66AB1E5F9FBE0004EDB6 /* Products */,
+				888C66C71E5FA0AF0004EDB6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		888C66AB1E5F9FBE0004EDB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				888C66AA1E5F9FBE0004EDB6 /* SurveyNativeExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		888C66AC1E5F9FBE0004EDB6 /* SurveyNativeExample */ = {
+			isa = PBXGroup;
+			children = (
+				888C66C51E5FA0440004EDB6 /* ExampleQuestions.json */,
+				888C66AD1E5F9FBE0004EDB6 /* AppDelegate.swift */,
+				888C66AF1E5F9FBE0004EDB6 /* MyViewController.swift */,
+				888C66D21E60B7590004EDB6 /* MyViewController.xib */,
+				888C66B11E5F9FBE0004EDB6 /* Main.storyboard */,
+				888C66B41E5F9FBE0004EDB6 /* Assets.xcassets */,
+				888C66B61E5F9FBE0004EDB6 /* LaunchScreen.storyboard */,
+				888C66B91E5F9FBE0004EDB6 /* Info.plist */,
+			);
+			path = SurveyNativeExample;
+			sourceTree = "<group>";
+		};
+		888C66C71E5FA0AF0004EDB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				888C66C81E5FA0AF0004EDB6 /* SurveyNative.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		888C66A91E5F9FBE0004EDB6 /* SurveyNativeExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 888C66BC1E5F9FBE0004EDB6 /* Build configuration list for PBXNativeTarget "SurveyNativeExample" */;
+			buildPhases = (
+				888C66A61E5F9FBE0004EDB6 /* Sources */,
+				888C66A71E5F9FBE0004EDB6 /* Frameworks */,
+				888C66A81E5F9FBE0004EDB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SurveyNativeExample;
+			productName = SurveyNativeExample;
+			productReference = 888C66AA1E5F9FBE0004EDB6 /* SurveyNativeExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		888C66A21E5F9FBE0004EDB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = recoveryrecord;
+				TargetAttributes = {
+					888C66A91E5F9FBE0004EDB6 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CNT2G5PDGC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 888C66A51E5F9FBE0004EDB6 /* Build configuration list for PBXProject "SurveyNativeExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 888C66A11E5F9FBE0004EDB6;
+			productRefGroup = 888C66AB1E5F9FBE0004EDB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				888C66A91E5F9FBE0004EDB6 /* SurveyNativeExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		888C66A81E5F9FBE0004EDB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888C66C61E5FA0440004EDB6 /* ExampleQuestions.json in Resources */,
+				888C66B81E5F9FBE0004EDB6 /* LaunchScreen.storyboard in Resources */,
+				888C66B51E5F9FBE0004EDB6 /* Assets.xcassets in Resources */,
+				888C66B31E5F9FBE0004EDB6 /* Main.storyboard in Resources */,
+				888C66D31E60B7590004EDB6 /* MyViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		888C66A61E5F9FBE0004EDB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888C66B01E5F9FBE0004EDB6 /* MyViewController.swift in Sources */,
+				888C66AE1E5F9FBE0004EDB6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		888C66B11E5F9FBE0004EDB6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				888C66B21E5F9FBE0004EDB6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		888C66B61E5F9FBE0004EDB6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				888C66B71E5F9FBE0004EDB6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		888C66BA1E5F9FBE0004EDB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		888C66BB1E5F9FBE0004EDB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		888C66BD1E5F9FBE0004EDB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CNT2G5PDGC;
+				INFOPLIST_FILE = SurveyNativeExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.guardiansd.recoveryrecord.SurveyNativeExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		888C66BE1E5F9FBE0004EDB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CNT2G5PDGC;
+				INFOPLIST_FILE = SurveyNativeExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.guardiansd.recoveryrecord.SurveyNativeExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		888C66A51E5F9FBE0004EDB6 /* Build configuration list for PBXProject "SurveyNativeExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888C66BA1E5F9FBE0004EDB6 /* Debug */,
+				888C66BB1E5F9FBE0004EDB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		888C66BC1E5F9FBE0004EDB6 /* Build configuration list for PBXNativeTarget "SurveyNativeExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888C66BD1E5F9FBE0004EDB6 /* Debug */,
+				888C66BE1E5F9FBE0004EDB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 888C66A21E5F9FBE0004EDB6 /* Project object */;
+}
