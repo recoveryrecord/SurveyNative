@@ -102,8 +102,8 @@
       "header": "Question 8",
       "question": "How happy are you?",
       "question_type": "segment_select",
-      "low_tag": "Not happy",
-      "high_tag": "Super happy",
+      "low_tag": "1. Not happy",
+      "high_tag": "7. Super happy",
       "values": [
         "1",
         "2",
