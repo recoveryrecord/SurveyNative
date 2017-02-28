@@ -1,157 +1,200 @@
 {
-   "questions" : [
-                  {
-                  "id": "ice_cream",
-                  "header": "Question 1",
-                  "question" : "What is your favorite ice cream flavor?",
-                  "question_type" : "single_select",
-                  "options" : [
-                               "Strawberry",
-                               "Chocolate",
-                               "Vanilla",
-                               {"title" : "Other", "type": "freeform"}
-                               ]
-                  },
-                  {
-                  "id": "birthyear",
-                  "header": "Question 2",
-                  "question" : "Enter the year of your birth.",
-                  "question_type" : "year_picker"
-                  },
-                  {
-                  "id": "sports",
-                  "header": "Question 3",
-                  "question" : "Do you like to play sports?",
-                  "question_type" : "single_select",
-                  "options" : [
-                               "Yes",
-                               "No"
-                               ],
-                  "sub_questions" : [
-                                     {
-                                     "id": "which_sports",
-                                     "question": "Which sports do you like to play?",
-                                     "question_type": "add_text_field",
-                                     "input_type": "default",
-                                     "show_if": {
-                                     "id" : "sports",
-                                     "operation" : "equals",
-                                     "value" : "Yes"
-                                     }
-                                     }
-                                     ]
-                  },
-                  {
-                  "id": "age",
-                  "header": "Question 4",
-                  "question" : "What is your current age in years?",
-                  "question_type" : "single_text_field",
-                  "label": "Years",
-                  "input_type": "number"
-                  },
-                  {
-                  "id": "like_music",
-                  "header": "Question 5",
-                  "question" : "Do you like music?",
-                  "question_type" : "single_select",
-                  "options" : [
-                               "Yes",
-                               "No"
-                               ]
-                  },
-                  {
-                  "id": "music_types",
-                  "header" : "Question 6",
-                  "question" : "What types of music do you like?",
-                  "question_type": "multi_select",
-                  "options" : [
-                               "Pop",
-                               "Rock",
-                               "Rap",
-                               "Country",
-                               {"title" : "Other", "type" : "freeform"}
-                  ],
-                  "show_if": {
-                  "id" : "like_music",
-                  "operation" : "equals",
-                  "value" : "Yes"
-                  }
-                  },
-                  {
-                  "id": "height",
-                  "header": "Question 7",
-                  "question" : "How tall are you?",
-                  "question_type" : "dynamic_label_text_field",
-                  "label_options": [["Feet", "Inches"], "Centimeters"],
-                  "input_type": "number"
-                  },
-                  {
-                  "id": "happiness",
-                  "header" : "Question 8",
-                  "question" : "How happy are you?",
-                  "question_type": "segment_select",
-                  "low_tag": "Not happy",
-                  "high_tag": "Super happy",
-                  "values" : ["1", "2", "3", "4", "5", "6", "7"]
-                  },
-                  {
-                  "id": "weekend_activities",
-                  "header": "Question 9",
-                  "question" : "On the weekends, do you:",
-                  "question_type" : "table_select",
-                  "options" : [
-                               "Yes",
-                               "Sometimes",
-                               "No"
-                               ],
-                  "table_questions" : [
-                                       {"title": "Play sports?", "id" : "play_sports"},
-                                       {"title": "Read books?", "id" : "read_books"},
-                                       {"title": "Go dancing", "id" : "go_dancing"},
-                                       {"title": "Watch TV and movies?", "id" : "watch_tv"}
-                  ]
-                  },
-                  {
-                  "id": "prefer_tv_books",
-                  "header": "Question 10",
-                  "question" : "Do you like to read the book of the movie before you see it?",
-                  "question_type" : "single_select",
-                  "options" : [
-                               "Yes",
-                               "No"
-                               ],
-                  "show_if" : {
-                  "operation" : "and",
-                  "subconditions": [
-                                    {"operation" : "or",
-                                    "subconditions" : [
-                                                       { "id": "weekend_activities",
-                                                       "subid" : "read_books",
-                                                       "operation" : "equals",
-                                                       "value" : "Yes"},
-                                                       { "id": "weekend_activities",
-                                                       "subid" : "read_books",
-                                                       "operation" : "equals",
-                                                       "value" : "Sometimes"}
-                                                       ]
-                                    },
-                                    {"operation" : "or",
-                                    "subconditions" : [
-                                                       { "id": "weekend_activities",
-                                                       "subid" : "watch_tv",
-                                                       "operation" : "equals",
-                                                       "value" : "Yes"},
-                                                       { "id": "weekend_activities",
-                                                       "subid" : "watch_tv",
-                                                       "operation" : "equals",
-                                                       "value" : "Sometimes"}
-                                                       ]
-                                    }]
-                  }
-                  }
-               ],
-   "submit" : {
-      "button_title" : "Submit Answers",
-      "url": "https://www.example.com"
-   }
+  "questions": [
+    {
+      "id": "ice_cream",
+      "header": "Question 1",
+      "question": "What is your favorite ice cream flavor?",
+      "question_type": "single_select",
+      "options": [
+        "Strawberry",
+        "Chocolate",
+        "Vanilla",
+        {
+          "title": "Other",
+          "type": "freeform"
+        }
+      ]
+    },
+    {
+      "id": "birthyear",
+      "header": "Question 2",
+      "question": "Enter the year of your birth.",
+      "question_type": "year_picker"
+    },
+    {
+      "id": "sports",
+      "header": "Question 3",
+      "question": "Do you like to play sports?",
+      "question_type": "single_select",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "sub_questions": [
+        {
+          "id": "which_sports",
+          "question": "Which sports do you like to play?",
+          "question_type": "add_text_field",
+          "input_type": "default",
+          "show_if": {
+            "id": "sports",
+            "operation": "equals",
+            "value": "Yes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "age",
+      "header": "Question 4",
+      "question": "What is your current age in years?",
+      "question_type": "single_text_field",
+      "label": "Years",
+      "input_type": "number"
+    },
+    {
+      "id": "like_music",
+      "header": "Question 5",
+      "question": "Do you like music?",
+      "question_type": "single_select",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id": "music_types",
+      "header": "Question 6",
+      "question": "What types of music do you like?",
+      "question_type": "multi_select",
+      "options": [
+        "Pop",
+        "Rock",
+        "Rap",
+        "Country",
+        {
+          "title": "Other",
+          "type": "freeform"
+        }
+      ],
+      "show_if": {
+        "id": "like_music",
+        "operation": "equals",
+        "value": "Yes"
+      }
+    },
+    {
+      "id": "height",
+      "header": "Question 7",
+      "question": "How tall are you?",
+      "question_type": "dynamic_label_text_field",
+      "label_options": [
+        [
+          "Feet",
+          "Inches"
+        ],
+        "Centimeters"
+      ],
+      "input_type": "number"
+    },
+    {
+      "id": "happiness",
+      "header": "Question 8",
+      "question": "How happy are you?",
+      "question_type": "segment_select",
+      "low_tag": "Not happy",
+      "high_tag": "Super happy",
+      "values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "id": "weekend_activities",
+      "header": "Question 9",
+      "question": "On the weekends, do you:",
+      "question_type": "table_select",
+      "options": [
+        "Yes",
+        "Sometimes",
+        "No"
+      ],
+      "table_questions": [
+        {
+          "title": "Play sports?",
+          "id": "play_sports"
+        },
+        {
+          "title": "Read books?",
+          "id": "read_books"
+        },
+        {
+          "title": "Go dancing",
+          "id": "go_dancing"
+        },
+        {
+          "title": "Watch TV and movies?",
+          "id": "watch_tv"
+        }
+      ]
+    },
+    {
+      "id": "prefer_tv_books",
+      "header": "Question 10",
+      "question": "Do you like to read the book of the movie before you see it?",
+      "question_type": "single_select",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "show_if": {
+        "operation": "and",
+        "subconditions": [
+          {
+            "operation": "or",
+            "subconditions": [
+              {
+                "id": "weekend_activities",
+                "subid": "read_books",
+                "operation": "equals",
+                "value": "Yes"
+              },
+              {
+                "id": "weekend_activities",
+                "subid": "read_books",
+                "operation": "equals",
+                "value": "Sometimes"
+              }
+            ]
+          },
+          {
+            "operation": "or",
+            "subconditions": [
+              {
+                "id": "weekend_activities",
+                "subid": "watch_tv",
+                "operation": "equals",
+                "value": "Yes"
+              },
+              {
+                "id": "weekend_activities",
+                "subid": "watch_tv",
+                "operation": "equals",
+                "value": "Sometimes"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "submit": {
+    "button_title": "Submit Answers",
+    "url": "https://www.example.com"
+  }
 }
