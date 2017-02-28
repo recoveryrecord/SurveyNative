@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SurveyNative_Example' do
+  pod 'SurveyNative', :path => '../'
+
+  target 'SurveyNative_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

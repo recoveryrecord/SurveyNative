@@ -1,0 +1,16 @@
+PODS:
+  - SurveyNative (0.1.0)
+
+DEPENDENCIES:
+  - SurveyNative (from `../`)
+
+EXTERNAL SOURCES:
+  SurveyNative:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SurveyNative: 82eadccf8981205cdb2b563ccccc5e1e8d7e3ce3
+
+PODFILE CHECKSUM: 6a6c214ca782e222cfd8f6674041ea0627ed7b2c
+
+COCOAPODS: 1.2.0.rc.1
