@@ -216,23 +216,40 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
          Logger.log("No table updates.", level: .info)
          return
       }
-      self.tableView!.beginUpdates()
-      if (changes.removeSections != nil && !changes.removeSections!.isEmpty) {
-         self.tableView!.deleteSections(changes.removeSections!, with: .none)
+      UIView.performWithoutAnimation {
+         self.tableView!.beginUpdates()
+         if (changes.removeSections != nil && !changes.removeSections!.isEmpty) {
+            self.tableView!.deleteSections(changes.removeSections!, with: .none)
+         }
+         if (changes.reloadSections != nil && !changes.reloadSections!.isEmpty) {
+            self.tableView!.reloadSections(changes.reloadSections!, with: .none)
+         }
+         if (changes.insertSections != nil && !changes.insertSections!.isEmpty) {
+            self.tableView!.insertSections(changes.insertSections!, with: .none)
+         }
+         self.tableView!.endUpdates()
       }
-      if (changes.reloadSections != nil && !changes.reloadSections!.isEmpty) {
-         self.tableView!.reloadSections(changes.reloadSections!, with: .automatic)
-      }
-      if (changes.insertSections != nil && !changes.insertSections!.isEmpty) {
-         self.tableView!.insertSections(changes.insertSections!, with: .right)
-      }
-      self.tableView!.endUpdates()
       if (changes.insertSections != nil && changes.insertSections!.count != 0) {
-         DispatchQueue.main.async {
-            let scrollPath = IndexPath(row: 0, section: (changes.insertSections?.first)! as Int)
-            self.tableView!.scrollToRow(at: scrollPath, at: UITableViewScrollPosition.top, animated: false)
+         // A small pause helps avoid issues with keyboard dismissal messing up the scroll
+         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+            let numberOfSections = self.tableView!.numberOfSections
+            let scrollPath = IndexPath(row: 0, section: (self.maxIndex(changes.insertSections!))! as Int)
+            self.tableView!.scrollToRow(at: scrollPath, at: UITableViewScrollPosition.top, animated: true)
          }
       }
+   }
+   
+   func maxIndex(_ indexSet: IndexSet) -> Int? {
+      if indexSet == nil || indexSet.isEmpty {
+         return nil
+      }
+      var max : Int = indexSet.first!
+      for value in indexSet {
+         if value > max {
+            max = value
+         }
+      }
+      return max
    }
    
    public func update(updateId: String, data: Any) {
