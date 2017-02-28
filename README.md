@@ -30,16 +30,16 @@ The expected input is an array of `questions` and a `submit` object, detailing h
   - `question` (_String_): Required. Text to display for question.
 
   - `question_type` (_String_): Required. The chosen type may require additional keys.
-    - `single_select` [Example Screenshot](#) [Example JSON](#)
-    - `multi_select` [Example Screenshot](#) [Example JSON](#)
-    - `year_picker` [Example Screenshot](#) [Example JSON](#)
-    - `date_picker` [Example Screenshot](#) [Example JSON](#)
-    - `single_text_field` [Example Screenshot](#) [Example JSON](#)
-    - `multi_text_field` [Example Screenshot](#) [Example JSON](#)
-    - `dynamic_label_text_field` [Example Screenshot](#) [Example JSON](#)
-    - `add_text_field` [Example Screenshot](#) [Example JSON](#)
-    - `segment_select` [Example Screenshot](#) [Example JSON](#)
-    - `table_select` [Example Screenshot](#) [Example JSON](#)
+    - `single_select` [example screenshot](#) | [example JSON](#)
+    - `multi_select` [example screenshot](#) | [example json](#)
+    - `year_picker` [example screenshot](#) | [example json](#)
+    - `date_picker` [example screenshot](#) | [example json](#)
+    - `single_text_field` [example screenshot](#) | [example json](#)
+    - `multi_text_field` [example screenshot](#) | [example json](#)
+    - `dynamic_label_text_field` [example screenshot](#) | [example json](#)
+    - `add_text_field` [example screenshot](#) | [example json](#)
+    - `segment_select` [example screenshot](#) | [example json](#)
+    - `table_select` [example screenshot](#) | [example json](#)
 
   - `sub_questions` (_Array of questions_): Optional. Expected keys in each question are the same as a top-level question, except that header is not required (or shown if provided).  Normally, a sub-question would have a `show_if` key, but it's not required.  The `show_if` section of a sub-question may refer to previous sub-question answers.
 
