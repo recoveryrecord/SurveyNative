@@ -18,6 +18,18 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    var extraTextFields : [UITextField] = []
    var extraLabels : [UILabel] = []
    
+   var keyboardType : UIKeyboardType? {
+      didSet {
+         if keyboardType == nil {
+            return
+         }
+         textField?.keyboardType = keyboardType!
+         for extraTextField in extraTextFields {
+            extraTextField.keyboardType = keyboardType!
+         }
+      }
+   }
+   
    var labelOptions : [Any]?
    var currentValue : [String : String]? {
       didSet {
@@ -90,6 +102,7 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       newTextField.enablesReturnKeyAutomatically = true
       newTextField.addTarget(self, action: #selector(actionTriggered(_:)), for: .primaryActionTriggered)
       newTextField.delegate = self
+      newTextField.keyboardType = self.keyboardType ?? UIKeyboardType.default
       let newLabel = UILabel()
       newLabel.text = labelText
       newLabel.textColor = self.dynamicLabel?.tintColor

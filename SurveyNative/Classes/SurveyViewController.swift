@@ -180,6 +180,7 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
          (tableCell as! DynamicLabelTextFieldTableViewCell).presentationDelegate = self
          (tableCell as! DynamicLabelTextFieldTableViewCell).labelOptions = surveyQuestions!.labelOptions(for: indexPath)
          (tableCell as! DynamicLabelTextFieldTableViewCell).currentValue = surveyQuestions!.answer(for: indexPath) as? [String : String]
+         (tableCell as! DynamicLabelTextFieldTableViewCell).keyboardType = surveyQuestions!.keyboardType(for: indexPath)
       case "add_text_field":
          (tableCell as! AddTextFieldTableViewCell).dataDelegate = self
          (tableCell as! AddTextFieldTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
