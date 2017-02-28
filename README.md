@@ -264,12 +264,13 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
 
 Areas we'd love to see contributions:
 
-1. Bug fixes
-2. New question types
-3. Customizable styling
-4. Customizable animation
-5. Dynamic question number substitution in header
-5. Option to enable/disable animations
-6. Android Port
-7. Export qualtrics/survey-monkey surveys to SurveyNative
-8. CareKit/ResearchKit integration
+- Bug fixes
+- Support for `optional` boolean flag on every question type that adds a skip button.
+- New question types
+- Customizable styling
+- Customizable animation
+- Dynamic question number substitution in header
+- Option to enable/disable animations
+- Android Port
+- Export qualtrics/survey-monkey surveys to SurveyNative
+- CareKit/ResearchKit integration
