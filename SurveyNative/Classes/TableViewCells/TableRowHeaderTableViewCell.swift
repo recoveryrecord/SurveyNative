@@ -14,6 +14,9 @@ class TableRowHeaderTableViewCell: UITableViewCell {
    @IBOutlet var header2 : UILabel?
    @IBOutlet var header3 : UILabel?
    
+   let defaultFont = UIFont.systemFont(ofSize: 14.0)
+   let minFontSize : CGFloat = 10.0
+   
    var headers : [String]? {
       didSet {
          if headers == nil {
@@ -21,25 +24,44 @@ class TableRowHeaderTableViewCell: UITableViewCell {
          }
          if headers!.count > 0 {
             header1?.text = headers![0]
+            resizeFont(header1!)
          }
          if headers!.count > 1 {
             header2?.text = headers![1]
+            resizeFont(header2!)
          }
          if headers!.count > 2 {
             header3?.text = headers![2]
+            resizeFont(header3!)
          }
       }
    }
    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+   // These are multi-line, so they won't auto-shrink, but we want to try to shrink if
+   // the label would wrap in the middle of a word
+   func resizeFont(_ label: UILabel) {
+      label.font = defaultFont
+      var currentFontSize = defaultFont.pointSize
+      var words = label.text?.characters.split{ $0 == " "}.map(String.init)
+      while(hasOverflow(label, words: words!) &&  currentFontSize > minFontSize) {
+         currentFontSize = currentFontSize - 1.0
+         label.font = UIFont.systemFont(ofSize: currentFontSize)
+      }
+      // If no matter how much we shrink the text, the word still wraps, might as well
+      // make it big
+      if hasOverflow(label, words: words!) {
+         label.font = defaultFont
+      }
+   }
+   
+   func hasOverflow(_ label: UILabel, words: [String]) -> Bool {
+      for word in words {
+         let nsWord: NSString = word as NSString
+         let size: CGSize = nsWord.size(attributes: [NSFontAttributeName: label.font])
+         if (size.width > label.bounds.size.width) {
+            return true
+         }
+      }
+      return false
+   }    
 }
