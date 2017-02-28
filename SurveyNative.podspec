@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SurveyNative'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SurveyNative.'
+  s.summary          = 'SurveyNative is a library for creating surveys.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Supports many question types and the ability to skip questions.  The question data is provided as JSON.
                        DESC
 
-  s.homepage         = 'https://github.com/nmullaney/SurveyNative'
+  s.homepage         = 'https://github.com/recoveryrecord/SurveyNative'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'nmullaney' => 'nora.mullaney@gmail.com' }
-  s.source           = { :git => 'https://github.com/nmullaney/SurveyNative.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/recoveryrecord/SurveyNative.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
