@@ -15,7 +15,7 @@ Native surveys built from declarative definitions (JSON). Many question types, s
 
 ## JSON Input
 
-[Example JSON Input file](blob/master/Example/SurveyNative/ExampleQuestions.json)
+[Example JSON Input file](Example/SurveyNative/ExampleQuestions.json)
 
 The expected input is an array of "questions" and a "submit" object, detailing how to submit the answers.
 
