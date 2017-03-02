@@ -16,7 +16,7 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    @IBOutlet var dynamicLabel: UIButton?
    
    var extraTextFields : [UITextField] = []
-   var extraLabels : [UILabel] = []
+   var extraLabels : [UIButton] = []
    
    var keyboardType : UIKeyboardType? {
       didSet {
@@ -103,11 +103,11 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       newTextField.addTarget(self, action: #selector(actionTriggered(_:)), for: .primaryActionTriggered)
       newTextField.delegate = self
       newTextField.keyboardType = self.keyboardType ?? UIKeyboardType.default
-      let newLabel = UILabel()
-      newLabel.text = labelText
-      newLabel.textColor = self.dynamicLabel?.tintColor
-      newLabel.font = self.dynamicLabel?.titleLabel?.font
-      newLabel.textAlignment = .center
+      let newLabel = UIButton(type: .system)
+      newLabel.setTitle(labelText, for: .normal)
+      let imageSize = self.dynamicLabel!.currentImage!.size
+      newLabel.contentHorizontalAlignment = .left
+      newLabel.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10 + imageSize.width, bottom: 0, right: 10)
       newHorizontalStack.addArrangedSubview(newTextField)
       newHorizontalStack.addArrangedSubview(newLabel)
       extraTextFields.append(newTextField)
@@ -136,7 +136,7 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    func getData() -> [String : String] {
       var data : [String : String] = [dynamicLabel!.title(for: .normal)! : textField!.text!]
       for i in 0..<extraLabels.count {
-         data[extraLabels[i].text!] = extraTextFields[i].text
+         data[extraLabels[i].titleLabel!.text!] = extraTextFields[i].text
       }
       return data
    }

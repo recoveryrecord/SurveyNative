@@ -1,9 +1,9 @@
 {
   "name": "SurveyNative",
   "version": "0.1.0",
-  "summary": "A short description of SurveyNative.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/nmullaney/SurveyNative",
+  "summary": "SurveyNative is a library for creating surveys.",
+  "description": "Supports many question types and the ability to skip questions.  The question data is provided as JSON.",
+  "homepage": "https://github.com/recoveryrecord/SurveyNative",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "nmullaney": "nora.mullaney@gmail.com"
   },
   "source": {
-    "git": "https://github.com/nmullaney/SurveyNative.git",
+    "git": "https://github.com/recoveryrecord/SurveyNative.git",
     "tag": "0.1.0"
   },
   "platforms": {

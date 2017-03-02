@@ -32,9 +32,9 @@
                                             <action selector="actionTriggered:" destination="KGk-i7-Jjw" eventType="primaryActionTriggered" id="MwZ-QX-ZkT"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyg-1m-ZN6">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyg-1m-ZN6">
                                         <rect key="frame" x="152" y="0.0" width="152" height="37"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="Kilograms" image="blue-down-button.png"/>
                                         <connections>
                                             <action selector="labelTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pNA-ZJ-j6x"/>
