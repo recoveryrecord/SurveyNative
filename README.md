@@ -56,6 +56,8 @@ The expected input is an array of `questions` and a `submit` object, detailing h
   - `input_type` (_String_): Optional for `single_text_field`, `dynamic_label_text_field`, `add_text_field` question_types. Can be set to `number` to change the default keyboard to the number keyboard for the text field(s).
 
   - `values` (_Array of String_): Required for `segment_select` question_type. These are the values the user will choose between.
+  
+  - `fields` (_Array of Dictionaries_): Required for `multi_text_field` question_type.  Each dictionary must contain a `label` key and an `input_type` key.
 
   - `low_tag` (_String_): Optional for `segment_select` question_type. This is a label for the lowest (first) value.
 
@@ -171,7 +173,24 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
 ```
 
 #### multi_text_field
-
+```
+{
+  "id":"pets",
+  "header": "Question 12",
+  "question": "How many pets do you have?",
+  "question_type": "multi_text_field",
+  "fields": [
+    {
+      "label" : "Dogs",
+      "input_type" : "number"
+    },
+    {
+      "label" : "Cats",
+      "input_type" : "number"
+    }
+  ]
+}
+```
 
 
 #### dynamic_label_text_field
