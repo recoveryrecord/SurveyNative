@@ -37,6 +37,7 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
    
    func setup() {
       textLabel?.text = "Year"
+      textLabel?.textColor = self.tintColor
       selectionStyle = .none
    }
    

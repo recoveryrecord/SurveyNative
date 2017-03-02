@@ -191,6 +191,12 @@
           }
         ]
       }
+    },
+    {
+      "id": "date",
+      "header": "Question 11",
+      "question": "What is your favorite date?",
+      "question_type": "date_picker"
     }
   ],
   "submit": {

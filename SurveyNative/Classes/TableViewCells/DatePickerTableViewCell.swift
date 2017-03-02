@@ -37,6 +37,7 @@ class DatePickerTableViewCell: UITableViewCell, DatePickerViewControllerDelegate
    
    func setup() {
       textLabel?.text = "Date"
+      textLabel?.textColor = self.tintColor
       selectionStyle = .none
    }
    
