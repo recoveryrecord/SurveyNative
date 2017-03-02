@@ -197,6 +197,22 @@
       "header": "Question 11",
       "question": "What is your favorite date?",
       "question_type": "date_picker"
+    },
+    {
+      "id":"pets",
+      "header": "Question 12",
+      "question": "How many pets do you have?",
+      "question_type": "multi_text_field",
+      "fields": [
+         {
+            "label" : "Dogs",
+            "input_type" : "number"
+         },
+         {
+            "label" : "Cats",
+            "input_type" : "number"
+         }
+      ]
     }
   ],
   "submit": {
