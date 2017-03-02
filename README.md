@@ -64,6 +64,19 @@ The expected input is an array of `questions` and a `submit` object, detailing h
   - `high_tag` (_String_): Optional for `segment_select` question_type. This is a label for the highest (last) value.
 
   - `table_questions` (_Array of table questions_): Required for `table_select` question_type. Each table question should have a `title` and an `id` attribute.
+  
+  - `min_year` (_String_): Optional for `year_picker` question_type.  Can be an integer or "current_year". See [More about Year Picker](#more-about-year-picker) below for more info.
+  
+  - `max_year` (_String_): Optional for `year_picker` question_type.  Can be an integer or "current_year". See [More about Year Picker](#more-about-year-picker) below for more info.
+  
+  - `num_years` (_String_): Optional for `year_picker` question_type.  See [More about Year Picker](#more-about-year-picker) below for more info.
+  
+  - `sort_order` (_String_): Optional for `year_picker` question_type.  May be "ASC" (ascending) or "DESC" (descending).  Defaults to "ASC".
+  
+  
+#### More about Year Picker
+
+You only need to specify two of `min_year`, `max_year`, and `num_years`.  The missing values will be calculated from what is provided.  If all three are provided, the `num_years` value will be ignored.  If less than two values are provided, we'll guess reasonable values for the missing ones.
 
 ### Structure for Show/Hide question
 
@@ -146,6 +159,9 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
   "header": "Question 2",
   "question": "Enter the year of your birth.",
   "question_type": "year_picker"
+  "max_year" : "current_year",
+  "num_years" : "125",
+  "sort_order" : "DESC"
 }
 ```
 
