@@ -21,8 +21,10 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
    
    var pickerViewController: PickerViewController?
    
-   let numYears = 125
-   let maxYear: Int = YearPickerTableViewCell.currentYear()
+   var minYear : Int?
+   var maxYear : Int?
+   var numYears : Int?
+   var sortOrder : String?
    var selectedRow: Int?
    
    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -33,6 +35,56 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
    required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       setup()
+   }
+   
+   func setYearRange(minYear: String?, maxYear: String?, numYears: String?, sortOrder: String? = "ASC") {
+      self.sortOrder = sortOrder
+      var notNilCount = 0
+      if minYear != nil {
+         self.minYear = yearToInt(minYear!)
+         notNilCount = notNilCount + 1
+      }
+      if maxYear != nil {
+         self.maxYear = yearToInt(maxYear!)
+         notNilCount = notNilCount + 1
+      }
+      if numYears != nil {
+         self.numYears = Int(numYears!)
+         notNilCount = notNilCount + 1
+      }
+      if notNilCount == 0 {
+         Logger.log("No year range data set.  Using defaults.", level: .error)
+         self.minYear = 1900
+         self.maxYear = yearToInt("current_year")
+         self.numYears = self.maxYear! - self.minYear! + 1
+      } else if notNilCount == 1 {
+         Logger.log("Inadequate range data set.  Using defaults.", level: .error)
+         if self.minYear != nil {
+            self.maxYear = max(yearToInt("current_year"), self.minYear!)
+            self.numYears = self.maxYear! - self.minYear! + 1
+         } else if self.maxYear != nil {
+            self.minYear = min(yearToInt("current_year"), self.maxYear!)
+            self.numYears = self.maxYear! - self.minYear! + 1
+         } else if self.numYears != nil {
+            self.maxYear = yearToInt("current_year")
+            self.minYear = self.maxYear! - self.numYears! + 1
+         }
+      } else if notNilCount == 2 {
+         if self.minYear == nil {
+            self.minYear = self.maxYear! - self.numYears! + 1
+         } else if self.maxYear == nil {
+            self.maxYear = self.numYears! - 1 + self.minYear!
+         } else {
+            self.numYears = self.maxYear! - self.minYear! + 1
+         }
+      } else {
+         Logger.log("Too much data set for Year Picker, only using min/max year.", level: .warning)
+         self.numYears = self.maxYear! - self.minYear! + 1
+      }
+   }
+   
+   func yearToInt(_ year: String) -> Int {
+      return year == "current_year" ? YearPickerTableViewCell.currentYear() : Int(year)!
    }
    
    func setup() {
@@ -65,7 +117,7 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
    }
    
    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-      return numYears
+      return numYears!
    }
    
    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -85,8 +137,13 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
    }
    
    func yearString(for row: Int) -> String? {
-      let intValue = maxYear - row
-      return String(intValue)
+      if sortOrder == "DESC" {
+         let intValue = maxYear! - row
+         return String(intValue)
+      } else {
+         let intValue = minYear! + row
+         return String(intValue)
+      }
    }
    
    static func currentYear() -> Int {

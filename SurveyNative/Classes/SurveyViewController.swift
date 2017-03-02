@@ -117,6 +117,7 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
          (tableCell as! YearPickerTableViewCell).dataDelegate = self
          (tableCell as! YearPickerTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
          (tableCell as! YearPickerTableViewCell).selectedYear = surveyQuestions!.answer(for: indexPath) as! String?
+         (tableCell as! YearPickerTableViewCell).setYearRange(minYear: surveyQuestions!.minYear(for: indexPath), maxYear: surveyQuestions!.maxYear(for: indexPath), numYears: surveyQuestions!.numYears(for: indexPath), sortOrder: surveyQuestions!.yearSortOrder(for: indexPath))
       case "date_picker":
          (tableCell as! DatePickerTableViewCell).presentationDelegate = self
          (tableCell as! DatePickerTableViewCell).dataDelegate = self

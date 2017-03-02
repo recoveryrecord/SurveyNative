@@ -731,6 +731,31 @@ class SurveyQuestions {
       return question["label_options"] as! [Any]
    }
    
+   // MARK: year picker
+   func minYear(for indexPath : IndexPath) -> String? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["min_year"] as? String
+   }
+   
+   func maxYear(for indexPath : IndexPath) -> String? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["max_year"] as? String
+   }
+   
+   func numYears(for indexPath : IndexPath) -> String? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["num_years"] as? String
+   }
+   
+   func yearSortOrder(for indexPath : IndexPath) -> String? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["sort_order"] as? String
+   }
+   
    // MARK: answers
    
    func hasAnswer(for questionPath: QuestionPath) -> Bool {
