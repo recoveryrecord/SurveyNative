@@ -1089,7 +1089,7 @@ class SurveyQuestions {
    
    // Call this only AFTER answering the question
    func sectionsToInsert(questionPath: QuestionPath) -> IndexSet {
-      if activeQuestion >= (self.questions.count - 1)  && !showSubmitButton {
+      if activeQuestion >= (self.questions.count - 1) && isQuestionFullyAnswered(activeQuestion) && !showSubmitButton {
          showSubmitButton = true
          return IndexSet(integer: self.section(for: (activeQuestion + 1)))
       } else if activeQuestion >= (self.questions.count - 1) {
