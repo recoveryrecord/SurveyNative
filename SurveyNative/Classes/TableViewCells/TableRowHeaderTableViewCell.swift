@@ -42,7 +42,7 @@ class TableRowHeaderTableViewCell: UITableViewCell {
    func resizeFont(_ label: UILabel) {
       label.font = defaultFont
       var currentFontSize = defaultFont.pointSize
-      var words = label.text?.characters.split{ $0 == " "}.map(String.init)
+      let words = label.text?.characters.split{ $0 == " "}.map(String.init)
       while(hasOverflow(label, words: words!) &&  currentFontSize > minFontSize) {
          currentFontSize = currentFontSize - 1.0
          label.font = UIFont.systemFont(ofSize: currentFontSize)

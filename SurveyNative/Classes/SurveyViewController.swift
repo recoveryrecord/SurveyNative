@@ -234,7 +234,6 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
       if (changes.insertSections != nil && changes.insertSections!.count != 0) {
          // A small pause helps avoid issues with keyboard dismissal messing up the scroll
          DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
-            let numberOfSections = self.tableView!.numberOfSections
             let scrollPath = IndexPath(row: 0, section: (self.maxIndex(changes.insertSections!))! as Int)
             self.tableView!.scrollToRow(at: scrollPath, at: UITableViewScrollPosition.top, animated: true)
          }
@@ -242,7 +241,7 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
    }
    
    func maxIndex(_ indexSet: IndexSet) -> Int? {
-      if indexSet == nil || indexSet.isEmpty {
+      if indexSet.isEmpty {
          return nil
       }
       var max : Int = indexSet.first!
