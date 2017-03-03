@@ -73,6 +73,13 @@ The expected input is an array of `questions` and a `submit` object, detailing h
   
   - `sort_order` (_String_): Optional for `year_picker` question_type.  May be "ASC" (ascending) or "DESC" (descending).  Defaults to "ASC".
   
+  - `date` (_String in YYYY-MM-dd format or "current_date"_): Optional for `date_picker` question_type.  If specified, the picker will initially be set to this value (unless the question is already answered, in which case it will be set to the previous answer).  If unset, defaults to the current date.
+  
+  - `max_date` (_String in YYYY-MM-dd format or "current_date"_): Optional for `date_picker` question_type.  If specified, the picker will not allow the user to choose a date later than this.  If min_date is specified and min_date > max_date, both values will be ignored.
+  
+  - `min_date` (_String in YYYY-MM-dd format or "current_date"_): Optional for `date_picker` question_type.  If specified, the picker will not allow the user to choose a date earlier than this.  If min_date is specified and min_date > max_date, both values will be ignored.
+  
+  - `date_diff` (_Dictionary of String to Int values_): Optional for `date_picker` question_type.  Valid keys are `day`, `month`, and `year`.  Only takes effect if exactly one of `min_date` and `max_date` is set.  The unset min/max value will be set by adding the affect of this to the set min/max value.  `date_diff` should be overall positive if `min_date` is set and negative if `max_date` is set.  If `date_diff` is set such that `min_date` > `max_date`, both values will be ignored.
   
 #### More about Year Picker
 
@@ -169,9 +176,13 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
 
 ```
 {
-  "id": "last_antibiotic_date",
-  "question": "On what date did you take the final dose of your antibiotics:",
-  "question_type": "date_picker"
+  "id": "date",
+  "header": "Question 11",
+  "question": "What is was the best day of the last year?",
+  "question_type": "date_picker",
+  "date" : "current_date",
+  "max_date" : "current_date",
+  "date_diff" : { "year" : -1 },
 }
 ```
 
