@@ -122,6 +122,7 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
          (tableCell as! DatePickerTableViewCell).presentationDelegate = self
          (tableCell as! DatePickerTableViewCell).dataDelegate = self
          (tableCell as! DatePickerTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
+         (tableCell as! DatePickerTableViewCell).setDateRange(currentDate: surveyQuestions!.date(for: indexPath), minDate: surveyQuestions!.minDate(for: indexPath), maxDate: surveyQuestions!.maxDate(for: indexPath), dateDiff: surveyQuestions!.dateDiff(for: indexPath))
          (tableCell as! DatePickerTableViewCell).selectedDateStr = surveyQuestions!.answer(for: indexPath) as! String?
       case "other_option":
          (tableCell as! OtherOptionTableViewCell).updateId = nil

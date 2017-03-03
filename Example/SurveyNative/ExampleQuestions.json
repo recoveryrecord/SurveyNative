@@ -198,8 +198,11 @@
     {
       "id": "date",
       "header": "Question 11",
-      "question": "What is your favorite date?",
-      "question_type": "date_picker"
+      "question": "What is was the best day of the last year?",
+      "question_type": "date_picker",
+      "date" : "current_date",
+      "max_date" : "current_date",
+      "date_diff" : { "year" : -1 },
     },
     {
       "id":"pets",

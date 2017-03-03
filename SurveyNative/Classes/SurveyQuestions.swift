@@ -756,6 +756,31 @@ class SurveyQuestions {
       return question["sort_order"] as? String
    }
    
+   // MARK: date picker
+   func date(for indexPath : IndexPath) -> String? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["date"] as? String
+   }
+   
+   func minDate(for indexPath : IndexPath) -> String? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["min_date"] as? String
+   }
+   
+   func maxDate(for indexPath : IndexPath) -> String? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["max_date"] as? String
+   }
+
+   func dateDiff(for indexPath : IndexPath) -> [String : Int]? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["date_diff"] as? [String : Int]
+   }
+   
    // MARK: answers
    
    func hasAnswer(for questionPath: QuestionPath) -> Bool {
