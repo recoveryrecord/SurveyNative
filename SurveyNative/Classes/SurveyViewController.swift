@@ -15,6 +15,7 @@ open class SurveyViewController: UIViewController, UITableViewDelegate, TableCel
    var surveyQuestions : SurveyQuestions?
    
    var dataSource: UITableViewDataSource?
+   var delegate : UITableViewDelegate?
    
    open func surveyJsonFile() -> String {
       preconditionFailure("This method must be overridden")
@@ -59,7 +60,8 @@ open class SurveyViewController: UIViewController, UITableViewDelegate, TableCel
       registerTableViewCells()
       self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: self, presentationDelegate: self)
       tableView!.dataSource = dataSource
-      tableView!.delegate = self
+      self.delegate = SurveyTableViewDelegate(surveyQuestions!)
+      tableView!.delegate = self.delegate
    }
    
    public func registerTableViewCells() {
@@ -95,60 +97,12 @@ open class SurveyViewController: UIViewController, UITableViewDelegate, TableCel
       }
    }
    
-   open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      updateTable(surveyQuestions!.selectedRowAt(indexPath))
-      tableView.deselectRow(at: indexPath, animated: false)
-   }
-   
-   func updateTable(_ changes: SectionChanges) {
-      Logger.log(changes.description)
-      if (changes.removeSections == nil || changes.removeSections!.isEmpty) &&
-         (changes.reloadSections == nil || changes.reloadSections!.isEmpty) &&
-         (changes.insertSections == nil || changes.insertSections!.isEmpty) {
-         Logger.log("No table updates.", level: .info)
-         return
-      }
-      UIView.performWithoutAnimation {
-         self.tableView!.beginUpdates()
-         if (changes.removeSections != nil && !changes.removeSections!.isEmpty) {
-            self.tableView!.deleteSections(changes.removeSections!, with: .none)
-         }
-         if (changes.reloadSections != nil && !changes.reloadSections!.isEmpty) {
-            self.tableView!.reloadSections(changes.reloadSections!, with: .none)
-         }
-         if (changes.insertSections != nil && !changes.insertSections!.isEmpty) {
-            self.tableView!.insertSections(changes.insertSections!, with: .none)
-         }
-         self.tableView!.endUpdates()
-      }
-      if (changes.insertSections != nil && changes.insertSections!.count != 0) {
-         // A small pause helps avoid issues with keyboard dismissal messing up the scroll
-         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
-            let scrollPath = IndexPath(row: 0, section: (self.maxIndex(changes.insertSections!))! as Int)
-            self.tableView!.scrollToRow(at: scrollPath, at: UITableViewScrollPosition.top, animated: true)
-         }
-      }
-   }
-   
-   func maxIndex(_ indexSet: IndexSet) -> Int? {
-      if indexSet.isEmpty {
-         return nil
-      }
-      var max : Int = indexSet.first!
-      for value in indexSet {
-         if value > max {
-            max = value
-         }
-      }
-      return max
-   }
-   
    public func update(updateId: String, data: Any) {
-      updateTable(surveyQuestions!.update(id: updateId, data: data))
+      TableUIUpdater.updateTable(surveyQuestions!.update(id: updateId, data: data), tableView: tableView!)
    }
    
    public func markFinished(updateId: String) {
-      updateTable(surveyQuestions!.markFinished(updateId: updateId))
+      TableUIUpdater.updateTable(surveyQuestions!.markFinished(updateId: updateId), tableView: tableView!)
    }
    
    public func updateUI() {
