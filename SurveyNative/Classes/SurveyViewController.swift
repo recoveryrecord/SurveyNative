@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class SurveyViewController: UIViewController, TableCellDataDelegate {
+open class SurveyViewController: UIViewController {
    
    @IBOutlet var tableView: UITableView?
    
@@ -16,6 +16,7 @@ open class SurveyViewController: UIViewController, TableCellDataDelegate {
    
    var dataSource: UITableViewDataSource?
    var delegate : UITableViewDelegate?
+   var cellDataDelegate : TableCellDataDelegate?
    
    open func surveyJsonFile() -> String {
       preconditionFailure("This method must be overridden")
@@ -40,36 +41,24 @@ open class SurveyViewController: UIViewController, TableCellDataDelegate {
       
       TableUIUpdater.setupTable(tableView!)
       
-      self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: self, presentationDelegate: self)
+      let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+      tapRecognizer.cancelsTouchesInView = false
+      tableView!.addGestureRecognizer(tapRecognizer)
+      
+      self.cellDataDelegate = DefaultTableCellDataDelegate(surveyQuestions!, tableView: tableView!, submitCompletionHandler: { data, response, error -> Void in
+         self.dismiss(animated: true, completion: nil)
+      })
+      self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: cellDataDelegate!, presentationDelegate: self)
       tableView!.dataSource = dataSource
       self.delegate = SurveyTableViewDelegate(surveyQuestions!)
       tableView!.delegate = self.delegate
    }
    
-   public func update(updateId: String, data: Any) {
-      TableUIUpdater.updateTable(surveyQuestions!.update(id: updateId, data: data), tableView: tableView!)
-   }
-   
-   public func markFinished(updateId: String) {
-      TableUIUpdater.updateTable(surveyQuestions!.markFinished(updateId: updateId), tableView: tableView!)
-   }
-   
-   public func updateUI() {
-      self.tableView!.beginUpdates()
-      self.tableView!.endUpdates()
-   }
-   
-   public func submitData() {
-      let session = URLSession.shared
-      let url = URL(string: surveyQuestions!.submitUrl())
-      var request = URLRequest(url: url!)
-      let jsonData = try? JSONSerialization.data(withJSONObject: surveyQuestions!.submitJson())
-      request.httpMethod = "POST"
-      request.httpBody = jsonData
-      let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-         self.dismiss(animated: true, completion: {})
-      })
-      task.resume()
+   func tableViewTapped(sender: UITapGestureRecognizer) {
+      if sender.view as? UITextField == nil {
+         tableView!.endEditing(true)
+         UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)
+      }
    }
    
    func cancel() {
@@ -77,11 +66,6 @@ open class SurveyViewController: UIViewController, TableCellDataDelegate {
    }
 }
 
-public protocol TableCellDataDelegate {
-   func update(updateId: String, data: Any)
-   func markFinished(updateId: String)
-   func updateUI()
-   func submitData()
-}
+
 
 
