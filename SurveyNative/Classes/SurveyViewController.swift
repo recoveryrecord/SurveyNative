@@ -8,11 +8,13 @@
 
 import UIKit
 
-open class SurveyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableCellDataDelegate {
+open class SurveyViewController: UIViewController, UITableViewDelegate, TableCellDataDelegate {
    
    @IBOutlet var tableView: UITableView?
    
    var surveyQuestions : SurveyQuestions?
+   
+   var dataSource: UITableViewDataSource?
    
    open func surveyJsonFile() -> String {
       preconditionFailure("This method must be overridden")
@@ -43,12 +45,10 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
       frame.size.width = 1
       frame.size.height = UIScreen.main.bounds.height
       footer.frame = frame
+      
+      tableView!.allowsSelection = true
       tableView!.separatorStyle = .none
       tableView!.tableFooterView = footer
-      tableView!.dataSource = self
-      tableView!.delegate = self
-      tableView!.allowsSelection = true
-      
       tableView!.estimatedRowHeight = 80
       tableView!.rowHeight = UITableViewAutomaticDimension
       
@@ -57,6 +57,9 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
       tableView!.addGestureRecognizer(tapRecognizer)
       
       registerTableViewCells()
+      self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: self, presentationDelegate: self)
+      tableView!.dataSource = dataSource
+      tableView!.delegate = self
    }
    
    public func registerTableViewCells() {
@@ -92,122 +95,9 @@ open class SurveyViewController: UIViewController, UITableViewDataSource, UITabl
       }
    }
    
-   open func numberOfSections(in tableView: UITableView) -> Int {
-      return surveyQuestions!.numberOfSections()
-   }
-   
-   open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return surveyQuestions!.numberOfRows(for: section)
-   }
-   
-   open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      return surveyQuestions?.headerText(section: section)
-   }
-   
-   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cellIdentifier = surveyQuestions!.type(for: indexPath)
-      return configureCell(for: cellIdentifier, indexPath: indexPath)
-   }
-   
-   public func configureCell(for cellIdentifier: String, indexPath: IndexPath) -> UITableViewCell {
-      let tableCell = tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-      switch cellIdentifier {
-      case "year_picker":
-         (tableCell as! YearPickerTableViewCell).presentationDelegate = self
-         (tableCell as! YearPickerTableViewCell).dataDelegate = self
-         (tableCell as! YearPickerTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
-         (tableCell as! YearPickerTableViewCell).selectedYear = surveyQuestions!.answer(for: indexPath) as! String?
-         (tableCell as! YearPickerTableViewCell).setYearRange(minYear: surveyQuestions!.minYear(for: indexPath), maxYear: surveyQuestions!.maxYear(for: indexPath), numYears: surveyQuestions!.numYears(for: indexPath), sortOrder: surveyQuestions!.yearSortOrder(for: indexPath))
-      case "date_picker":
-         (tableCell as! DatePickerTableViewCell).presentationDelegate = self
-         (tableCell as! DatePickerTableViewCell).dataDelegate = self
-         (tableCell as! DatePickerTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
-         (tableCell as! DatePickerTableViewCell).setDateRange(currentDate: surveyQuestions!.date(for: indexPath), minDate: surveyQuestions!.minDate(for: indexPath), maxDate: surveyQuestions!.maxDate(for: indexPath), dateDiff: surveyQuestions!.dateDiff(for: indexPath))
-         (tableCell as! DatePickerTableViewCell).selectedDateStr = surveyQuestions!.answer(for: indexPath) as! String?
-      case "other_option":
-         (tableCell as! OtherOptionTableViewCell).updateId = nil
-         (tableCell as! OtherOptionTableViewCell).dataDelegate = self
-         (tableCell as! OtherOptionTableViewCell).optionImageView?.image = surveyQuestions!.image(for: indexPath)
-         (tableCell as! OtherOptionTableViewCell).label?.text = surveyQuestions!.text(for: indexPath)
-         let selected = surveyQuestions!.isOptionSelected(indexPath)
-         (tableCell as! OtherOptionTableViewCell).isSelectedOption = selected
-         if selected {
-            (tableCell as! OtherOptionTableViewCell).optionText = surveyQuestions!.otherAnswer(for: indexPath)
-         }
-         (tableCell as! OtherOptionTableViewCell).textField?.keyboardType = surveyQuestions!.keyboardType(for: indexPath)
-         (tableCell as! OtherOptionTableViewCell).shouldShowNextButton = surveyQuestions!.showNextButton(for: indexPath)
-         (tableCell as! OtherOptionTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
-      case "text_field":
-         (tableCell as! TextFieldTableViewCell).updateId = nil
-         (tableCell as! TextFieldTableViewCell).dataDelegate = self
-         (tableCell as! TextFieldTableViewCell).textFieldLabel?.text = surveyQuestions!.text(for: indexPath)
-         (tableCell as! TextFieldTableViewCell).textField?.keyboardType = surveyQuestions!.keyboardType(for: indexPath)
-         (tableCell as! TextFieldTableViewCell).textFieldText = surveyQuestions!.partialAnswer(for: indexPath) as! String?
-         (tableCell as! TextFieldTableViewCell).shouldShowNextButton = surveyQuestions!.showNextButton(for: indexPath)
-         (tableCell as! TextFieldTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
-      case "next_button":
-         let nextButton = UIButtonWithId(type: UIButtonType.system)
-         nextButton.setTitle("Next", for: UIControlState.normal)
-         let updateId = surveyQuestions!.id(for: indexPath)
-         nextButton.updateId = updateId
-         nextButton.frame = CGRect(x: 0, y: 0, width: 100, height: 35)
-         nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: UIControlEvents.touchUpInside)
-         tableCell.addSubview(nextButton)
-         tableCell.accessoryView = nextButton
-         tableCell.selectionStyle = UITableViewCellSelectionStyle.none
-      case "question":
-         (tableCell as! DynamicLabelTableViewCell).dynamicLabel?.text = surveyQuestions!.text(for: indexPath)
-      case "segment_select":
-         (tableCell as! SelectSegmentTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
-         (tableCell as! SelectSegmentTableViewCell).dataDelegate = self
-         (tableCell as! SelectSegmentTableViewCell).values = surveyQuestions!.values(for: indexPath)
-         if let answer = surveyQuestions!.answer(for: indexPath) as? String {
-            (tableCell as! SelectSegmentTableViewCell).setSelectedValue(answer)
-         }
-         (tableCell as! SelectSegmentTableViewCell).lowLabel?.text = surveyQuestions!.lowTag(for: indexPath)
-         (tableCell as! SelectSegmentTableViewCell).highLabel?.text = surveyQuestions!.highTag(for: indexPath)
-      case "row_header":
-         (tableCell as! TableRowHeaderTableViewCell).headers = surveyQuestions!.headers(for: indexPath)
-      case "row_select":
-         let surveyTheme = self.surveyTheme()
-         (tableCell as! TableRowTableViewCell).surveyTheme = surveyTheme
-         (tableCell as! TableRowTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
-         (tableCell as! TableRowTableViewCell).dataDelegate = self
-         (tableCell as! TableRowTableViewCell).headers = surveyQuestions!.headers(for: indexPath)!
-         (tableCell as! TableRowTableViewCell).question?.text = surveyQuestions!.text(for: indexPath)
-         (tableCell as! TableRowTableViewCell).selectedHeader = surveyQuestions!.partialAnswer(for: indexPath) as! String?
-      case "dynamic_label_text_field":
-         (tableCell as! DynamicLabelTextFieldTableViewCell).dataDelegate = self
-         (tableCell as! DynamicLabelTextFieldTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
-         (tableCell as! DynamicLabelTextFieldTableViewCell).presentationDelegate = self
-         (tableCell as! DynamicLabelTextFieldTableViewCell).labelOptions = surveyQuestions!.labelOptions(for: indexPath)
-         (tableCell as! DynamicLabelTextFieldTableViewCell).currentValue = surveyQuestions!.answer(for: indexPath) as? [String : String]
-         (tableCell as! DynamicLabelTextFieldTableViewCell).keyboardType = surveyQuestions!.keyboardType(for: indexPath)
-      case "add_text_field":
-         (tableCell as! AddTextFieldTableViewCell).dataDelegate = self
-         (tableCell as! AddTextFieldTableViewCell).updateId = surveyQuestions!.id(for: indexPath)
-         (tableCell as! AddTextFieldTableViewCell).currentValues = surveyQuestions!.answer(for: indexPath) as? [String]
-      case "submit":
-         (tableCell as! SubmitButtonTableViewCell).dataDelegate = self
-         (tableCell as! SubmitButtonTableViewCell).submitButton?.setTitle(surveyQuestions!.submitTitle(), for: .normal)
-      default:
-         tableCell.textLabel?.text = surveyQuestions!.text(for: indexPath)
-         tableCell.textLabel?.numberOfLines = 0
-         tableCell.imageView?.image = surveyQuestions!.image(for: indexPath)
-         tableCell.selectionStyle = UITableViewCellSelectionStyle.none
-      }
-      return tableCell
-   }
-   
    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       updateTable(surveyQuestions!.selectedRowAt(indexPath))
       tableView.deselectRow(at: indexPath, animated: false)
-   }
-   
-   public func nextButtonTapped(_ sender: UIButton) {
-      if let buttonWithId = sender as? UIButtonWithId, let updateId = buttonWithId.updateId {
-         self.markFinished(updateId: updateId)
-      }
    }
    
    func updateTable(_ changes: SectionChanges) {
