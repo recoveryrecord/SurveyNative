@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SurveyQuestions {
+open class SurveyQuestions {
    
    var surveyTheme : SurveyTheme
    
@@ -27,7 +27,7 @@ class SurveyQuestions {
    
    // MARK: setup
    
-   class func load(_ jsonFileName : String, surveyTheme: SurveyTheme) -> SurveyQuestions? {
+   class open func load(_ jsonFileName : String, surveyTheme: SurveyTheme) -> SurveyQuestions? {
       var loadedQuestions : SurveyQuestions? = nil
       if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json"), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
          do {

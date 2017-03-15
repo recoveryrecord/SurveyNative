@@ -10,13 +10,13 @@ import UIKit
 
 open class SurveyViewController: UIViewController {
    
-   @IBOutlet var tableView: UITableView!
+   @IBOutlet open var tableView: UITableView!
    
-   var surveyQuestions : SurveyQuestions?
+   open var surveyQuestions : SurveyQuestions?
    
-   var dataSource: UITableViewDataSource?
-   var delegate : UITableViewDelegate?
-   var cellDataDelegate : TableCellDataDelegate?
+   open var dataSource: UITableViewDataSource?
+   open var delegate : UITableViewDelegate?
+   open var cellDataDelegate : TableCellDataDelegate?
    
    open func surveyJsonFile() -> String {
       preconditionFailure("This method must be overridden")
@@ -54,14 +54,14 @@ open class SurveyViewController: UIViewController {
       tableView.delegate = self.delegate
    }
    
-   func tableViewTapped(sender: UITapGestureRecognizer) {
+   public func tableViewTapped(sender: UITapGestureRecognizer) {
       if sender.view as? UITextField == nil {
          tableView.endEditing(true)
          UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)
       }
    }
    
-   func cancel() {
+   public func cancel() {
       self.dismiss(animated: true, completion: {})
    }
 }

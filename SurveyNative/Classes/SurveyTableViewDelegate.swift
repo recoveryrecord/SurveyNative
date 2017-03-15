@@ -12,7 +12,7 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    
    var surveyQuestions : SurveyQuestions
    
-   init(_ surveyQuestions : SurveyQuestions) {
+   public init(_ surveyQuestions : SurveyQuestions) {
       self.surveyQuestions = surveyQuestions
    }
    

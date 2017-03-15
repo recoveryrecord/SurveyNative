@@ -14,7 +14,7 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
    var tableView : UITableView
    var submitCompletionHandler: (Data?, URLResponse?, Error?) -> Void
    
-   init(_ surveyQuestions : SurveyQuestions, tableView: UITableView, submitCompletionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+   public init(_ surveyQuestions : SurveyQuestions, tableView: UITableView, submitCompletionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
       self.surveyQuestions = surveyQuestions
       self.tableView = tableView
       self.submitCompletionHandler = submitCompletionHandler

@@ -15,7 +15,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
    var tableCellDataDelegate : TableCellDataDelegate
    weak var presentationDelegate : UIViewController?
    
-   init(_ surveyQuestions : SurveyQuestions, surveyTheme : SurveyTheme, tableCellDataDelegate : TableCellDataDelegate, presentationDelegate: UIViewController) {
+   public init(_ surveyQuestions : SurveyQuestions, surveyTheme : SurveyTheme, tableCellDataDelegate : TableCellDataDelegate, presentationDelegate: UIViewController) {
       self.surveyQuestions = surveyQuestions
       self.surveyTheme = surveyTheme
       self.tableCellDataDelegate = tableCellDataDelegate
