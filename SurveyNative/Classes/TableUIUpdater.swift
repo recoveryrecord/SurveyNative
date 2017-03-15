@@ -11,6 +11,56 @@ import Foundation
 // Methods for inserting, removing, and reloading sections of a UITableView
 class TableUIUpdater {
    
+   static func setupTable(_ tableView: UITableView) {
+      tableView.allowsSelection = true
+      tableView.separatorStyle = .none
+      
+      setupFooter(for: tableView)
+      
+      tableView.estimatedRowHeight = 80
+      tableView.rowHeight = UITableViewAutomaticDimension
+      
+      registerTableViewCells(tableView)
+   }
+   
+   /**
+    * Make sure the footer is as tall as the entire screen, so that we can always scroll to any question
+    */
+   static func setupFooter(for tableView: UITableView) {
+      let footer = UIView()
+      var frame = CGRect()
+      frame.size.width = 1
+      frame.size.height = UIScreen.main.bounds.height
+      footer.frame = frame
+      tableView.tableFooterView = footer
+   }
+   
+   public static func registerTableViewCells(_ tableView: UITableView) {
+      let surveyBundle = SurveyBundle.bundle
+      tableView.register(UITableViewCell.self, forCellReuseIdentifier: "option")
+      tableView.register(UITableViewCell.self, forCellReuseIdentifier: "next_button")
+      tableView.register(YearPickerTableViewCell.self, forCellReuseIdentifier: "year_picker")
+      tableView.register(DatePickerTableViewCell.self, forCellReuseIdentifier: "date_picker")
+      let otherOptionNib = UINib(nibName: "OtherOptionTableViewCell", bundle: surveyBundle)
+      tableView.register(otherOptionNib, forCellReuseIdentifier: "other_option")
+      let textFieldNib = UINib(nibName: "TextFieldTableViewCell", bundle: surveyBundle)
+      tableView.register(textFieldNib, forCellReuseIdentifier: "text_field")
+      let questionNib = UINib(nibName: "DynamicLabelTableViewCell", bundle: surveyBundle)
+      tableView.register(questionNib, forCellReuseIdentifier: "question")
+      let segmentNib = UINib(nibName: "SelectSegmentTableViewCell", bundle: surveyBundle)
+      tableView.register(segmentNib, forCellReuseIdentifier: "segment_select")
+      let rowHeaderNib = UINib(nibName: "TableRowHeaderTableViewCell", bundle: surveyBundle)
+      tableView.register(rowHeaderNib, forCellReuseIdentifier: "row_header")
+      let rowSelectNib = UINib(nibName: "TableRowTableViewCell", bundle: surveyBundle)
+      tableView.register(rowSelectNib, forCellReuseIdentifier: "row_select")
+      let dynamicLabelTextFieldNib = UINib(nibName: "DynamicLabelTextFieldTableViewCell", bundle: surveyBundle)
+      tableView.register(dynamicLabelTextFieldNib, forCellReuseIdentifier: "dynamic_label_text_field")
+      let addTextFieldNib = UINib(nibName: "AddTextFieldTableViewCell", bundle: surveyBundle)
+      tableView.register(addTextFieldNib, forCellReuseIdentifier: "add_text_field")
+      let submitNib = UINib(nibName: "SubmitButtonTableViewCell", bundle: surveyBundle)
+      tableView.register(submitNib, forCellReuseIdentifier: "submit")
+   }
+   
    static func updateTable(_ changes: SectionChanges, tableView : UITableView) {
       Logger.log(changes.description)
       if (changes.removeSections == nil || changes.removeSections!.isEmpty) &&
