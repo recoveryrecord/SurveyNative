@@ -135,3 +135,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
       }
    }
 }
+
+public class UIButtonWithId: UIButton {
+   public var updateId: String?
+}

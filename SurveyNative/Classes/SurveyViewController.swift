@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class SurveyViewController: UIViewController, UITableViewDelegate, TableCellDataDelegate {
+open class SurveyViewController: UIViewController, TableCellDataDelegate {
    
    @IBOutlet var tableView: UITableView?
    
@@ -84,6 +84,4 @@ public protocol TableCellDataDelegate {
    func submitData()
 }
 
-public class UIButtonWithId: UIButton {
-   public var updateId: String?
-}
+
