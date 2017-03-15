@@ -8,23 +8,25 @@
 
 import Foundation
 
-class DefaultSurveyTheme : SurveyTheme {
+open class DefaultSurveyTheme : SurveyTheme {
    
    let surveyBundle = SurveyBundle.bundle
    
-   func radioButtonSelectedImage() -> UIImage {
+   public init() {}
+   
+   public func radioButtonSelectedImage() -> UIImage {
       return UIImage(named: "blue-radio-button-selected-white", in: surveyBundle, compatibleWith: nil)!
    }
    
-   func radioButtonDeselectedImage() -> UIImage {
+   public func radioButtonDeselectedImage() -> UIImage {
       return UIImage(named: "blue-radio-button-deselected-white", in: surveyBundle, compatibleWith: nil)!
    }
    
-   func tickBoxTickedImage() -> UIImage {
+   public func tickBoxTickedImage() -> UIImage {
       return UIImage(named: "blue-tick-box-ticked-white", in: surveyBundle, compatibleWith: nil)!
    }
    
-   func tickBoxNotTickedImage() -> UIImage {
+   public func tickBoxNotTickedImage() -> UIImage {
       return UIImage(named: "blue-tick-box-not-ticked-white", in: surveyBundle, compatibleWith: nil)!
    }
 }
