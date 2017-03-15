@@ -10,7 +10,7 @@ import UIKit
 
 open class SurveyViewController: UIViewController {
    
-   @IBOutlet var tableView: UITableView?
+   @IBOutlet var tableView: UITableView!
    
    var surveyQuestions : SurveyQuestions?
    
@@ -39,24 +39,24 @@ open class SurveyViewController: UIViewController {
       
       self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(cancel));
       
-      TableUIUpdater.setupTable(tableView!)
+      TableUIUpdater.setupTable(tableView)
       
       let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
       tapRecognizer.cancelsTouchesInView = false
-      tableView!.addGestureRecognizer(tapRecognizer)
+      tableView.addGestureRecognizer(tapRecognizer)
       
-      self.cellDataDelegate = DefaultTableCellDataDelegate(surveyQuestions!, tableView: tableView!, submitCompletionHandler: { data, response, error -> Void in
+      self.cellDataDelegate = DefaultTableCellDataDelegate(surveyQuestions!, tableView: tableView, submitCompletionHandler: { data, response, error -> Void in
          self.dismiss(animated: true, completion: nil)
       })
       self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: cellDataDelegate!, presentationDelegate: self)
-      tableView!.dataSource = dataSource
+      tableView.dataSource = dataSource
       self.delegate = SurveyTableViewDelegate(surveyQuestions!)
-      tableView!.delegate = self.delegate
+      tableView.delegate = self.delegate
    }
    
    func tableViewTapped(sender: UITapGestureRecognizer) {
       if sender.view as? UITextField == nil {
-         tableView!.endEditing(true)
+         tableView.endEditing(true)
          UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)
       }
    }
