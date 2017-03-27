@@ -41,6 +41,12 @@ class TableRowTableViewCell: UITableViewCell {
       }
    }
    
+   override func prepareForReuse() {
+      for image in images() {
+         image.isSelected = false
+      }
+   }
+   
    func selectImageUI(index: Int) {
       for (imageIndex, image) in images().enumerated() {
          if imageIndex == index {
