@@ -14,6 +14,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate {
    var controllerDelegate: PickerViewControllerDelegate?
    var pickerDataSource: UIPickerViewDataSource?
    var pickerDelegate: UIPickerViewDelegate?
+   var initialSelectedRow : Int?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -21,6 +22,10 @@ class PickerViewController: UIViewController, UIPickerViewDelegate {
       if pickerView != nil {
          pickerView.delegate = pickerDelegate
          pickerView.dataSource = pickerDataSource
+         
+         if initialSelectedRow != nil {
+            pickerView.selectRow(initialSelectedRow!, inComponent: 0, animated: true)
+         }
       }
    }
    
@@ -32,8 +37,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate {
    @IBAction func doneTapped(_ sender: Any) {
       controllerDelegate?.onDone()
    }
-   
-
 }
 
 public protocol PickerViewControllerDelegate : NSObjectProtocol {

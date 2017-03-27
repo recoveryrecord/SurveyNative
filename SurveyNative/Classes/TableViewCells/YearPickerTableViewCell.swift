@@ -24,6 +24,7 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
    var minYear : Int?
    var maxYear : Int?
    var numYears : Int?
+   var initialYear : String?
    var sortOrder : String?
    var selectedRow: Int?
    
@@ -102,6 +103,9 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
             pickerViewController?.pickerDelegate = self
             pickerViewController?.pickerDataSource = self
             pickerViewController?.controllerDelegate = self
+            if selectedRow == nil && initialYear != nil {
+               pickerViewController?.initialSelectedRow = rowIndex(for: initialYear!)
+            }
             pickerViewController?.modalPresentationStyle = .overCurrentContext
          }
          if (pickerViewController!.isViewLoaded && pickerViewController!.view.window != nil) {
@@ -144,6 +148,17 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
          let intValue = minYear! + row
          return String(intValue)
       }
+   }
+   
+   func rowIndex(for year: String) -> Int? {
+      if let intYear = Int(year) {
+         if sortOrder == "DESC" {
+            return maxYear! - intYear
+         } else {
+            return intYear - minYear!
+         }
+      }
+      return nil
    }
    
    static func currentYear() -> Int {

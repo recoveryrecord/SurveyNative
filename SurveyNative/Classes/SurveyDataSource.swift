@@ -36,6 +36,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          (tableCell as! YearPickerTableViewCell).updateId = surveyQuestions.id(for: indexPath)
          (tableCell as! YearPickerTableViewCell).selectedYear = surveyQuestions.answer(for: indexPath) as! String?
          (tableCell as! YearPickerTableViewCell).setYearRange(minYear: surveyQuestions.minYear(for: indexPath), maxYear: surveyQuestions.maxYear(for: indexPath), numYears: surveyQuestions.numYears(for: indexPath), sortOrder: surveyQuestions.yearSortOrder(for: indexPath))
+         (tableCell as! YearPickerTableViewCell).initialYear = surveyQuestions.initialYear(for: indexPath)
       case "date_picker":
          (tableCell as! DatePickerTableViewCell).presentationDelegate = self.presentationDelegate
          (tableCell as! DatePickerTableViewCell).dataDelegate = self.tableCellDataDelegate

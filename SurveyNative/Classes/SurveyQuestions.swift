@@ -756,6 +756,12 @@ open class SurveyQuestions {
       return question["sort_order"] as? String
    }
    
+   func initialYear(for indexPath: IndexPath) -> String? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["initial_year"] as? String
+   }
+   
    // MARK: date picker
    func date(for indexPath : IndexPath) -> String? {
       let questionPath = self.questionPath(for: indexPath)
