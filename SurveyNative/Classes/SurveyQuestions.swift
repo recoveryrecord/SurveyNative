@@ -646,7 +646,7 @@ open class SurveyQuestions {
    
    // MARK: text input fields
    
-   func numberOfFields(question: [String : Any]) -> Int {
+   func numberOfFields(question: [String : Any?]) -> Int {
       let fields = question["fields"] as! [[String : String]]
       return fields.count
    }
@@ -698,11 +698,11 @@ open class SurveyQuestions {
       return question["options"] as! [String]?
    }
    
-   func numberOfTableQuestions(for question: [String : Any]) -> Int {
+   func numberOfTableQuestions(for question: [String : Any?]) -> Int {
       return tableQuestions(for: question).count
    }
    
-   func tableQuestions(for question: [String : Any]) -> [[String : String]] {
+   func tableQuestions(for question: [String : Any?]) -> [[String : String]] {
       return question["table_questions"] as! [[String : String]]
    }
    
@@ -794,7 +794,7 @@ open class SurveyQuestions {
       return isCompleteAnswer(answer, question : question)
    }
    
-   func isCompleteAnswer(_ answer: Any?, question: [String : Any]) -> Bool {
+   func isCompleteAnswer(_ answer: Any?, question: [String : Any?]) -> Bool {
       let questionId = self.id(for: question)
       let questionType = self.questionType(for: question)
       if let stringAnswer = answer as? String {
@@ -1233,7 +1233,11 @@ public struct QuestionPath {
 
 extension QuestionPath: CustomStringConvertible {
    public var description : String {
-      return "Path: primary: \(primaryQuestionIndex), sub: \(subQuestionIndex), row: \(row())"
+      if subQuestionIndex != nil {
+         return "Path: primary: \(primaryQuestionIndex), sub: \(subQuestionIndex!), row: \(row())"
+      } else {
+         return "Path: primary: \(primaryQuestionIndex), row: \(row())"
+      }
    }
 }
 
