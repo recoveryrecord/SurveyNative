@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,54 +15,34 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Ux-SU-QQH">
-                        <rect key="frame" x="8" y="3" width="304" height="37"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XRz-hq-zyc">
-                                <rect key="frame" x="0.0" y="0.0" width="304" height="37"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNh-3F-Yhb">
-                                        <rect key="frame" x="0.0" y="0.0" width="152" height="37"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                        <connections>
-                                            <action selector="actionTriggered:" destination="KGk-i7-Jjw" eventType="primaryActionTriggered" id="MwZ-QX-ZkT"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyg-1m-ZN6">
-                                        <rect key="frame" x="152" y="0.0" width="152" height="37"/>
-                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Kilograms" image="blue-down-button.png"/>
-                                        <connections>
-                                            <action selector="labelTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pNA-ZJ-j6x"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6oY-iX-OVf">
+                        <rect key="frame" x="8" y="0.0" width="196" height="35.5"/>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VIL-Wq-61s">
+                        <rect key="frame" x="212" y="0.0" width="100" height="35.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" placeholder="YES" id="M7h-a7-yKQ"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="7Ux-SU-QQH" secondAttribute="trailing" constant="8" id="1FX-8d-gBf"/>
-                    <constraint firstAttribute="bottom" secondItem="7Ux-SU-QQH" secondAttribute="bottom" constant="3" id="NV6-LC-nEo"/>
-                    <constraint firstItem="7Ux-SU-QQH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YD2-Do-8t1"/>
-                    <constraint firstItem="7Ux-SU-QQH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="bec-gY-L9o"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="6oY-iX-OVf" secondAttribute="leading" id="8dQ-sR-CRa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="6oY-iX-OVf" secondAttribute="bottom" id="HuC-tN-Aec"/>
+                    <constraint firstItem="VIL-Wq-61s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="bnV-Nv-Vju"/>
+                    <constraint firstItem="VIL-Wq-61s" firstAttribute="leading" secondItem="6oY-iX-OVf" secondAttribute="trailing" constant="8" id="mJK-pX-kbb"/>
+                    <constraint firstItem="VIL-Wq-61s" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="nkG-FA-YFz"/>
+                    <constraint firstItem="6oY-iX-OVf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="pKx-Dc-hqs"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VIL-Wq-61s" secondAttribute="bottom" id="sgy-wS-tyA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="dynamicLabel" destination="Zyg-1m-ZN6" id="ibg-Ay-0Fn"/>
-                <outlet property="firstHorizontalStack" destination="XRz-hq-zyc" id="I2V-X2-Mqn"/>
-                <outlet property="textField" destination="aNh-3F-Yhb" id="lBw-Av-nYo"/>
-                <outlet property="verticalStack" destination="7Ux-SU-QQH" id="e5d-8a-3Uk"/>
+                <outlet property="firstHorizontalStackView" destination="6oY-iX-OVf" id="7s9-j7-FGh"/>
+                <outlet property="secondHorizontalStackView" destination="VIL-Wq-61s" id="gXn-HQ-uv9"/>
             </connections>
             <point key="canvasLocation" x="62" y="42"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="blue-down-button.png" width="30" height="33"/>
-    </resources>
 </document>

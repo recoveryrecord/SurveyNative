@@ -10,22 +10,21 @@ import UIKit
 
 class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    
-   @IBOutlet var verticalStack : UIStackView?
-   @IBOutlet var firstHorizontalStack : UIStackView?
-   @IBOutlet var textField : UITextField?
-   @IBOutlet var dynamicLabel: UIButton?
+   @IBOutlet weak var firstHorizontalStackView: UIStackView!
+   @IBOutlet weak var secondHorizontalStackView: UIStackView!
    
-   var extraTextFields : [UITextField] = []
-   var extraLabels : [UIButton] = []
+   var secondStackViewWidthConstraint : NSLayoutConstraint?
+   
+   var textFields : [UITextField] = []
+   var buttons : [UIButton] = []
    
    var keyboardType : UIKeyboardType? {
       didSet {
          if keyboardType == nil {
             return
          }
-         textField?.keyboardType = keyboardType!
-         for extraTextField in extraTextFields {
-            extraTextField.keyboardType = keyboardType!
+         for textField in textFields {
+            textField.keyboardType = keyboardType!
          }
       }
    }
@@ -39,28 +38,26 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
          }
          if currentValue == nil || currentValue!.isEmpty {
             updateLabels(labels: labelOptions![0])
-         } else {
-            let keySet = Array(currentValue!.keys)
-            if keySet.count == 1 {
-               dynamicLabel?.setTitle(keySet[0], for: .normal)
-               textField?.text = currentValue![keySet[0]]
-            } else if keySet.count > 1 {
-               var selectedLabelSet: [String]?
-               for labelOptionSet in labelOptions! {
-                  if let labelStringSet = labelOptionSet as? [String], labelStringSet.elementsEqual(keySet) {
-                     selectedLabelSet = labelStringSet
-                     break
-                  }
-               }
-               if selectedLabelSet != nil {
-                  dynamicLabel?.setTitle(selectedLabelSet![0], for: .normal)
-                  textField?.text = currentValue![selectedLabelSet![0]]
-                  for label in selectedLabelSet!.suffix(from: 1) {
-                     addLabelAndTextField(labelText: label, valueText:currentValue![label])
-                  }
-               }
+            return
+         }
+         let keySet = Array(currentValue!.keys)
+         if keySet.count == 1 {
+            addLabelAndTextField(labelText: keySet[0], valueText:currentValue![keySet[0]])
+            return
+         }
+         var selectedLabelSet: [String]?
+         for labelOptionSet in labelOptions! {
+            if let labelStringSet = labelOptionSet as? [String], labelStringSet.elementsEqual(keySet) {
+               selectedLabelSet = labelStringSet
+               break
             }
          }
+         if selectedLabelSet != nil {
+            for label in selectedLabelSet! {
+               addLabelAndTextField(labelText: label, valueText:currentValue![label])
+            }
+         }
+         
       }
    }
    
@@ -76,7 +73,7 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       nextButton.addTarget(self, action: #selector(tappedNextButton(_:)), for: UIControlEvents.touchUpInside)
       addSubview(nextButton)
       self.accessoryView = nextButton
-      textField?.delegate = self
+      self.resize()
    }
    
    override func setSelected(_ selected: Bool, animated: Bool) {
@@ -87,32 +84,48 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    
    override func prepareForReuse() {
       removeExtraLabelAndTextFields()
-      textField?.text = ""
    }
    
    func addLabelAndTextField(labelText : String? = nil, valueText : String? = nil) {
-      let newHorizontalStack = UIStackView()
-      newHorizontalStack.axis = .horizontal
-      newHorizontalStack.alignment = .fill
-      newHorizontalStack.distribution = .fillEqually
       let newTextField = UITextField()
       newTextField.text = valueText
       newTextField.borderStyle = .roundedRect
-      newTextField.font = self.textField?.font
       newTextField.enablesReturnKeyAutomatically = true
       newTextField.addTarget(self, action: #selector(actionTriggered(_:)), for: .primaryActionTriggered)
       newTextField.delegate = self
       newTextField.keyboardType = self.keyboardType ?? UIKeyboardType.default
       let newLabel = UIButton(type: .system)
       newLabel.setTitle(labelText, for: .normal)
-      let imageSize = self.dynamicLabel!.currentImage!.size
+      newLabel.titleLabel?.adjustsFontSizeToFitWidth = true
       newLabel.contentHorizontalAlignment = .left
-      newLabel.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10 + imageSize.width, bottom: 0, right: 10)
-      newHorizontalStack.addArrangedSubview(newTextField)
-      newHorizontalStack.addArrangedSubview(newLabel)
-      extraTextFields.append(newTextField)
-      extraLabels.append(newLabel)
-      verticalStack?.addArrangedSubview(newHorizontalStack)
+      if secondHorizontalStackView.arrangedSubviews.isEmpty {
+         let image = UIImage(named: "blue-down-button", in: SurveyBundle.bundle, compatibleWith: nil)
+         newLabel.setImage(image, for: .normal)
+         newLabel.addTarget(self, action: #selector(labelTapped(_:)), for: .touchUpInside)
+      } else {
+         let firstButton = secondHorizontalStackView.arrangedSubviews[0] as! UIButton
+         let imageSize = firstButton.currentImage?.size
+         newLabel.contentEdgeInsets = UIEdgeInsets(top: 0, left: imageSize!.width, bottom: 0, right: 0)
+      }
+      firstHorizontalStackView.addArrangedSubview(newTextField)
+      secondHorizontalStackView.addArrangedSubview(newLabel)
+      textFields.append(newTextField)
+      buttons.append(newLabel)
+   }
+   
+   func resize() {
+      var minWidth : CGFloat = 0
+      for view in secondHorizontalStackView.arrangedSubviews {
+         let size = view.intrinsicContentSize
+         if size.width > minWidth {
+            minWidth = size.width
+         }
+      }
+      if secondStackViewWidthConstraint != nil {
+         secondHorizontalStackView.removeConstraint(secondStackViewWidthConstraint!)
+      }
+      secondStackViewWidthConstraint = NSLayoutConstraint(item: secondHorizontalStackView, attribute: .width, relatedBy: .equal, toItem: secondHorizontalStackView, attribute: .width, multiplier: 1.0, constant: minWidth)
+      secondHorizontalStackView.addConstraint(secondStackViewWidthConstraint!)
    }
    
    // TextField delegate methods
@@ -134,31 +147,32 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    }
    
    func getData() -> [String : String] {
-      var data : [String : String] = [dynamicLabel!.title(for: .normal)! : textField!.text!]
-      for i in 0..<extraLabels.count {
-         data[extraLabels[i].titleLabel!.text!] = extraTextFields[i].text
+      var data : [String : String] = [:]
+      for i in 0..<self.buttons.count {
+         data[buttons[i].titleLabel!.text!] = textFields[i].text
       }
       return data
    }
    
    func removeExtraLabelAndTextFields() {
-      for view in verticalStack!.arrangedSubviews {
-         if view != firstHorizontalStack {
-            verticalStack?.removeArrangedSubview(view)
-            view.removeFromSuperview()
-         }
+      for view in firstHorizontalStackView!.arrangedSubviews {
+         firstHorizontalStackView.removeArrangedSubview(view)
+         view.removeFromSuperview()
       }
-      extraTextFields.removeAll()
-      extraLabels.removeAll()
+      for view in secondHorizontalStackView!.arrangedSubviews {
+         secondHorizontalStackView.removeArrangedSubview(view)
+         view.removeFromSuperview()
+      }
+      textFields.removeAll()
+      buttons.removeAll()
    }
 
    func updateLabels(labels : Any) {
       removeExtraLabelAndTextFields()
-      if let firstLabel = labels as? String {
-         dynamicLabel?.setTitle(firstLabel, for: .normal)
+      if let label = labels as? String {
+         addLabelAndTextField(labelText: label)
       } else if let labelsArray =  labels as? [String] {
-         dynamicLabel?.setTitle(labelsArray[0], for: .normal)
-         for label in labelsArray.suffix(from: 1) {
+         for label in labelsArray {
             addLabelAndTextField(labelText: label)
          }
       }
@@ -176,6 +190,7 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
          }
          let action = UIAlertAction(title: title, style: .default, handler: { (action) -> Void in
             self.updateLabels(labels: option)
+            self.resize()
             self.dataDelegate?.updateUI()
          })
          alertController.addAction(action)
