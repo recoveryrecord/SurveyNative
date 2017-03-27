@@ -42,6 +42,9 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          (tableCell as! DatePickerTableViewCell).updateId = surveyQuestions.id(for: indexPath)
          (tableCell as! DatePickerTableViewCell).setDateRange(currentDate: surveyQuestions.date(for: indexPath), minDate: surveyQuestions.minDate(for: indexPath), maxDate: surveyQuestions.maxDate(for: indexPath), dateDiff: surveyQuestions.dateDiff(for: indexPath))
          (tableCell as! DatePickerTableViewCell).selectedDateStr = surveyQuestions.answer(for: indexPath) as! String?
+      case "option":
+         (tableCell as! OptionTableViewCell).optionLabel?.text = surveyQuestions.text(for: indexPath)
+         (tableCell as! OptionTableViewCell).optionImage?.image = surveyQuestions.image(for: indexPath)
       case "other_option":
          (tableCell as! OtherOptionTableViewCell).updateId = nil
          (tableCell as! OtherOptionTableViewCell).dataDelegate = self.tableCellDataDelegate

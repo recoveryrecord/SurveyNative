@@ -37,10 +37,11 @@ open class TableUIUpdater {
    
    public static func registerTableViewCells(_ tableView: UITableView) {
       let surveyBundle = SurveyBundle.bundle
-      tableView.register(UITableViewCell.self, forCellReuseIdentifier: "option")
       tableView.register(UITableViewCell.self, forCellReuseIdentifier: "next_button")
       tableView.register(YearPickerTableViewCell.self, forCellReuseIdentifier: "year_picker")
       tableView.register(DatePickerTableViewCell.self, forCellReuseIdentifier: "date_picker")
+      let optionNib = UINib(nibName: "OptionTableViewCell", bundle: surveyBundle)
+      tableView.register(optionNib, forCellReuseIdentifier: "option")
       let otherOptionNib = UINib(nibName: "OtherOptionTableViewCell", bundle: surveyBundle)
       tableView.register(otherOptionNib, forCellReuseIdentifier: "other_option")
       let textFieldNib = UINib(nibName: "TextFieldTableViewCell", bundle: surveyBundle)
