@@ -98,15 +98,9 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       newLabel.setTitle(labelText, for: .normal)
       newLabel.titleLabel?.adjustsFontSizeToFitWidth = true
       newLabel.contentHorizontalAlignment = .left
-      if secondHorizontalStackView.arrangedSubviews.isEmpty {
-         let image = UIImage(named: "blue-down-button", in: SurveyBundle.bundle, compatibleWith: nil)
-         newLabel.setImage(image, for: .normal)
-         newLabel.addTarget(self, action: #selector(labelTapped(_:)), for: .touchUpInside)
-      } else {
-         let firstButton = secondHorizontalStackView.arrangedSubviews[0] as! UIButton
-         let imageSize = firstButton.currentImage?.size
-         newLabel.contentEdgeInsets = UIEdgeInsets(top: 0, left: imageSize!.width, bottom: 0, right: 0)
-      }
+      let image = UIImage(named: "blue-down-button", in: SurveyBundle.bundle, compatibleWith: nil)
+      newLabel.setImage(image, for: .normal)
+      newLabel.addTarget(self, action: #selector(labelTapped(_:)), for: .touchUpInside)
       firstHorizontalStackView.addArrangedSubview(newTextField)
       secondHorizontalStackView.addArrangedSubview(newLabel)
       textFields.append(newTextField)
