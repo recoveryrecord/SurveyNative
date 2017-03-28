@@ -12,6 +12,7 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    
    @IBOutlet weak var firstHorizontalStackView: UIStackView!
    @IBOutlet weak var secondHorizontalStackView: UIStackView!
+   @IBOutlet weak var nextButton: UIButton!
    
    var secondStackViewWidthConstraint : NSLayoutConstraint?
    
@@ -67,12 +68,6 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    
    override func awakeFromNib() {
       super.awakeFromNib()
-      let nextButton = UIButtonWithId(type: UIButtonType.system)
-      nextButton.setTitle("Next", for: UIControlState.normal)
-      nextButton.frame = CGRect(x: 0, y: 0, width: 100, height: 35)
-      nextButton.addTarget(self, action: #selector(tappedNextButton(_:)), for: UIControlEvents.touchUpInside)
-      addSubview(nextButton)
-      self.accessoryView = nextButton
       self.resize()
    }
    
