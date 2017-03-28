@@ -12,8 +12,8 @@ class OtherOptionTableViewCell: UITableViewCell {
    @IBOutlet var optionImageView: UIImageView?
    @IBOutlet var label: UILabel?
    @IBOutlet var textField: UITextField?
+   @IBOutlet weak var nextButton: UIButton!
    
-   var nextButton: UIButton?
    
    var dataDelegate: TableCellDataDelegate?
    var updateId: String?
@@ -52,12 +52,6 @@ class OtherOptionTableViewCell: UITableViewCell {
    override func awakeFromNib() {
       super.awakeFromNib()
       selectionStyle = .none
-      nextButton = UIButtonWithId(type: UIButtonType.system)
-      nextButton?.setTitle("Next", for: UIControlState.normal)
-      nextButton?.frame = CGRect(x: 0, y: 0, width: 100, height: 35)
-      nextButton?.addTarget(self, action: #selector(tappedNextButton(_:)), for: UIControlEvents.touchUpInside)
-      addSubview(nextButton!)
-      self.accessoryView = nextButton
    }
    
    override func setSelected(_ selected: Bool, animated: Bool) {

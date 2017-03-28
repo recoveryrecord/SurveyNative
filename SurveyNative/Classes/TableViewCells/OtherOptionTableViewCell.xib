@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,10 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="other_option" rowHeight="89" id="KGk-i7-Jjw" customClass="OtherOptionTableViewCell" customModule="SurveyNative" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="385" height="89"/>
+            <rect key="frame" x="0.0" y="0.0" width="431" height="89"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="385" height="88.666666666666671"/>
+                <rect key="frame" x="0.0" y="0.0" width="431" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uyv-VG-nPK">
@@ -26,13 +26,27 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-iI-ph2">
-                        <rect key="frame" x="60" y="12" width="317" height="20"/>
+                        <rect key="frame" x="60.000000000000007" y="12" width="43.666666666666679" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN9-cA-pYj">
+                        <rect key="frame" x="373" y="45" width="50" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Dx2-fQ-Ii9" userLabel="width = 50"/>
+                            <constraint firstAttribute="height" constant="35" id="ZCe-yD-BHc"/>
+                        </constraints>
+                        <state key="normal" title="Next"/>
+                        <connections>
+                            <action selector="tappedNextButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Myw-lV-INQ"/>
+                        </connections>
+                    </button>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please specify" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44x-mf-DFD">
-                        <rect key="frame" x="60" y="45" width="317" height="35"/>
+                        <rect key="frame" x="60" y="45" width="305" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="XC1-iV-dRz"/>
+                        </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
@@ -44,12 +58,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="44x-mf-DFD" secondAttribute="bottom" constant="0.6666666666666714" id="0WX-w4-sXc" userLabel="bottomMargin = Text Field.bottom + 8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="44x-mf-DFD" secondAttribute="bottom" id="72B-cs-lUF"/>
                     <constraint firstItem="44x-mf-DFD" firstAttribute="leading" secondItem="vSg-iI-ph2" secondAttribute="leading" id="Cgi-U4-Rea"/>
-                    <constraint firstItem="44x-mf-DFD" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="G2h-AQ-GcM"/>
                     <constraint firstItem="44x-mf-DFD" firstAttribute="top" secondItem="vSg-iI-ph2" secondAttribute="bottom" constant="12.666666666666671" id="MFk-Y0-AoE" userLabel="Text Field.top = Label.bottom + 16"/>
                     <constraint firstItem="vSg-iI-ph2" firstAttribute="leading" secondItem="uyv-VG-nPK" secondAttribute="trailing" constant="8" id="OA6-M8-Kox"/>
+                    <constraint firstItem="DN9-cA-pYj" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="RKi-17-GEZ"/>
+                    <constraint firstItem="DN9-cA-pYj" firstAttribute="leading" secondItem="44x-mf-DFD" secondAttribute="trailing" constant="8" id="RXm-4z-KJD"/>
                     <constraint firstItem="uyv-VG-nPK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="RcT-1m-hU7"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="vSg-iI-ph2" secondAttribute="trailing" id="egG-i5-VMD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="DN9-cA-pYj" secondAttribute="bottom" constant="1" id="leg-h4-vzX"/>
                     <constraint firstAttribute="leadingMargin" secondItem="uyv-VG-nPK" secondAttribute="leading" id="qvM-3L-ran"/>
                     <constraint firstAttribute="topMargin" secondItem="vSg-iI-ph2" secondAttribute="top" constant="-4" id="xpy-nj-Ifb"/>
                 </constraints>
@@ -59,10 +75,11 @@
             </accessibility>
             <connections>
                 <outlet property="label" destination="vSg-iI-ph2" id="tTB-9A-bP9"/>
+                <outlet property="nextButton" destination="DN9-cA-pYj" id="c1G-0t-uck"/>
                 <outlet property="optionImageView" destination="uyv-VG-nPK" id="eE4-EX-u6D"/>
                 <outlet property="textField" destination="44x-mf-DFD" id="Nl6-NP-BHy"/>
             </connections>
-            <point key="canvasLocation" x="-35.5" y="80.5"/>
+            <point key="canvasLocation" x="-12.5" y="80.5"/>
         </tableViewCell>
     </objects>
 </document>
