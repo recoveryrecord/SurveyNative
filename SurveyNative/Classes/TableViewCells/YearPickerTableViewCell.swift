@@ -104,7 +104,8 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
             pickerViewController?.pickerDataSource = self
             pickerViewController?.controllerDelegate = self
             if selectedRow == nil && initialYear != nil {
-               pickerViewController?.initialSelectedRow = rowIndex(for: initialYear!)
+               self.selectedRow = rowIndex(for: initialYear!)
+               pickerViewController?.initialSelectedRow = self.selectedRow
             }
             pickerViewController?.modalPresentationStyle = .overCurrentContext
          }
