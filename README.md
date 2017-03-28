@@ -71,6 +71,8 @@ The expected input is an array of `questions` and a `submit` object, detailing h
   
   - `num_years` (_String_): Optional for `year_picker` question_type.  See [More about Year Picker](#more-about-year-picker) below for more info.
   
+  - `initial_year` (_String_): Optional for `year_picker` question_type.  If set, this year will be selected when the picker is first opened.
+  
   - `sort_order` (_String_): Optional for `year_picker` question_type.  May be "ASC" (ascending) or "DESC" (descending).  Defaults to "ASC".
   
   - `date` (_String in YYYY-MM-dd format or "current_date"_): Optional for `date_picker` question_type.  If specified, the picker will initially be set to this value (unless the question is already answered, in which case it will be set to the previous answer).  If unset, defaults to the current date.
