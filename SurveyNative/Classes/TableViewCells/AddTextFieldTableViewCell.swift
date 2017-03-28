@@ -12,6 +12,7 @@ class AddTextFieldTableViewCell: UITableViewCell {
    
    @IBOutlet var verticalStack : UIStackView?
    @IBOutlet var firstTextField : UITextField?
+   @IBOutlet weak var nextButton: UIButton!
    
    var extraTextFields : [UITextField] = []
    
@@ -27,16 +28,6 @@ class AddTextFieldTableViewCell: UITableViewCell {
             addTextField(value: value)
          }
       }
-   }
-   
-   override func awakeFromNib() {
-      super.awakeFromNib()
-      let nextButton = UIButtonWithId(type: UIButtonType.system)
-      nextButton.setTitle("Next", for: UIControlState.normal)
-      nextButton.frame = CGRect(x: 0, y: 0, width: 100, height: 35)
-      nextButton.addTarget(self, action: #selector(tappedNextButton(_:)), for: UIControlEvents.touchUpInside)
-      addSubview(nextButton)
-      self.accessoryView = nextButton
    }
    
    override func prepareForReuse() {
