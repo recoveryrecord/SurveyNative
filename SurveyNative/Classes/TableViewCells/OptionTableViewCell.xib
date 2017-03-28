@@ -25,18 +25,23 @@
                             <constraint firstAttribute="width" constant="44" id="vT5-vo-izv"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf4-7r-gzf">
-                        <rect key="frame" x="60" y="12" width="252" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf4-7r-gzf">
+                        <rect key="frame" x="60" y="11.5" width="252" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="odw-vZ-tMS"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="zf4-7r-gzf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2wE-5D-47N"/>
                     <constraint firstItem="zf4-7r-gzf" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="3S9-Jx-DFg"/>
-                    <constraint firstItem="BR9-xT-dUb" firstAttribute="centerY" secondItem="zf4-7r-gzf" secondAttribute="centerY" id="9Zf-1Y-Pcg"/>
                     <constraint firstItem="BR9-xT-dUb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KOD-V5-pkx"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="zf4-7r-gzf" secondAttribute="bottom" constant="4" id="Lnn-FU-xhO"/>
                     <constraint firstItem="zf4-7r-gzf" firstAttribute="leading" secondItem="BR9-xT-dUb" secondAttribute="trailing" constant="8" symbolic="YES" id="M8S-5D-S5b"/>
+                    <constraint firstItem="zf4-7r-gzf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="fet-nd-5it"/>
                     <constraint firstItem="BR9-xT-dUb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vXB-Ri-f4y"/>
                 </constraints>
             </tableViewCellContentView>
