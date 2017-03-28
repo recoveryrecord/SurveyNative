@@ -70,6 +70,18 @@ open class TableUIUpdater {
          Logger.log("No table updates.", level: .info)
          return
       }
+      // The CATransaction lines below ensure that the tableView updates complete before we
+      // attempt to scroll the tableView
+      CATransaction.begin()
+      CATransaction.setCompletionBlock {
+         if (changes.insertSections != nil && changes.insertSections!.count != 0) {
+            // A small pause helps avoid issues with keyboard dismissal messing up the scroll
+            let scrollPath = IndexPath(row: 0, section: (self.maxIndex(changes.insertSections!))! as Int)
+            UIView.animate(withDuration: 0.5, delay: 0.02, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+               tableView.scrollToRow(at: scrollPath, at: UITableViewScrollPosition.top, animated: false)
+            }, completion: nil)
+         }
+      }
       UIView.performWithoutAnimation {
          tableView.beginUpdates()
          if (changes.removeSections != nil && !changes.removeSections!.isEmpty) {
@@ -83,13 +95,7 @@ open class TableUIUpdater {
          }
          tableView.endUpdates()
       }
-      if (changes.insertSections != nil && changes.insertSections!.count != 0) {
-         // A small pause helps avoid issues with keyboard dismissal messing up the scroll
-         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
-            let scrollPath = IndexPath(row: 0, section: (self.maxIndex(changes.insertSections!))! as Int)
-            tableView.scrollToRow(at: scrollPath, at: UITableViewScrollPosition.top, animated: true)
-         }
-      }
+      CATransaction.commit()
    }
    
    static func maxIndex(_ indexSet: IndexSet) -> Int? {
