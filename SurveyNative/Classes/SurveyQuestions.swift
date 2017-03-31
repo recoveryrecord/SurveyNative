@@ -725,10 +725,22 @@ open class SurveyQuestions {
    
    // MARK: dynamic label text field
    
-   func labelOptions(for indexPath : IndexPath) -> [Any] {
+   func labelOptions(for indexPath : IndexPath) -> [AnyHashable] {
       let questionPath = self.questionPath(for: indexPath)
       let question = self.question(for: questionPath)
-      return question["label_options"] as! [Any]
+      return question["label_options"] as! [AnyHashable]
+   }
+   
+   func labelOptionTypes(for indexPath : IndexPath) -> [String]? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["label_option_types"] as? [String]
+   }
+   
+   func optionsMetadata(for indexPath : IndexPath) -> [String : Any]? {
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      return question["options_metadata"] as? [String: Any]
    }
    
    // MARK: year picker

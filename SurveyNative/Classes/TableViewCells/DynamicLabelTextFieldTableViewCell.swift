@@ -30,7 +30,9 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       }
    }
    
-   var labelOptions : [Any]?
+   var labelOptions : [AnyHashable]?
+   var optionsMetadata: [String : Any]?
+   static var metadataDefaults : [String : String] = [:]
    var currentValue : [String : String]? {
       didSet {
          if labelOptions == nil || labelOptions!.isEmpty {
@@ -38,21 +40,11 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
             return
          }
          if currentValue == nil || currentValue!.isEmpty {
-            updateLabels(labels: labelOptions![0])
+            updateLabels(labels: labelOptions![indexOfDefaultOption()])
             return
          }
          let keySet = Array(currentValue!.keys)
-         if keySet.count == 1 {
-            addLabelAndTextField(labelText: keySet[0], valueText:currentValue![keySet[0]])
-            return
-         }
-         var selectedLabelSet: [String]?
-         for labelOptionSet in labelOptions! {
-            if let labelStringSet = labelOptionSet as? [String], labelStringSet.elementsEqual(keySet) {
-               selectedLabelSet = labelStringSet
-               break
-            }
-         }
+         let selectedLabelSet: [String]? = findMatchingLabelOption(keySet)
          if selectedLabelSet != nil {
             for label in selectedLabelSet! {
                addLabelAndTextField(labelText: label, valueText:currentValue![label])
@@ -79,6 +71,38 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    
    override func prepareForReuse() {
       removeExtraLabelAndTextFields()
+   }
+   
+   func metadataOptionsId() -> String? {
+      return self.optionsMetadata?["id"] as? String
+   }
+   
+   func metadataOptionsTypes() -> [String]? {
+      return self.optionsMetadata?["types"] as? [String]
+   }
+   
+   func indexOfDefaultOption() -> Int {
+      var defaultOption = 0
+      if let metadataId = metadataOptionsId(), let metadataTypeOptions = metadataOptionsTypes(), let selectedDefault = DynamicLabelTextFieldTableViewCell.metadataDefaults[metadataId] {
+         defaultOption = metadataTypeOptions.index(of: selectedDefault) ?? defaultOption
+      }
+      return defaultOption
+   }
+   
+   func findMatchingLabelOption(_ keySet: [String]) -> [String]? {
+      if keySet.count == 1 {
+         for labelOptionSet in labelOptions! {
+            if let labelString = labelOptionSet as? String, labelString == keySet[0] {
+               return [labelString]
+            }
+         }
+      }
+      for labelOptionSet in labelOptions! {
+         if let labelStringSet = labelOptionSet as? [String], labelStringSet.elementsEqual(keySet) {
+            return labelStringSet
+         }
+      }
+      return nil
    }
    
    func addLabelAndTextField(labelText : String? = nil, valueText : String? = nil) {
@@ -156,14 +180,20 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       buttons.removeAll()
    }
 
-   func updateLabels(labels : Any) {
+   func updateLabels(labels : AnyHashable) {
       removeExtraLabelAndTextFields()
+      var labelsArray : [String] = []
       if let label = labels as? String {
+         labelsArray = [label]
+      } else if let labellist =  labels as? [String] {
+         labelsArray = labellist
+      }
+      for label in labelsArray {
          addLabelAndTextField(labelText: label)
-      } else if let labelsArray =  labels as? [String] {
-         for label in labelsArray {
-            addLabelAndTextField(labelText: label)
-         }
+      }
+      if self.optionsMetadata != nil {
+         let selectedIndex = labelOptions!.index(of: labels)
+         DynamicLabelTextFieldTableViewCell.metadataDefaults[self.metadataOptionsId()!] = self.metadataOptionsTypes()?[selectedIndex!]
       }
    }
    

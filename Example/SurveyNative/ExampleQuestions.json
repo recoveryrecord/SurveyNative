@@ -99,11 +99,36 @@
         ],
         "Centimeters"
       ],
+      "options_metadata": {
+        "id": "unit_system",
+        "types": [
+          "imperial",
+          "metric"
+        ]
+      },
+      "input_type": "number"
+    },
+    {
+      "id": "weight",
+      "header": "Question 6",
+      "question": "How much do you weigh?",
+      "question_type": "dynamic_label_text_field",
+      "label_options": [
+        "Pounds",
+        "Kilograms"
+      ],
+      "options_metadata": {
+        "id": "unit_system",
+        "types": [
+          "imperial",
+          "metric"
+        ]
+      },
       "input_type": "number"
     },
     {
       "id": "happiness",
-      "header": "Question 8",
+      "header": "Question 9",
       "question": "How happy are you?",
       "question_type": "segment_select",
       "low_tag": "1. Not happy",
@@ -120,7 +145,7 @@
     },
     {
       "id": "weekend_activities",
-      "header": "Question 9",
+      "header": "Question 10",
       "question": "On the weekends, do you:",
       "question_type": "table_select",
       "options": [
@@ -149,7 +174,7 @@
     },
     {
       "id": "prefer_tv_books",
-      "header": "Question 10",
+      "header": "Question 11",
       "question": "Do you like to read the book of the movie before you see it?",
       "question_type": "single_select",
       "options": [
@@ -198,12 +223,12 @@
     },
     {
       "id": "date",
-      "header": "Question 11",
+      "header": "Question 12",
       "question": "What is was the best day of the last year?",
       "question_type": "date_picker",
       "date" : "current_date",
       "max_date" : "current_date",
-      "date_diff" : { "year" : -1 },
+      "date_diff" : { "year" : -1 }
     },
     {
       "id":"pets",
