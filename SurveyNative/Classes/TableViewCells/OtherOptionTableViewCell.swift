@@ -8,10 +8,10 @@
 
 import UIKit
 
-class OtherOptionTableViewCell: UITableViewCell {
-   @IBOutlet var optionImageView: UIImageView?
-   @IBOutlet var label: UILabel?
-   @IBOutlet var textField: UITextField?
+class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate {
+   @IBOutlet var optionImageView: UIImageView!
+   @IBOutlet var label: UILabel!
+   @IBOutlet var textField: UITextField!
    @IBOutlet weak var nextButton: UIButton!
    
    
@@ -52,12 +52,22 @@ class OtherOptionTableViewCell: UITableViewCell {
    override func awakeFromNib() {
       super.awakeFromNib()
       selectionStyle = .none
+      self.textField.delegate = self
    }
    
-   override func setSelected(_ selected: Bool, animated: Bool) {
-      if selected {
-         textField?.becomeFirstResponder()
-      }
+   func textFieldDidBeginEditing(_ textField: UITextField) {
+      self.dataDelegate?.updateActiveTextView(textField)
+   }
+   
+   func textFieldDidEndEditing(_ textField: UITextField) {
+      self.optionText = textField.text ?? ""
+      textField.resignFirstResponder()
+   }
+   
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      self.optionText = textField.text ?? ""
+      textField.resignFirstResponder()
+      return true
    }
    
    @IBAction func editingDone(_ sender: Any) {
@@ -70,11 +80,6 @@ class OtherOptionTableViewCell: UITableViewCell {
    }
    
    @IBAction func tappedNextButton(_ sender: UIButton) {
-      self.optionText = textField?.text ?? ""
-      textField?.resignFirstResponder()
-   }
-   
-   @IBAction func actionTriggered(_ sender: Any) {
       self.optionText = textField?.text ?? ""
       textField?.resignFirstResponder()
    }

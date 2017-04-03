@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTextFieldTableViewCell: UITableViewCell {
+class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    
    @IBOutlet var verticalStack : UIStackView?
    @IBOutlet var firstTextField : UITextField?
@@ -51,6 +51,7 @@ class AddTextFieldTableViewCell: UITableViewCell {
    
    func addTextField(value : String? = nil) {
       let newTextField = UITextField(frame: CGRect(x: 0, y: 0, width: (firstTextField?.bounds.width)!, height: (firstTextField?.bounds.height)!))
+      newTextField.delegate = self
       newTextField.borderStyle = .roundedRect
       newTextField.font = firstTextField?.font
       newTextField.enablesReturnKeyAutomatically = true
@@ -71,6 +72,10 @@ class AddTextFieldTableViewCell: UITableViewCell {
       if let nextField = nextTextField(sender) {
          nextField.becomeFirstResponder()
       }
+   }
+   
+   func textFieldDidBeginEditing(_ textField: UITextField) {
+      self.dataDelegate?.updateActiveTextView(textField)
    }
    
    func nextTextField(_ textField : UITextField) -> UITextField? {

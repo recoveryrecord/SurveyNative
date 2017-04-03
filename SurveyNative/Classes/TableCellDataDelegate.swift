@@ -13,4 +13,5 @@ public protocol TableCellDataDelegate {
    func markFinished(updateId: String)
    func updateUI()
    func submitData()
+   func updateActiveTextView(_ view: UIView)
 }

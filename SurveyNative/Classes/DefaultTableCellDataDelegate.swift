@@ -13,13 +13,15 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
    var surveyQuestions : SurveyQuestions
    var tableView : UITableView
    var submitCompletionHandler: (Data?, URLResponse?, Error?) -> Void
+   var activeTextView: UIView?
    
    public init(_ surveyQuestions : SurveyQuestions, tableView: UITableView, submitCompletionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
       self.surveyQuestions = surveyQuestions
       self.tableView = tableView
       self.submitCompletionHandler = submitCompletionHandler
+      super.init()
+      registerForKeyboardNotifications()
    }
-   
    
    public func update(updateId: String, data: Any) {
       TableUIUpdater.updateTable(surveyQuestions.update(id: updateId, data: data), tableView: tableView)
@@ -45,4 +47,38 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
       task.resume()
    }
    
+   // MARK: keyboard methods
+   
+   public func updateActiveTextView(_ view: UIView) {
+      self.activeTextView = view
+   }
+   
+   func registerForKeyboardNotifications() {
+      NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: Notification.Name.UIKeyboardDidShow, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+   }
+   
+   func keyboardWasShown(_ notification: Notification) {
+      let info = notification.userInfo
+      if let kbSize = (info?[UIKeyboardFrameBeginUserInfoKey] as? CGRect)?.size {
+         let contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
+         self.tableView.contentInset = contentInsets
+         self.tableView.scrollIndicatorInsets = contentInsets
+         
+         if activeTextView != nil {
+            var aRect = self.tableView.frame
+            aRect.size.height -= kbSize.height
+            let viewFrame = activeTextView!.convert(activeTextView!.bounds, to: self.tableView)
+            if (!aRect.contains(viewFrame.origin)) {
+               self.tableView.scrollRectToVisible(viewFrame, animated: true)
+            }
+         }
+      }
+   }
+   
+   func keyboardWillBeHidden(_ notification: Notification) {
+      let contentInsets = UIEdgeInsets.zero
+      self.tableView.contentInset = contentInsets
+      self.tableView.scrollIndicatorInsets = contentInsets
+   }
 }

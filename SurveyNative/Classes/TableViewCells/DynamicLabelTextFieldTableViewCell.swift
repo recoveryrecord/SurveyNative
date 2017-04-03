@@ -142,6 +142,10 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    }
    
    // TextField delegate methods
+   func textFieldDidBeginEditing(_ textField: UITextField) {
+      dataDelegate?.updateActiveTextView(firstHorizontalStackView)
+   }
+   
    func textFieldDidEndEditing(_ textField: UITextField) {
       sendUpdate()
    }

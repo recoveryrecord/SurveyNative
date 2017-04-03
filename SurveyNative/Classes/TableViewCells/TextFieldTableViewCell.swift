@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell {
-   @IBOutlet var textFieldLabel: UILabel?
-   @IBOutlet var textField: UITextField?
-   @IBOutlet var nextButton: UIButton?
+class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
+   @IBOutlet var textFieldLabel: UILabel!
+   @IBOutlet var textField: UITextField!
+   @IBOutlet var nextButton: UIButton!
    
    var dataDelegate: TableCellDataDelegate?
    var updateId: String?
@@ -40,6 +40,7 @@ class TextFieldTableViewCell: UITableViewCell {
       super.awakeFromNib()
       selectionStyle = .none
       self.accessoryView = nextButton
+      self.textField!.delegate = self
    }
    
    override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,9 +49,19 @@ class TextFieldTableViewCell: UITableViewCell {
       }
    }
    
-   @IBAction func editingDone(_ sender: UITextField) {
-      self.textFieldText = textField?.text ?? ""
-      textField?.resignFirstResponder()
+   func textFieldDidBeginEditing(_ textField: UITextField) {
+      self.dataDelegate?.updateActiveTextView(textField)
+   }
+   
+   func textFieldDidEndEditing(_ textField: UITextField) {
+      self.textFieldText = textField.text ?? ""
+      textField.resignFirstResponder()
+   }
+   
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      self.textFieldText = textField.text ?? ""
+      textField.resignFirstResponder()
+      return true
    }
    
    func sendUpdate() {
@@ -59,11 +70,6 @@ class TextFieldTableViewCell: UITableViewCell {
   
    @IBAction func tappedNextButton(_ sender: UIButton) {
       dataDelegate?.markFinished(updateId: updateId!)
-      self.textFieldText = textField?.text ?? ""
-      textField?.resignFirstResponder()
-   }
-   
-   @IBAction func actionTriggered(_ sender: UITextField) {
       self.textFieldText = textField?.text ?? ""
       textField?.resignFirstResponder()
    }
