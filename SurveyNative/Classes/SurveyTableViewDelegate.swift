@@ -11,6 +11,7 @@ import Foundation
 open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    
    var surveyQuestions : SurveyQuestions
+   var heightAtIndexPath = NSMutableDictionary()
    
    public init(_ surveyQuestions : SurveyQuestions) {
       self.surveyQuestions = surveyQuestions
@@ -21,4 +22,16 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
       tableView.deselectRow(at: indexPath, animated: false)
    }
    
+   open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+      if let height = heightAtIndexPath.object(forKey: indexPath) as? NSNumber {
+         return CGFloat(height.floatValue)
+      } else {
+         return UITableViewAutomaticDimension
+      }
+   }
+   
+   open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+      let height = cell.frame.size.height
+      self.heightAtIndexPath.setObject(height, forKey: indexPath as NSCopying)
+   }
 }
