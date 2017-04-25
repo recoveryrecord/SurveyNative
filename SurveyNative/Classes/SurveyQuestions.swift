@@ -103,11 +103,11 @@ open class SurveyQuestions {
       return self.submitData["button_title"]!
    }
    
-   func submitUrl() -> String {
+   public func submitUrl() -> String {
       return self.submitData["url"]!
    }
    
-   func submitJson() -> [String : Any] {
+   public func submitJson() -> [String : Any] {
       return ["answers" : self.answers]
    }
    

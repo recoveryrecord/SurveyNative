@@ -46,6 +46,10 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
       let task = session.dataTask(with: request as URLRequest, completionHandler: self.submitCompletionHandler)
       task.resume()
    }
+
+   open func getSurveyQuestions() -> SurveyQuestions {
+      return surveyQuestions
+   }
    
    // MARK: keyboard methods
    
