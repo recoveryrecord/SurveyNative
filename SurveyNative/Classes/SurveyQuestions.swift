@@ -1082,6 +1082,7 @@ open class SurveyQuestions {
          var unSkippedSet = self.activeIndexSet(for: unSkippedQ)
          self.sectionsToInsert(questionPath: questionPath).forEach( {unSkippedSet.insert($0) })
          sectionChanges.insertSections = unSkippedSet
+         sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
          return sectionChanges
       } else if questionType == "multi_select" && isOptionType(questionPath) {
          let data = type == "option" ? self.text(for: questionPath) : self.otherAnswer(for: questionPath) ?? ""
@@ -1090,6 +1091,7 @@ open class SurveyQuestions {
          sectionChanges.removeSections = skipped
          sectionChanges.insertSections = self.activeIndexSet(for: unSkippedQ)
          sectionChanges.reloadSections = IndexSet(integer: indexPath.section)
+         sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
          return sectionChanges
       }
       return sectionChanges
@@ -1170,6 +1172,7 @@ open class SurveyQuestions {
       var insertSet = self.activeIndexSet(for: unSkippedQ)
       self.sectionsToInsert(questionPath: questionPath).forEach({ insertSet.insert($0) })
       sectionChanges.insertSections = insertSet
+      sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
       return sectionChanges
    }
    
@@ -1196,7 +1199,19 @@ open class SurveyQuestions {
       Logger.log("multi-answer complete: \(self.completedMultiAnswerQ)")
       self.sectionsToInsert(questionPath: questionPath).forEach({ insertSet.insert($0) })
       sectionChanges.insertSections = insertSet
+      sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
       return sectionChanges
+   }
+   
+   private func calculateScrollPath(_ sectionChanges: SectionChanges) -> IndexPath? {
+      // Find first unanswered question
+      for section in 0...activeQuestion {
+         let questionIndex = self.questionIndex(for: section)
+         if !self.isQuestionFullyAnswered(questionIndex) {
+            return IndexPath(row: 0, section: section)
+         }
+      }
+      return nil
    }
 }
 
@@ -1204,6 +1219,7 @@ public struct SectionChanges {
    var reloadSections : IndexSet?
    var insertSections : IndexSet?
    var removeSections : IndexSet?
+   var scrollPath : IndexPath?
 }
 
 extension SectionChanges: CustomStringConvertible {
