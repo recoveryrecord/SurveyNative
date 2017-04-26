@@ -23,7 +23,8 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    }
    
    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      if let height = heightAtIndexPath.object(forKey: indexPath) as? NSNumber {
+      let questionPath = self.surveyQuestions.questionPath(for: indexPath)
+      if let height = heightAtIndexPath.object(forKey: questionPath) as? NSNumber {
          return CGFloat(height.floatValue)
       } else {
          return UITableViewAutomaticDimension
@@ -31,7 +32,8 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    }
    
    open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-      if let height = heightAtIndexPath.object(forKey: indexPath) as? NSNumber {
+      let questionPath = self.surveyQuestions.questionPath(for: indexPath)
+      if let height = heightAtIndexPath.object(forKey: questionPath) as? NSNumber {
          return CGFloat(height.floatValue)
       } else {
          return UITableViewAutomaticDimension
@@ -40,6 +42,7 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    
    open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
       let height = cell.frame.size.height
-      self.heightAtIndexPath.setObject(height, forKey: indexPath as NSCopying)
+      let questionPath = self.surveyQuestions.questionPath(for: indexPath)
+      self.heightAtIndexPath.setObject(height, forKey: questionPath)
    }
 }

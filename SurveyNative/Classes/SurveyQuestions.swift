@@ -1226,7 +1226,7 @@ extension SectionChanges: CustomStringConvertible {
    }
 }
 
-public struct QuestionPath {
+public class QuestionPath : NSObject, NSCopying {
    var primaryQuestionIndex: Int
    var rowToPrimary: Int?
    var subQuestionIndex: Int?
@@ -1243,14 +1243,23 @@ public struct QuestionPath {
       self.rowToSub = rowToSub
    }
    
+   required public init(_ questionPath: QuestionPath) {
+      self.primaryQuestionIndex = questionPath.primaryQuestionIndex
+      self.rowToPrimary = questionPath.rowToPrimary
+      self.subQuestionIndex = questionPath.subQuestionIndex
+      self.rowToSub = questionPath.rowToSub
+   }
+   
    // Convenience method for finding the most relevant row index
    public func row() -> Int {
       return self.subQuestionIndex == nil ? self.rowToPrimary! : self.rowToSub!
    }
-}
-
-extension QuestionPath: CustomStringConvertible {
-   public var description : String {
+   
+   public func copy(with zone: NSZone? = nil) -> Any {
+      return type(of:self).init(self)
+   }
+   
+   override public var description : String {
       if subQuestionIndex != nil {
          return "Path: primary: \(primaryQuestionIndex), sub: \(subQuestionIndex!), row: \(row())"
       } else {
