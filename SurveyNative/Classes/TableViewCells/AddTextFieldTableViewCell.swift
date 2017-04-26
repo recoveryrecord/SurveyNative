@@ -30,6 +30,11 @@ class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       }
    }
    
+   override func awakeFromNib() {
+      super.awakeFromNib()
+      firstTextField?.delegate = self
+   }
+   
    override func prepareForReuse() {
       for textField in extraTextFields {
          verticalStack?.removeArrangedSubview(textField)
