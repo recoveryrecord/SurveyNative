@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,8 +25,8 @@
                             <constraint firstAttribute="width" constant="44" id="D2m-F7-6ou"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-iI-ph2">
-                        <rect key="frame" x="60.000000000000007" y="12" width="43.666666666666679" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-iI-ph2">
+                        <rect key="frame" x="60" y="12" width="355" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -58,6 +58,7 @@
                     <constraint firstItem="44x-mf-DFD" firstAttribute="leading" secondItem="vSg-iI-ph2" secondAttribute="leading" id="Cgi-U4-Rea"/>
                     <constraint firstItem="44x-mf-DFD" firstAttribute="top" secondItem="vSg-iI-ph2" secondAttribute="bottom" constant="12.666666666666671" id="MFk-Y0-AoE" userLabel="Text Field.top = Label.bottom + 16"/>
                     <constraint firstItem="vSg-iI-ph2" firstAttribute="leading" secondItem="uyv-VG-nPK" secondAttribute="trailing" constant="8" id="OA6-M8-Kox"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vSg-iI-ph2" secondAttribute="trailing" constant="8" id="QLR-0y-uOz"/>
                     <constraint firstItem="DN9-cA-pYj" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="RKi-17-GEZ"/>
                     <constraint firstItem="DN9-cA-pYj" firstAttribute="leading" secondItem="44x-mf-DFD" secondAttribute="trailing" constant="8" id="RXm-4z-KJD"/>
                     <constraint firstItem="uyv-VG-nPK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="RcT-1m-hU7"/>
