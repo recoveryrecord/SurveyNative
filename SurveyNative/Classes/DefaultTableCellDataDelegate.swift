@@ -65,7 +65,7 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
    func keyboardWasShown(_ notification: Notification) {
       let info = notification.userInfo
       if let kbSize = (info?[UIKeyboardFrameBeginUserInfoKey] as? CGRect)?.size {
-         let contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
+         let contentInsets = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, kbSize.height, 0)
          self.tableView.contentInset = contentInsets
          self.tableView.scrollIndicatorInsets = contentInsets
          
@@ -81,7 +81,7 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
    }
    
    func keyboardWillBeHidden(_ notification: Notification) {
-      let contentInsets = UIEdgeInsets.zero
+      let contentInsets = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, 0, 0)
       self.tableView.contentInset = contentInsets
       self.tableView.scrollIndicatorInsets = contentInsets
    }
