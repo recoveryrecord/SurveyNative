@@ -22,6 +22,14 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
       tableView.deselectRow(at: indexPath, animated: false)
    }
    
+   open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+      if let height = heightAtIndexPath.object(forKey: indexPath) as? NSNumber {
+         return CGFloat(height.floatValue)
+      } else {
+         return UITableViewAutomaticDimension
+      }
+   }
+   
    open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
       if let height = heightAtIndexPath.object(forKey: indexPath) as? NSNumber {
          return CGFloat(height.floatValue)
