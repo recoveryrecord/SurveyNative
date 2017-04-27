@@ -1278,6 +1278,13 @@ public class QuestionPath : NSObject, NSCopying {
       return type(of:self).init(self)
    }
    
+   static func == (lhs: QuestionPath, rhs: QuestionPath) -> Bool {
+      return lhs.primaryQuestionIndex == rhs.primaryQuestionIndex &&
+         lhs.rowToPrimary == rhs.rowToPrimary &&
+         lhs.subQuestionIndex == rhs.subQuestionIndex &&
+         lhs.rowToSub == rhs.rowToSub
+   }
+   
    override public var description : String {
       if subQuestionIndex != nil {
          return "Path: primary: \(primaryQuestionIndex), sub: \(subQuestionIndex!), row: \(row())"

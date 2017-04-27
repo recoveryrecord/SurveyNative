@@ -11,7 +11,7 @@ import Foundation
 open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    
    var surveyQuestions : SurveyQuestions
-   var heightAtIndexPath = NSMutableDictionary()
+   var heightAtIndexPath: [AnyHashable : CGFloat] = [:]
    
    public init(_ surveyQuestions : SurveyQuestions) {
       self.surveyQuestions = surveyQuestions
@@ -22,17 +22,17 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
       tableView.deselectRow(at: indexPath, animated: false)
    }
    
-   open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      if let height = heightAtIndexPath.object(forKey: key(indexPath)) as? NSNumber {
-         return CGFloat(height.floatValue)
+   public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+      if let height = heightAtIndexPath[key(indexPath)] {
+         return height
       } else {
          return UITableViewAutomaticDimension
       }
    }
    
-   open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-      if let height = heightAtIndexPath.object(forKey: key(indexPath)) as? NSNumber {
-         return CGFloat(height.floatValue)
+   public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+      if let height = heightAtIndexPath[key(indexPath)] {
+         return height
       } else {
          return UITableViewAutomaticDimension
       }
@@ -40,13 +40,14 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    
    open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
       let height = cell.frame.size.height
-      self.heightAtIndexPath.setObject(height, forKey: key(indexPath))
+      let cellKey = key(indexPath)
+      self.heightAtIndexPath[cellKey] = height
    }
    
-   private func key(_ indexPath: IndexPath) -> NSCopying {
+   private func key(_ indexPath: IndexPath) -> AnyHashable {
       if self.surveyQuestions.isSubmitSection(indexPath: indexPath) {
-         return NSString(string: "SubmitQuestion")
+         return "SubmitQuestion"
       }
-      return self.surveyQuestions.questionPath(for: indexPath)
+      return self.surveyQuestions.questionPath(for: indexPath).description
    }
 }
