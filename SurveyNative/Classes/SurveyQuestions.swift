@@ -1206,6 +1206,9 @@ open class SurveyQuestions {
    private func calculateScrollPath(_ sectionChanges: SectionChanges) -> IndexPath? {
       // Find first unanswered question
       for section in 0...activeQuestion {
+         if isSubmitSection(section) {
+            return IndexPath(row: 0, section: section)
+         }
          let questionIndex = self.questionIndex(for: section)
          if !self.isQuestionFullyAnswered(questionIndex) {
             return IndexPath(row: 0, section: section)
