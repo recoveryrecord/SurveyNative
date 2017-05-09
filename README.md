@@ -54,6 +54,8 @@ The expected input is an array of `questions` and a `submit` object, detailing h
   - `label_options` (_Array containing Strings or String Arrays_): Required for `dynamic_label_text_field`.
 
   - `input_type` (_String_): Optional for `single_text_field`, `dynamic_label_text_field`, `add_text_field` question_types. Can be set to `number` to change the default keyboard to the number keyboard for the text field(s).
+  
+  - `max_chars` (_String_): Options for `single_text_field` and `multi_text_field` question_types.  Determines the max number of characters the user may enter.
 
   - `values` (_Array of String_): Required for `segment_select` question_type. These are the values the user will choose between.
   
@@ -197,7 +199,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
   "question": "What is your current age in years?",
   "question_type": "single_text_field",
   "label": "Years",
-  "input_type": "number"
+  "input_type": "number",
+  "max_chars": "2"
 }
 ```
 
