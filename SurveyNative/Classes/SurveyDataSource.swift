@@ -64,6 +64,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          (tableCell as! TextFieldTableViewCell).dataDelegate = self.tableCellDataDelegate
          (tableCell as! TextFieldTableViewCell).textFieldLabel?.text = surveyQuestions.text(for: indexPath)
          (tableCell as! TextFieldTableViewCell).textField?.keyboardType = surveyQuestions.keyboardType(for: indexPath)
+         (tableCell as! TextFieldTableViewCell).maxCharacters = surveyQuestions.maxChars(for: indexPath)
          (tableCell as! TextFieldTableViewCell).textFieldText = surveyQuestions.partialAnswer(for: indexPath) as! String?
          (tableCell as! TextFieldTableViewCell).shouldShowNextButton = surveyQuestions.showNextButton(for: indexPath)
          (tableCell as! TextFieldTableViewCell).updateId = surveyQuestions.id(for: indexPath)

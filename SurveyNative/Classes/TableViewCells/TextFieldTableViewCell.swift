@@ -35,6 +35,7 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
          nextButton?.isHidden = !shouldShowNextButton!
       }
    }
+   var maxCharacters: Int?
    
    override func awakeFromNib() {
       super.awakeFromNib()
@@ -62,6 +63,18 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       self.textFieldText = textField.text ?? ""
       textField.resignFirstResponder()
       return true
+   }
+   
+   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      if maxCharacters == nil {
+         return false
+      }
+      let oldLength = textField.text?.characters.count ?? 0
+      let replacemenetLength = string.characters.count
+      let rangeLength = range.length
+      
+      let newLength = oldLength - rangeLength + replacemenetLength
+      return newLength <= maxCharacters!
    }
    
    func sendUpdate() {

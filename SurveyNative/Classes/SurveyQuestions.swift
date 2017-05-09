@@ -670,6 +670,30 @@ open class SurveyQuestions {
       return textField["input_type"]!
    }
    
+   func maxChars(for indexPath: IndexPath) -> Int? {
+      let questionPath = self.questionPath(for: indexPath)
+      let type = self.type(for: questionPath)
+      if type != "text_field" {
+         return nil
+      }
+      let questionType = self.questionType(for: questionPath)
+      if questionType == "multi_text_field" {
+         let textField = self.textField(for: questionPath)
+         return maxChars(textField)
+      } else {
+         let question = self.question(for: questionPath)
+         return maxChars(question)
+      }
+   }
+   
+   func maxChars(_ textField: [String : Any?]) -> Int? {
+      if let maxChars = textField["max_chars"] as? String {
+         return Int(maxChars)
+      } else {
+         return nil
+      }
+   }
+   
    // MARK: segment_select fields
    
    public func values(for indexPath : IndexPath) -> [String] {

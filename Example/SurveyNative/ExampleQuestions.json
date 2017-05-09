@@ -54,7 +54,8 @@
       "question": "What is your current age in years?",
       "question_type": "single_text_field",
       "label": "Years",
-      "input_type": "number"
+      "input_type": "number",
+      "max_chars" : "2",
     },
     {
       "id": "like_music",
