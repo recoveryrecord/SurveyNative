@@ -68,7 +68,7 @@ open class SurveyQuestions {
       return map
    }
    
-   // Creates a map from answerId to index of the affected question
+   // Creates a map from answerId to indexes of the affected question
    class func calculatePotentialSkippedQuestions(_ questions: [[String: Any?]]) -> [String : [Int]] {
       var potentialSkippedMap : [String: [Int]] = [:]
       for (index, question) in questions.enumerated() {
@@ -81,7 +81,40 @@ open class SurveyQuestions {
             }
          }
       }
+
+      // At this point our potentialSkippedMap is shallow (not recursive, depth: 1). Lets fix that.
+      for (targetId, indexes) in potentialSkippedMap {
+         for index in indexes {
+            let dependencyId : String = questions[index]["id"] as! String
+            let indexes : [Int] = dependencyIndexesRecurisve( questions: questions, potentialSkippedMap: potentialSkippedMap, dependencyId : dependencyId)
+            potentialSkippedMap[targetId]?.append( contentsOf: indexes )
+         }
+      }
+
+      // Lets remove all dupes and sort
+      for (targetId, indexes) in potentialSkippedMap {
+         potentialSkippedMap[targetId] = Array(Set(indexes)).sorted()
+      }
+
       return potentialSkippedMap
+   }
+
+   class func dependencyIndexesRecurisve(questions: [[String: Any?]], potentialSkippedMap: [String: [Int]] = [:], dependencyId : String ) -> [Int] {
+
+      if (potentialSkippedMap[dependencyId] == nil) {
+         return []
+      }
+
+      var result : [Int] = []
+
+      result.append( contentsOf: potentialSkippedMap[dependencyId]!);
+
+      for ( index ) in potentialSkippedMap[dependencyId]! {
+         let id : String = questions[index]["id"] as! String
+         result.append(contentsOf: dependencyIndexesRecurisve( questions: questions, potentialSkippedMap: potentialSkippedMap, dependencyId: id))
+      }
+
+      return result
    }
    
    // MARK: submission
