@@ -250,5 +250,6 @@
   "submit": {
     "button_title": "Submit Answers",
     "url": "https://www.example.com"
-  }
+  },
+  "auto_focus_text" : true
 }

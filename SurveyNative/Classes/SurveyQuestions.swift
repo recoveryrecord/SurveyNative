@@ -15,6 +15,7 @@ open class SurveyQuestions {
    
    var questions : [[String : Any?]]
    var submitData : [String : String]
+   var autoFocusText: Bool = false
    var answers: [String: Any] = [:]
    var completedMultiAnswerQ = Set<String>()
    
@@ -35,6 +36,9 @@ open class SurveyQuestions {
             let dict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : Any?]
             Logger.log(dict)
             loadedQuestions = SurveyQuestions(dict["questions"] as! [[String : Any?]], submitData: dict["submit"] as! [String : String], surveyTheme: surveyTheme)
+            if let autoFocus = dict["auto_focus_text"] as? Bool {
+               loadedQuestions?.autoFocusText = autoFocus
+            }
          } catch {
             Logger.log(error.localizedDescription, level: .error)
          }

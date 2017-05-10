@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
+class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCellActivating {
    
    @IBOutlet var verticalStack : UIStackView?
    @IBOutlet var firstTextField : UITextField?
@@ -41,6 +41,12 @@ class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
          textField.removeFromSuperview()
       }
       extraTextFields = []
+   }
+   
+   func cellDidActivate() {
+      if extraTextFields.count > 0 {
+         extraTextFields[0].becomeFirstResponder()
+      }
    }
    
    @IBAction func tappedNextButton(_ sender: UIButton) {

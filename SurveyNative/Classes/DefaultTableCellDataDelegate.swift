@@ -24,11 +24,11 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
    }
    
    public func update(updateId: String, data: Any) {
-      TableUIUpdater.updateTable(surveyQuestions.update(id: updateId, data: data), tableView: tableView)
+      TableUIUpdater.updateTable(surveyQuestions.update(id: updateId, data: data), tableView: tableView, autoFocus: surveyQuestions.autoFocusText)
    }
    
    public func markFinished(updateId: String) {
-      TableUIUpdater.updateTable(surveyQuestions.markFinished(updateId: updateId), tableView: tableView)
+      TableUIUpdater.updateTable(surveyQuestions.markFinished(updateId: updateId), tableView: tableView, autoFocus: surveyQuestions.autoFocusText)
    }
    
    public func updateUI() {

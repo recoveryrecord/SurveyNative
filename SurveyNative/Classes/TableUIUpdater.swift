@@ -62,7 +62,7 @@ open class TableUIUpdater {
       tableView.register(submitNib, forCellReuseIdentifier: "submit")
    }
    
-   static func updateTable(_ changes: SectionChanges, tableView : UITableView) {
+   static func updateTable(_ changes: SectionChanges, tableView : UITableView, autoFocus: Bool) {
       Logger.log(changes.description)
       if (changes.removeSections == nil || changes.removeSections!.isEmpty) &&
          (changes.reloadSections == nil || changes.reloadSections!.isEmpty) &&
@@ -88,6 +88,11 @@ open class TableUIUpdater {
                      tableView.reloadData()
                      tableView.layoutIfNeeded()
                      tableView.setContentOffset(contentOffset, animated: false)
+                     // So far, it's always the row #1 that should be activated. May not always be true
+                     let activeCellPath = IndexPath(row: 1, section: changes.scrollPath!.section)
+                     if let activatingCell = tableView.cellForRow(at: activeCellPath) as? TableViewCellActivating, autoFocus == true {
+                        activatingCell.cellDidActivate()
+                     }
                   }
                })
             }

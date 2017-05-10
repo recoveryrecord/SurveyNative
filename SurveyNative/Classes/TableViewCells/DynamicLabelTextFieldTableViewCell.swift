@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
+class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCellActivating {
    
    @IBOutlet weak var firstHorizontalStackView: UIStackView!
    @IBOutlet weak var secondHorizontalStackView: UIStackView!
@@ -71,6 +71,12 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
    
    override func prepareForReuse() {
       removeExtraLabelAndTextFields()
+   }
+   
+   func cellDidActivate() {
+      if textFields.count > 0 {
+         textFields[0].becomeFirstResponder()
+      }
    }
    
    func metadataOptionsId() -> String? {

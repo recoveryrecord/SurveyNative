@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
+class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCellActivating {
    @IBOutlet var textFieldLabel: UILabel!
    @IBOutlet var textField: UITextField!
    @IBOutlet var nextButton: UIButton!
@@ -48,6 +48,10 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
       if selected {
          textField?.becomeFirstResponder()
       }
+   }
+   
+   func cellDidActivate() {
+      self.textField!.becomeFirstResponder()
    }
    
    func textFieldDidBeginEditing(_ textField: UITextField) {

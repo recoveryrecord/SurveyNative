@@ -18,7 +18,7 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    }
    
    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      TableUIUpdater.updateTable(self.surveyQuestions.selectedRowAt(indexPath), tableView: tableView)
+      TableUIUpdater.updateTable(self.surveyQuestions.selectedRowAt(indexPath), tableView: tableView, autoFocus: surveyQuestions.autoFocusText)
       tableView.deselectRow(at: indexPath, animated: false)
    }
    
