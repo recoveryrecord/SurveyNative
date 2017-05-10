@@ -690,7 +690,7 @@ open class SurveyQuestions {
       if let maxChars = textField["max_chars"] as? String {
          return Int(maxChars)
       } else {
-         return nil
+         return Int.max
       }
    }
    
