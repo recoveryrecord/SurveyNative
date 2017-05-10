@@ -309,11 +309,11 @@ open class SurveyQuestions {
       return ""
    }
    
-   public func headerText(section: Int) -> String {
+   public func headerText(section: Int) -> String? {
       if isSubmitSection(section) {
-         return ""
+         return nil
       }
-      return self.question(section: section)["header"] as! String
+      return self.question(section: section)["header"] as? String
    }
    
    public func text(for indexPath: IndexPath) -> String {

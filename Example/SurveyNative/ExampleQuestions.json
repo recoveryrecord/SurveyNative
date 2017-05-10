@@ -17,7 +17,6 @@
     },
     {
       "id": "birthyear",
-      "header": "Question 2",
       "question": "Enter the year of your birth.",
       "question_type": "year_picker",
       "max_year" : "current_year",
