@@ -25,7 +25,7 @@ The expected input is an array of `questions` and a `submit` object, detailing h
 
   - `id` (_String_): Required. Used to key answer. Also used to check show/hide conditions.
 
-  - `header` (_String_): Required. May be empty. Displayed as section header.
+  - `header` (_String_): Optional. Displayed as section header.
 
   - `question` (_String_): Required. Text to display for question.
 
