@@ -11,6 +11,7 @@ import Foundation
 open class SurveyQuestions {
    
    var surveyTheme : SurveyTheme
+   var surveyAnswerDelegate: SurveyAnswerDelegate?
    
    var questions : [[String : Any?]]
    var submitData : [String : String]
@@ -52,6 +53,10 @@ open class SurveyQuestions {
       self.maybeSkippedQuestions = SurveyQuestions.calculatePotentialSkippedQuestions(questions)
       Logger.log("Maybe skipped: \(self.maybeSkippedQuestions)")
       self.previousSkipCount = Array(repeating: 0, count: questions.count)
+   }
+   
+   func setSurveyAnswerDelegate(_ surveyAnswerDelegate: SurveyAnswerDelegate) {
+      self.surveyAnswerDelegate = surveyAnswerDelegate
    }
    
    class func calculateSubQToParentIdMap(_ questions: [[String: Any?]]) -> [String : String] {
@@ -940,6 +945,9 @@ open class SurveyQuestions {
       if let parentId = self.subQToParentIdMap[questionId] {
          // ensures we recalculate for any inter-dependent sub-questions
          self.subQsToShowCache.removeValue(forKey: parentId)
+      }
+      if self.surveyAnswerDelegate != nil {
+         surveyAnswerDelegate!.question(for: questionId, answer: data)
       }
       Logger.log("Answers so far: \(self.answers)")
    }
