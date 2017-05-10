@@ -30,6 +30,10 @@ open class SurveyViewController: UIViewController {
       return DefaultSurveyTheme()
    }
    
+   open func setSurveyAnswerDelegate(_ surveyAnswerDelegate: SurveyAnswerDelegate) {
+      surveyQuestions?.setSurveyAnswerDelegate(surveyAnswerDelegate)
+   }
+   
    override open func viewDidLoad() {
       super.viewDidLoad()
       

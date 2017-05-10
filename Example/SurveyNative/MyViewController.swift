@@ -9,7 +9,12 @@
 import UIKit
 import SurveyNative
 
-class MyViewController: SurveyViewController {
+class MyViewController: SurveyViewController, SurveyAnswerDelegate {
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      self.setSurveyAnswerDelegate(self)
+   }
    
    override func surveyJsonFile() -> String {
       return "ExampleQuestions"
@@ -17,6 +22,10 @@ class MyViewController: SurveyViewController {
    
    override func surveyTitle() -> String {
       return "Example Survey"
+   }
+   
+   func question(for id: String, answer: Any) {
+      print("Question: \(id) has answer: \(answer)")
    }
 }
 
