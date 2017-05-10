@@ -55,7 +55,7 @@ open class SurveyQuestions {
       self.previousSkipCount = Array(repeating: 0, count: questions.count)
    }
    
-   func setSurveyAnswerDelegate(_ surveyAnswerDelegate: SurveyAnswerDelegate) {
+   public func setSurveyAnswerDelegate(_ surveyAnswerDelegate: SurveyAnswerDelegate) {
       self.surveyAnswerDelegate = surveyAnswerDelegate
    }
    
