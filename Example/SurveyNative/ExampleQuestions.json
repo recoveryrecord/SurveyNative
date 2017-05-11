@@ -88,6 +88,21 @@
       }
     },
     {
+      "id": "go_to_concerts",
+      "header": "Question 5",
+      "question": "Do you go to concerts?",
+      "question_type": "single_select",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "show_if": {
+        "id": "music_types",
+        "operation" : "contains",
+        "value" : "Pop"
+      }
+    },
+    {
       "id": "height",
       "header": "Question 7",
       "question": "How tall are you?",

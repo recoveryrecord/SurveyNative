@@ -448,7 +448,12 @@ open class SurveyQuestions {
             return result
          case "greater than", "greater than or equal to", "less than", "less than or equal to":
             return numberComparison(answer: answer, value: value, operation: operation)
+         case "contains":
+            return contains(value as! NSObject, answer as? [NSObject])
+         case "not contains":
+            return !contains(value as! NSObject, answer as? [NSObject])
          default:
+            Logger.log("Unable to check condition for unknown operation \"\(operation)\", assuming false", level: .error)
             return false
          }
       } else if let subconditions = condition["subconditions"] as? [[String : Any]] {
@@ -511,6 +516,10 @@ open class SurveyQuestions {
       }
       Logger.log("Error: Unable to convert value \(value) to number", level: .error)
       return nil
+   }
+   
+   func contains<T : Equatable>(_ value : T, _ container : [T]?) -> Bool {
+      return container == nil ? false : container!.contains(value)
    }
 
    class func showDependencyIds(_ question: [String : Any?]) -> [String] {
