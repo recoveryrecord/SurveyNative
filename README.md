@@ -106,6 +106,8 @@ Whether a question is shown or hidden is dependent on the `show_if` key. If the 
     - `greater than or equal to`
     - `less than`
     - `less than or equal to`
+    - `contains`
+    - `not contains`
 
   - `value` (_Any_): Required. This is the value to compare the answer to.
 
