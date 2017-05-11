@@ -18,21 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="428" height="103"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uyv-VG-nPK">
-                        <rect key="frame" x="8" y="0.0" width="44" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="44" id="5tZ-mM-e4D"/>
-                            <constraint firstAttribute="width" constant="44" id="D2m-F7-6ou"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-iI-ph2">
-                        <rect key="frame" x="60" y="12" width="352" height="31.666666666666664"/>
+                        <rect key="frame" x="52" y="12" width="360" height="31.666666666666664"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please specify" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44x-mf-DFD">
-                        <rect key="frame" x="60" y="51.333333333333329" width="302" height="34.999999999999986"/>
+                        <rect key="frame" x="52" y="51.333333333333329" width="310" height="34.999999999999986"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="XC1-iV-dRz"/>
                         </constraints>
@@ -51,19 +44,29 @@
                             <action selector="tappedNextButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Myw-lV-INQ"/>
                         </connections>
                     </button>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rND-Ay-IXX">
+                        <rect key="frame" x="8" y="0.0" width="44" height="44"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="IRT-2f-j8x"/>
+                            <constraint firstAttribute="height" constant="44" id="bPP-tM-CwA"/>
+                        </constraints>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="44x-mf-DFD" firstAttribute="leading" secondItem="vSg-iI-ph2" secondAttribute="leading" id="Cgi-U4-Rea"/>
+                    <constraint firstItem="rND-Ay-IXX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GzC-lX-LJM"/>
                     <constraint firstAttribute="bottomMargin" secondItem="DN9-cA-pYj" secondAttribute="bottom" constant="8" id="MUU-Ki-1Yo"/>
-                    <constraint firstItem="vSg-iI-ph2" firstAttribute="leading" secondItem="uyv-VG-nPK" secondAttribute="trailing" constant="8" id="OA6-M8-Kox"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vSg-iI-ph2" secondAttribute="trailing" constant="8" id="QLR-0y-uOz"/>
                     <constraint firstItem="DN9-cA-pYj" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="RKi-17-GEZ"/>
                     <constraint firstItem="DN9-cA-pYj" firstAttribute="leading" secondItem="44x-mf-DFD" secondAttribute="trailing" constant="8" id="RXm-4z-KJD"/>
-                    <constraint firstItem="uyv-VG-nPK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="RcT-1m-hU7"/>
+                    <constraint firstItem="vSg-iI-ph2" firstAttribute="leading" secondItem="rND-Ay-IXX" secondAttribute="trailing" id="RrA-R9-b3v"/>
                     <constraint firstItem="44x-mf-DFD" firstAttribute="top" secondItem="vSg-iI-ph2" secondAttribute="bottom" constant="8" id="csu-2F-cDm"/>
                     <constraint firstAttribute="bottomMargin" secondItem="44x-mf-DFD" secondAttribute="bottom" constant="8" id="m5G-tn-cvd"/>
                     <constraint firstItem="DN9-cA-pYj" firstAttribute="top" secondItem="vSg-iI-ph2" secondAttribute="bottom" constant="8" id="nKT-oT-ugv"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="uyv-VG-nPK" secondAttribute="leading" id="qvM-3L-ran"/>
+                    <constraint firstItem="rND-Ay-IXX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="vKL-fq-dDM"/>
                     <constraint firstAttribute="topMargin" secondItem="vSg-iI-ph2" secondAttribute="top" constant="-4" id="xpy-nj-Ifb"/>
                 </constraints>
             </tableViewCellContentView>
@@ -73,7 +76,7 @@
             <connections>
                 <outlet property="label" destination="vSg-iI-ph2" id="tTB-9A-bP9"/>
                 <outlet property="nextButton" destination="DN9-cA-pYj" id="c1G-0t-uck"/>
-                <outlet property="optionImageView" destination="uyv-VG-nPK" id="eE4-EX-u6D"/>
+                <outlet property="optionButton" destination="rND-Ay-IXX" id="p8G-XM-rgG"/>
                 <outlet property="textField" destination="44x-mf-DFD" id="Nl6-NP-BHy"/>
             </connections>
             <point key="canvasLocation" x="-14" y="87.5"/>

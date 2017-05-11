@@ -8,10 +8,12 @@
 
 import UIKit
 
-class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate {
-   @IBOutlet var optionImageView: UIImageView!
-   @IBOutlet var label: UILabel!
-   @IBOutlet var textField: UITextField!
+class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelectionState {
+   
+   
+   @IBOutlet weak var optionButton: UIButton!
+   @IBOutlet weak var label: UILabel!
+   @IBOutlet weak var textField: UITextField!
    @IBOutlet weak var nextButton: UIButton!
    
    
@@ -36,7 +38,7 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate {
       didSet {
          if isSelectedOption! {
             textField?.isHidden = false
-            nextButton?.isHidden = isSelectedOption! && shouldShowNextButton
+            updateNextButtonVisibility()
          } else {
             textField?.isHidden = true
             nextButton?.isHidden = true
@@ -45,7 +47,17 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate {
    }
    var shouldShowNextButton: Bool = true {
       didSet {
-         nextButton?.isHidden = !(isSelectedOption ?? false && shouldShowNextButton)
+         updateNextButtonVisibility()
+      }
+   }
+   var surveyTheme: SurveyTheme? {
+      didSet {
+         updateButtonImages()
+      }
+   }
+   var isSingleSelection: Bool = true {
+      didSet {
+         updateButtonImages()
       }
    }
    
@@ -53,6 +65,10 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate {
       super.awakeFromNib()
       selectionStyle = .none
       self.textField.delegate = self
+   }
+   
+   override func prepareForReuse() {
+      optionButton.isSelected = false
    }
    
    func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -82,5 +98,44 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate {
    @IBAction func tappedNextButton(_ sender: UIButton) {
       self.optionText = textField?.text ?? ""
       textField?.resignFirstResponder()
+   }
+   
+   public func isSingleSelect() -> Bool {
+      return isSingleSelection
+   }
+   
+   public func setSelectionState(_ selected: Bool) {
+      optionButton.isSelected = selected
+      isSelectedOption = selected
+      if selected {
+         textField?.becomeFirstResponder()
+      } else {
+         textField?.resignFirstResponder()
+      }
+   }
+   
+   public func selectionState() -> Bool {
+      return isSelectedOption ?? false
+   }
+   
+   private func updateButtonImages() {
+      if surveyTheme == nil {
+         return
+      }
+      if isSingleSelection {
+         optionButton.setImage(surveyTheme!.radioButtonSelectedImage(), for: .selected)
+         optionButton.setImage(surveyTheme!.radioButtonDeselectedImage(), for: .normal)
+      } else {
+         optionButton.setImage(surveyTheme!.tickBoxTickedImage(), for: .selected)
+         optionButton.setImage(surveyTheme!.tickBoxNotTickedImage(), for: .normal)
+      }
+   }
+   
+   private func updateNextButtonVisibility() {
+      if isSelectedOption != nil && isSelectedOption! == true {
+         nextButton?.isHidden = !shouldShowNextButton
+      } else {
+         nextButton?.isHidden = true
+      }
    }
 }

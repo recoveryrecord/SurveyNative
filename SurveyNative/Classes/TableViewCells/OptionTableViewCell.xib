@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,15 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BR9-xT-dUb">
-                        <rect key="frame" x="8" y="0.0" width="44" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="44" id="o0i-P6-cWB"/>
-                            <constraint firstAttribute="width" constant="44" id="vT5-vo-izv"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf4-7r-gzf">
-                        <rect key="frame" x="60" y="11.5" width="252" height="20.5"/>
+                        <rect key="frame" x="52" y="11.5" width="260" height="20.5"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="odw-vZ-tMS"/>
                         </constraints>
@@ -34,19 +27,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1H-W7-dbd">
+                        <rect key="frame" x="8" y="0.0" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="FYz-ep-v00"/>
+                            <constraint firstAttribute="width" constant="44" id="MZF-wF-Nt6"/>
+                        </constraints>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zf4-7r-gzf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2wE-5D-47N"/>
                     <constraint firstItem="zf4-7r-gzf" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="3S9-Jx-DFg"/>
-                    <constraint firstItem="BR9-xT-dUb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KOD-V5-pkx"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="zf4-7r-gzf" secondAttribute="bottom" constant="4" id="Lnn-FU-xhO"/>
-                    <constraint firstItem="zf4-7r-gzf" firstAttribute="leading" secondItem="BR9-xT-dUb" secondAttribute="trailing" constant="8" symbolic="YES" id="M8S-5D-S5b"/>
+                    <constraint firstItem="zf4-7r-gzf" firstAttribute="leading" secondItem="O1H-W7-dbd" secondAttribute="trailing" id="Vaj-zc-6am"/>
+                    <constraint firstItem="O1H-W7-dbd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="a6k-tE-vPl"/>
                     <constraint firstItem="zf4-7r-gzf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="fet-nd-5it"/>
-                    <constraint firstItem="BR9-xT-dUb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vXB-Ri-f4y"/>
+                    <constraint firstItem="O1H-W7-dbd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qG1-tl-SCR"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="optionImage" destination="BR9-xT-dUb" id="lIA-Pg-RIm"/>
+                <outlet property="optionButton" destination="O1H-W7-dbd" id="LX0-ER-vUq"/>
                 <outlet property="optionLabel" destination="zf4-7r-gzf" id="ezb-hb-StW"/>
             </connections>
         </tableViewCell>

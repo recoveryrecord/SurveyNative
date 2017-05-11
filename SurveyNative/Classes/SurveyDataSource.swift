@@ -45,12 +45,15 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          (tableCell as! DatePickerTableViewCell).selectedDateStr = surveyQuestions.answer(for: indexPath) as! String?
       case "option":
          (tableCell as! OptionTableViewCell).optionLabel?.text = surveyQuestions.text(for: indexPath)
-         (tableCell as! OptionTableViewCell).optionImage?.image = surveyQuestions.image(for: indexPath)
+         (tableCell as! OptionTableViewCell).surveyTheme = self.surveyTheme
+         (tableCell as! OptionTableViewCell).setSelectionState(surveyQuestions.isOptionSelected(indexPath))
+         (tableCell as! OptionTableViewCell).isSingleSelection = !surveyQuestions.isMultiSelect(indexPath)
       case "other_option":
          (tableCell as! OtherOptionTableViewCell).updateId = nil
          (tableCell as! OtherOptionTableViewCell).dataDelegate = self.tableCellDataDelegate
-         (tableCell as! OtherOptionTableViewCell).optionImageView?.image = surveyQuestions.image(for: indexPath)
+         (tableCell as! OtherOptionTableViewCell).surveyTheme = self.surveyTheme
          (tableCell as! OtherOptionTableViewCell).label?.text = surveyQuestions.text(for: indexPath)
+         (tableCell as! OtherOptionTableViewCell).isSingleSelection = !surveyQuestions.isMultiSelect(indexPath)
          let selected = surveyQuestions.isOptionSelected(indexPath)
          (tableCell as! OtherOptionTableViewCell).isSelectedOption = selected
          if selected {

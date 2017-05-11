@@ -18,6 +18,20 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    }
    
    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      let unselectedIndexPaths : [IndexPath] = self.surveyQuestions.relatedDeselectPaths(indexPath)
+      for path in unselectedIndexPaths {
+         if let cellWithSelectionState = tableView.cellForRow(at: path) as? HasSelectionState {
+            cellWithSelectionState.setSelectionState(false)
+         }
+         
+      }
+      if let selectedCell = tableView.cellForRow(at: indexPath) as? HasSelectionState {
+         if selectedCell.isSingleSelect() {
+            selectedCell.setSelectionState(true)
+         } else {
+            selectedCell.setSelectionState(!selectedCell.selectionState())
+         }
+      }
       TableUIUpdater.updateTable(self.surveyQuestions.selectedRowAt(indexPath), tableView: tableView, autoFocus: surveyQuestions.autoFocusText)
       tableView.deselectRow(at: indexPath, animated: false)
    }

@@ -686,6 +686,32 @@ open class SurveyQuestions {
       }
    }
    
+   public func isMultiSelect(_ indexPath: IndexPath) -> Bool {
+      let questionPath = self.questionPath(for: indexPath)
+      return self.questionType(for: questionPath) == "multi_select"
+   }
+   
+   public func relatedDeselectPaths(_ indexPath: IndexPath) -> [IndexPath] {
+      var deselectPaths : [IndexPath] = []
+      let questionPath = self.questionPath(for: indexPath)
+      let question = self.question(for: questionPath)
+      let questionType = self.questionType(for: questionPath)
+      if questionType != "single_select" {
+         return []
+      }
+      let rows = numberOfOptions(for: question) + 1
+      for index in 1..<rows {
+         if index == questionPath.row() {
+            continue
+         }
+         let indexQP = QuestionPath(primaryQuestionIndex: questionPath.primaryQuestionIndex, rowToPrimary: index)
+         if isOptionSelected(questionPath: indexQP) {
+            deselectPaths.append(self.indexPath(for: indexQP))
+         }
+      }
+      return deselectPaths
+   }
+   
    // MARK: text input fields
    
    func numberOfFields(question: [String : Any?]) -> Int {
@@ -1144,14 +1170,18 @@ open class SurveyQuestions {
       let type = self.type(for: questionPath)
       if questionType == "single_select" && isOptionType(questionPath) {
          let data : Any = type == "option" ? self.text(for: questionPath) : [self.optionText(for: questionPath) : ""]
+         let numRows = self.numberOfRows(for: questionPath.primaryQuestionIndex)
          self.answerQuestion(questionPath, data: data)
          let (skipped, unSkippedQ) = updateSkippedQuestions(self.id(for: question))
          sectionChanges.removeSections = skipped
-         sectionChanges.reloadSections = IndexSet(integer: indexPath.section)
          var unSkippedSet = self.activeIndexSet(for: unSkippedQ)
          self.sectionsToInsert(questionPath: questionPath).forEach( {unSkippedSet.insert($0) })
          sectionChanges.insertSections = unSkippedSet
          sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
+         let newNumRows = self.numberOfRows(for: questionPath.primaryQuestionIndex)
+         if newNumRows != numRows {
+            sectionChanges.reloadSections = IndexSet(integer: indexPath.section)
+         }
          return sectionChanges
       } else if questionType == "multi_select" && isOptionType(questionPath) {
          let data = type == "option" ? self.text(for: questionPath) : self.otherAnswer(for: questionPath) ?? ""
@@ -1159,7 +1189,6 @@ open class SurveyQuestions {
          let (skipped, unSkippedQ) = updateSkippedQuestions(self.id(for: question))
          sectionChanges.removeSections = skipped
          sectionChanges.insertSections = self.activeIndexSet(for: unSkippedQ)
-         sectionChanges.reloadSections = IndexSet(integer: indexPath.section)
          sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
          return sectionChanges
       }
@@ -1235,9 +1264,6 @@ open class SurveyQuestions {
       }
       let (skipped, unSkippedQ) = updateSkippedQuestions(self.questionId(for: questionPath))
       sectionChanges.removeSections = skipped
-      if self.type(for: questionPath) == "other_option" {
-         sectionChanges.reloadSections = IndexSet(integer: self.section(for: questionPath.primaryQuestionIndex))
-      }
       var insertSet = self.activeIndexSet(for: unSkippedQ)
       self.sectionsToInsert(questionPath: questionPath).forEach({ insertSet.insert($0) })
       sectionChanges.insertSections = insertSet
