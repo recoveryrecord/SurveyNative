@@ -104,7 +104,7 @@
 		088378300FCD8D4B72F8B91FAE717B70 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		09D90708982DA9395534AD770EBA6D84 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BA5FC1540096AE864CA7DFEDAE18C33 /* blue-radio-button-deselected-white.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-radio-button-deselected-white.png"; sourceTree = "<group>"; };
-		0E6209D03C52E896C62B770572F90E19 /* Pods_SurveyNative_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurveyNative_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6209D03C52E896C62B770572F90E19 /* Pods_SurveyNative_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SurveyNative_Example.framework; path = "Pods-SurveyNative_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E795DCB1C0074BE1F54CA2CEA55BADC /* SurveyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		0EA6FD199DC3A70121CBA58E030B0149 /* blue-tick-box-ticked-white.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-tick-box-ticked-white.png"; sourceTree = "<group>"; };
 		1050457AACA1DCD95B5DF8532565E586 /* DynamicLabelTextFieldTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DynamicLabelTextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,14 +115,14 @@
 		29D06AF7C266ABC00670D66699B343D8 /* Pods-SurveyNative_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SurveyNative_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2A41B6B46BB9A0C79C611AA847151A14 /* Pods-SurveyNative_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SurveyNative_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		2A665C8B25F0FBC2A0D0BF98FA5CEEB3 /* SurveyBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyBundle.swift; sourceTree = "<group>"; };
-		2D40E8E01309C7942987A017C58500C2 /* SurveyNative.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SurveyNative.modulemap; sourceTree = "<group>"; };
+		2D40E8E01309C7942987A017C58500C2 /* SurveyNative.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SurveyNative.modulemap; sourceTree = "<group>"; };
 		2E6FA90B8F6C6D2D2EDBDE1E335785C3 /* blue-tick-box-not-ticked-white@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-tick-box-not-ticked-white@2x.png"; sourceTree = "<group>"; };
 		30E08E664E1BFFF2640A1BB6FFE13B93 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B98FA00F8C8AB951BAA5972B962899A /* TableRowTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableRowTableViewCell.swift; sourceTree = "<group>"; };
 		44169CEE9565CBD54638FA4AE0F252C3 /* TableRowHeaderTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableRowHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		44C338CDB6C8025A477A2347A23E81C6 /* Pods-SurveyNative_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SurveyNative_Example-resources.sh"; sourceTree = "<group>"; };
 		4FF220B411FF5ED1C23CDAF360868045 /* ResourceBundle-SurveyNative-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SurveyNative-Info.plist"; sourceTree = "<group>"; };
-		52A678D6C1B4D836D4ABE947FC089B33 /* Pods-SurveyNative_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SurveyNative_Example.modulemap"; sourceTree = "<group>"; };
+		52A678D6C1B4D836D4ABE947FC089B33 /* Pods-SurveyNative_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SurveyNative_Example.modulemap"; sourceTree = "<group>"; };
 		54E8EBE15AE552AD34A8D38C76D4046B /* Pods-SurveyNative_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SurveyNative_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		59C10D633FEF38AD24BCBC0D5EFC7781 /* SelectSegmentTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectSegmentTableViewCell.swift; sourceTree = "<group>"; };
 		5A84B47AA36FA8C2308E593D2181EA54 /* DynamicLabelTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DynamicLabelTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,10 +139,10 @@
 		825024FE5913EB418E195DAF0FA1456C /* DefaultSurveyTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultSurveyTheme.swift; sourceTree = "<group>"; };
 		8320C1731CAF10D6C86745C883C38967 /* Pods-SurveyNative_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SurveyNative_Tests-umbrella.h"; sourceTree = "<group>"; };
 		87B63B34FF19ECCA1988BC102FF6F408 /* HasSelectionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HasSelectionState.swift; sourceTree = "<group>"; };
-		8DB4B3D1CF721AA47DF55EC67932E89B /* SurveyNative.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyNative.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DB4B3D1CF721AA47DF55EC67932E89B /* SurveyNative.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SurveyNative.bundle; path = SurveyNative.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A0CC926C90C4633CCBA81B525B21A9 /* Pods-SurveyNative_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SurveyNative_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9182C3E8DB3410F4D42FD26F8339AB65 /* Pods_SurveyNative_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurveyNative_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9182C3E8DB3410F4D42FD26F8339AB65 /* Pods_SurveyNative_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SurveyNative_Tests.framework; path = "Pods-SurveyNative_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9412019B48B49867BE1DDFA1E7068632 /* DynamicLabelTextFieldTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DynamicLabelTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		964989D5F587A1AAC6E9729940C9B43D /* SubmitButtonTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SubmitButtonTableViewCell.swift; sourceTree = "<group>"; };
 		972A1B84CB513630BDE17AF4B752EC59 /* SelectSegmentTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SelectSegmentTableViewCell.xib; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		C4E955E12C69FC4F5C7304B625E1D29F /* Pods-SurveyNative_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SurveyNative_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C66411F2649B48E2FE41F5EC0FC90C42 /* PickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		C78F9FFEACAC6991CFBA4EDEA8369A2B /* DefaultTableCellDataDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultTableCellDataDelegate.swift; sourceTree = "<group>"; };
-		CC2978A9A20DF759C96CC4885D7B9DA9 /* Pods-SurveyNative_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SurveyNative_Tests.modulemap"; sourceTree = "<group>"; };
+		CC2978A9A20DF759C96CC4885D7B9DA9 /* Pods-SurveyNative_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SurveyNative_Tests.modulemap"; sourceTree = "<group>"; };
 		D01F451E1052BBF017F849E3CBBF8AFE /* SubmitButtonTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SubmitButtonTableViewCell.xib; sourceTree = "<group>"; };
 		D03C04790489E971700B6631A4290D31 /* blue-radio-button-selected-white@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-radio-button-selected-white@2x.png"; sourceTree = "<group>"; };
 		D0B25D3C628D03BFB8564083CC574D9A /* Pods-SurveyNative_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SurveyNative_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 		F5AAD097E11F29404E48EE77A12AEC96 /* SurveyQuestions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyQuestions.swift; sourceTree = "<group>"; };
 		F5EC08A8FCCBF2A1C6001A6881C7D898 /* SurveyDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyDataSource.swift; sourceTree = "<group>"; };
 		F7A26C0283878506B53233B07A6F1F40 /* Pods-SurveyNative_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SurveyNative_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FA06EEBC9D5C4D9F1982DB757DF1D9D6 /* SurveyNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SurveyNative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB23952D39075278325164B2E2A1653C /* OptionTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; tabWidth = 4; };
+		FA06EEBC9D5C4D9F1982DB757DF1D9D6 /* SurveyNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SurveyNative.framework; path = SurveyNative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB23952D39075278325164B2E2A1653C /* OptionTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		FBB8575D9EBA316CC0F33F49B649847A /* SurveyAnswerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyAnswerDelegate.swift; sourceTree = "<group>"; };
 		FFE41BE8F919AE895D4B3217560E4416 /* TableRowTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TableRowTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +251,7 @@
 				743433707C848DFEE1D03D4629CCAE80 /* TextFieldTableViewCell.xib */,
 				6C8861F3CA4AFA0C903166064F30D89B /* YearPickerTableViewCell.swift */,
 			);
+			name = TableViewCells;
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
@@ -280,6 +281,7 @@
 				15AF77176162719C8475575797F1F03B /* TableUIUpdater.swift */,
 				10F4CAC4546ACAB5F52111D55DFAEDBA /* TableViewCells */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -297,6 +299,7 @@
 				0EA6FD199DC3A70121CBA58E030B0149 /* blue-tick-box-ticked-white.png */,
 				B179999695ED92EE4DA6E351D2C69E37 /* blue-tick-box-ticked-white@2x.png */,
 			);
+			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -316,6 +319,7 @@
 			children = (
 				C28492D8FE3F2DD133C3EC0D53091E9E /* TableViewCells */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -335,6 +339,7 @@
 			children = (
 				4BCCA4881607FE78D14694E9DCA702DB /* Classes */,
 			);
+			name = SurveyNative;
 			path = SurveyNative;
 			sourceTree = "<group>";
 		};
@@ -344,6 +349,7 @@
 				583C17512D69BF9D3353DD4FEC6E03B9 /* Assets */,
 				714873E511BCA692D3B126605EC93A5E /* Classes */,
 			);
+			name = SurveyNative;
 			path = SurveyNative;
 			sourceTree = "<group>";
 		};
@@ -370,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 			);
+			name = TableViewCells;
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
