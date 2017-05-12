@@ -57,6 +57,20 @@
       "max_chars" : "2",
     },
     {
+      "id": "lie_about_age",
+      "question": "Do you ever lie about your age?",
+      "question_type": "single_select",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "show_if": {
+        "ids": ["age", "birthyear"],
+        "operation" : "custom",
+        "extra": {"id": "check_age", "wiggle_room": 1}
+      }
+    },
+    {
       "id": "like_music",
       "header": "Question 5",
       "question": "Do you like music?",

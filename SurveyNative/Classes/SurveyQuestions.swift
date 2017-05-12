@@ -12,6 +12,7 @@ open class SurveyQuestions {
    
    var surveyTheme : SurveyTheme
    var surveyAnswerDelegate: SurveyAnswerDelegate?
+   var customConditionDelegate: CustomConditionDelegate?
    
    var questions : [[String : Any?]]
    var submitData : [String : String]
@@ -61,6 +62,10 @@ open class SurveyQuestions {
    
    public func setSurveyAnswerDelegate(_ surveyAnswerDelegate: SurveyAnswerDelegate) {
       self.surveyAnswerDelegate = surveyAnswerDelegate
+   }
+   
+   public func setCustomConditionDelegate(_ customConditionDelegate: CustomConditionDelegate) {
+      self.customConditionDelegate = customConditionDelegate
    }
    
    class func calculateSubQToParentIdMap(_ questions: [[String: Any?]]) -> [String : String] {
@@ -477,6 +482,18 @@ open class SurveyQuestions {
             Logger.log("Error: Could not handle operation: \(operation)!", level: .error)
             return true
          }
+      } else if let customCondition = condition["operation"] as? String, customCondition == "custom" {
+         if customConditionDelegate == nil {
+            Logger.log("CustomConditionDelegate is not set, assuming false", level: .error)
+            return false
+         }
+         let ids = condition["ids"] as? [String] ?? []
+         let extra = condition["extra"] as? [String : Any]
+         var customAnswers : [String : Any] = [:]
+         for id in ids {
+            customAnswers[id] = self.answer(for: id)
+         }
+         return customConditionDelegate!.isConditionMet(answers: customAnswers, extra: extra)
       } else {
          Logger.log("Error: Poorly constructed condition: \(condition)", level: .error)
          return true
@@ -535,6 +552,8 @@ open class SurveyQuestions {
          dependencyIds.append(id)
       } else if let subconditions = condition["subconditions"] as? [[String : Any]] {
          subconditions.forEach({ dependencyIds.append(contentsOf: SurveyQuestions.dependencyIds(for: $0)) })
+      } else if let ids = condition["ids"] as? [String] {
+         dependencyIds.append(contentsOf: ids)
       }
       return dependencyIds
    }

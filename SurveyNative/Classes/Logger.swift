@@ -8,11 +8,11 @@
 
 import os.log
 
-enum LogLevel : Int {
+public enum LogLevel : Int {
    case debug, warning, info, error, fault
 }
 
-class Logger: NSObject {
+public class Logger: NSObject {
 
    // Sets the default for the print messages (the osLog message logLevel allows you to filter later, but
    // does not affect what is logged)
@@ -25,7 +25,7 @@ class Logger: NSObject {
    @available(iOS 10.0, *)
    static let osLog = OSLog.init(subsystem: "com.guardiansd.recoveryrecord", category: "questionnaire")
    
-   class func log(_ message: CVarArg, level : LogLevel = .debug) {
+   public class func log(_ message: CVarArg, level : LogLevel = .debug) {
       if #available(iOS 10.0, *) {
             os_log("%@", log: osLog, type: osLogType(level), message)
       } else {

@@ -34,6 +34,10 @@ open class SurveyViewController: UIViewController {
       surveyQuestions?.setSurveyAnswerDelegate(surveyAnswerDelegate)
    }
    
+   open func setCustomConditionDelegate(_ customConditionDelegate: CustomConditionDelegate) {
+      surveyQuestions?.setCustomConditionDelegate(customConditionDelegate)
+   }
+   
    override open func viewDidLoad() {
       super.viewDidLoad()
       
