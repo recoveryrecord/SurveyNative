@@ -1247,7 +1247,7 @@ open class SurveyQuestions {
          return IndexSet()
       }
       activeQuestion = activeQuestion + 1
-      while self.skippedQuestions.contains(activeQuestion) && activeQuestion < (self.questions.count - 2) {
+      while self.skippedQuestions.contains(activeQuestion) && activeQuestion < (self.questions.count - 1) {
          activeQuestion = activeQuestion + 1
       }
       if self.skippedQuestions.contains(activeQuestion) {
