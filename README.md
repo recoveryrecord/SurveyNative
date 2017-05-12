@@ -116,7 +116,17 @@ Whether a question is shown or hidden is dependent on the `show_if` key. If the 
   - `operation` (_String_): Required. Can be `or` or `and`. If you need a combination, you should be able to use nesting to get it.
 
   - `subconditions` (_Array of Simple Conditions or Decision Trees_): Required.
+  
+#### Custom Conditions
 
+If these options are inadequate, you can set a _CustomConditionDelegate_ and use it to make the show/hide decision.
+
+  - `ids` (_Array of Strings_): Required.  Must be non-empty. These are the ids for questions the your delegate needs the answers to in order to perform it's show/hide calculation.  Your delegate will be called as soon as any of the questions are answered, so you may have nil data for one or more answers.
+
+  - `operation` (_String_): Required. Should be set to 'custom'.
+  
+  - `extra` (_Dictionary with String keys_): Optional. This will be passed to the _isConditionMet_ method of your _CustomConditionDelegate_.
+  
 ### Submit
 
 The submit object (a peer to `questions`) requires only two keys, `button_title` and `url`. Both are required strings.
