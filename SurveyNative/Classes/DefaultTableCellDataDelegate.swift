@@ -30,6 +30,10 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
    public func markFinished(updateId: String) {
       TableUIUpdater.updateTable(surveyQuestions.markFinished(updateId: updateId), tableView: tableView, autoFocus: surveyQuestions.autoFocusText)
    }
+
+   public func validationFailed(message : String) {
+      surveyQuestions.validationFailed(message: message)
+   }
    
    public func updateUI() {
       self.tableView.beginUpdates()

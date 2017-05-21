@@ -37,7 +37,11 @@ open class SurveyViewController: UIViewController {
    open func setCustomConditionDelegate(_ customConditionDelegate: CustomConditionDelegate) {
       surveyQuestions?.setCustomConditionDelegate(customConditionDelegate)
    }
-   
+
+   open func setValidationFailedDelegate(_ validationFailedDelegate: ValidationFailedDelegate) {
+      surveyQuestions?.validationFailedDelegate = validationFailedDelegate
+   }
+
    override open func viewDidLoad() {
       super.viewDidLoad()
       

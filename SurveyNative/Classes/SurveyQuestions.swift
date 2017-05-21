@@ -13,6 +13,7 @@ open class SurveyQuestions {
    var surveyTheme : SurveyTheme
    var surveyAnswerDelegate: SurveyAnswerDelegate?
    var customConditionDelegate: CustomConditionDelegate?
+   var validationFailedDelegate: ValidationFailedDelegate?
    
    var questions : [[String : Any?]]
    var submitData : [String : String]
@@ -66,6 +67,10 @@ open class SurveyQuestions {
    
    public func setCustomConditionDelegate(_ customConditionDelegate: CustomConditionDelegate) {
       self.customConditionDelegate = customConditionDelegate
+   }
+
+   public func setValidationFailedDelegate(_ validationFailedDelegate: ValidationFailedDelegate) {
+      self.validationFailedDelegate = validationFailedDelegate
    }
    
    class func calculateSubQToParentIdMap(_ questions: [[String: Any?]]) -> [String : String] {
@@ -130,7 +135,15 @@ open class SurveyQuestions {
 
       return result
    }
-   
+
+   func validationFailed(message: String) {
+      if validationFailedDelegate == nil {
+         Logger.log("ValidationFailedDelegate is not set", level: .error)
+         return
+      }
+      validationFailedDelegate?.validationFailed(message: message)
+   }
+
    // MARK: submission
    
    func isSubmitSection(_ section : Int) -> Bool {
@@ -452,11 +465,11 @@ open class SurveyQuestions {
             let result = areNotEqual(value as? NSObject, answer as? NSObject)
             return result
          case "greater than", "greater than or equal to", "less than", "less than or equal to":
-            return numberComparison(answer: answer, value: value, operation: operation)
+            return SurveyQuestions.numberComparison(answer: answer, value: value, operation: operation)
          case "contains":
-            return contains(value as! NSObject, answer as? [NSObject])
+            return SurveyQuestions.contains(value as! NSObject, answer as? [NSObject])
          case "not contains":
-            return !contains(value as! NSObject, answer as? [NSObject])
+            return !SurveyQuestions.contains(value as! NSObject, answer as? [NSObject])
          default:
             Logger.log("Unable to check condition for unknown operation \"\(operation)\", assuming false", level: .error)
             return false
@@ -500,8 +513,8 @@ open class SurveyQuestions {
       }
    }
    
-   func numberComparison(answer: Any?, value: Any, operation: String) -> Bool {
-      if answer != nil, let numAnswer = number(for: answer!), let numValue = number(for: value) {
+   class func numberComparison(answer: Any?, value: Any, operation: String) -> Bool {
+      if answer != nil, let numAnswer = number(for: answer!), let numValue = SurveyQuestions.number(for: value) {
          
          switch operation {
          case "greater than":
@@ -521,7 +534,7 @@ open class SurveyQuestions {
       return false
    }
    
-   func number(for value: Any) -> Double? {
+   class func number(for value: Any) -> Double? {
       if let _ = value as? Double {
          return (value as! Double)
       } else if let strValue = value as? String {
@@ -535,7 +548,7 @@ open class SurveyQuestions {
       return nil
    }
    
-   func contains<T : Equatable>(_ value : T, _ container : [T]?) -> Bool {
+   class func contains<T : Equatable>(_ value : T, _ container : [T]?) -> Bool {
       return container == nil ? false : container!.contains(value)
    }
 
@@ -787,6 +800,24 @@ open class SurveyQuestions {
          return Int(maxChars)
       } else {
          return Int.max
+      }
+   }
+
+   func validations(for indexPath: IndexPath) -> [[String : Any]] {
+      let questionPath = self.questionPath(for: indexPath)
+      let type = self.type(for: questionPath)
+      if type != "text_field" {
+         return []
+      }
+      let question = self.question(for: questionPath)
+      return validations(question)
+   }
+
+   func validations(_ textField: [String : Any?]) -> [[String : Any]] {
+      if let validations = textField["validations"] as? [[String : Any]] {
+         return validations
+      } else {
+         return []
       }
    }
    
