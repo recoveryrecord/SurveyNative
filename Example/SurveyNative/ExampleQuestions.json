@@ -69,6 +69,27 @@
       ]
     },
     {
+      "id": "age_of_first_kiss",
+      "header": "Question 5",
+      "question": "Age when you had your first kiss?",
+      "question_type": "single_text_field",
+      "label": "Years",
+      "input_type": "number",
+      "max_chars": "2",
+      "validations": [
+        {
+          "operation": "greater than",
+          "value": 8,
+          "on_fail_message": "That doesn't count (older than 8)"
+        },
+        {
+          "operation": "less than or equal to",
+          "answer_to_question_id": "age",
+          "on_fail_message": "Time machines not invented yet"
+        }
+      ]
+    },
+    {
       "id": "lie_about_age",
       "question": "Do you ever lie about your age?",
       "question_type": "single_select",
