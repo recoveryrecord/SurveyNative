@@ -232,12 +232,6 @@
           "on_fail_message": "Weight must be less than 645kg"
         },
         {
-          "for_label": "Kilograms",
-          "operation": "greater than",
-          "value": 35,
-          "on_fail_message": "Weight must be at least 35kg"
-        },
-        {
           "for_label": "Pounds",
           "operation": "greater than",
           "value": 78,
