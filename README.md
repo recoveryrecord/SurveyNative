@@ -57,7 +57,12 @@ The expected input is an array of `questions` and a `submit` object, detailing h
 
   - `max_chars` (_String_): Options for `single_text_field` and `multi_text_field` question_types.  Determines the max number of characters the user may enter.
 
-  - `validations` (_Array of Dictionaries_): Optional for `single_text_field` question_type. Check value meets the validations when `Next` tapped. If not `validationFailed(message: String)` is called on your `ValidationFailedDelegate`. Validations consist of an `operation`, `value` and `on_fail_message`. Supported operations:
+  - `validations` (_Array of Dictionaries_): Optional for `single_text_field` question_type. Check value meets the validations when `Next` tapped. If not `validationFailed(message: String)` is called on your `ValidationFailedDelegate`. Validations consist of attributes:
+  	-  `operation`
+  	-  `value` or `answer_to_question_id`
+  	-  `on_fail_message`
+  	
+  	Supported operations:
 
     - `equals`
     - `not equals`

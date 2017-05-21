@@ -115,11 +115,21 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCel
    func conditionMet(_ condition : [String : Any], answer : String ) -> Bool {
 
       let operationType : String = condition["operation"] as! String
-      let value : Any = condition["value"]!
+      var value : Any? = condition["value"]
+      let questionId : String? = condition["answer_to_question_id"] as! String?
+
+      if (questionId != nil) {
+         value = self.dataDelegate?.answerForQuestion(id : questionId!)
+      }
+
+      if (value == nil) {
+         Logger.log("Unable to check condition for unknown operation \"\(operationType)\" as value is nil, assuming false", level: .error)
+         return false
+      }
 
       switch operationType {
       case "greater than", "greater than or equal to", "less than", "less than or equal to":
-         return SurveyQuestions.numberComparison(answer: answer, value: value, operation: operationType)
+         return SurveyQuestions.numberComparison(answer: answer, value: value!, operation: operationType)
       default:
          Logger.log("Unable to check condition for unknown operation \"\(operationType)\", assuming false", level: .error)
          return false
