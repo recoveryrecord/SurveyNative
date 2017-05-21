@@ -54,7 +54,19 @@
       "question_type": "single_text_field",
       "label": "Years",
       "input_type": "number",
-      "max_chars" : "2",
+      "max_chars": "2",
+      "validations": [
+        {
+          "operation": "greater than",
+          "value": 10,
+          "on_fail_message": "Age must be at least 10"
+        },
+        {
+          "operation": "less than",
+          "value": 80,
+          "on_fail_message": "You must be 80 or younger"
+        }
+      ]
     },
     {
       "id": "lie_about_age",
