@@ -57,10 +57,11 @@ The expected input is an array of `questions` and a `submit` object, detailing h
 
   - `max_chars` (_String_): Options for `single_text_field` and `multi_text_field` question_types.  Determines the max number of characters the user may enter.
 
-  - `validations` (_Array of Dictionaries_): Optional for `single_text_field` question_type. Check value meets the validations when `Next` tapped. If not `validationFailed(message: String)` is called on your `ValidationFailedDelegate`. Validations consist of attributes:
+  - `validations` (_Array of Dictionaries_): Optional for `single_text_field` and `dynamic_label_text_field` question_types. Check value meets the validations when `Next` tapped. If not `validationFailed(message: String)` is called on your `ValidationFailedDelegate`. Validations consist of attributes:
   	-  `operation`
   	-  `value` or `answer_to_question_id`
   	-  `on_fail_message`
+  	-  `for_label` (only used for `dynamic_label_text_field`)
   	
   	Supported operations:
 
@@ -279,7 +280,40 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
     ],
     "Centimeters"
   ],
-  "input_type": "number"
+  "options_metadata": {
+    "id": "unit_system",
+    "types": [
+      "imperial",
+      "metric"
+    ]
+  },
+  "input_type": "number",
+  "validations": [
+    {
+      "for_label": "Feet",
+      "operation": "greater than",
+      "value": 3,
+      "on_fail_message": "Height must be at least 4 feet"
+    },
+    {
+      "for_label": "Feet",
+      "operation": "less than",
+      "value": 10,
+      "on_fail_message": "Height must be less than 10 feet"
+    },
+    {
+      "for_label": "Centimeters",
+      "operation": "greater than",
+      "value": 100,
+      "on_fail_message": "Height must be at least 100cm"
+    },
+    {
+      "for_label": "Centimeters",
+      "operation": "less than",
+      "value": 250,
+      "on_fail_message": "Weight must be less than 250cm"
+    }
+  ]
 }
 ```
 

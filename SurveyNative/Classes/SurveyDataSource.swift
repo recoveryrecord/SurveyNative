@@ -111,6 +111,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          (tableCell as! DynamicLabelTextFieldTableViewCell).optionsMetadata = surveyQuestions.optionsMetadata(for: indexPath)
          (tableCell as! DynamicLabelTextFieldTableViewCell).currentValue = surveyQuestions.answer(for: indexPath) as? [String : String]
          (tableCell as! DynamicLabelTextFieldTableViewCell).keyboardType = surveyQuestions.keyboardType(for: indexPath)
+         (tableCell as! DynamicLabelTextFieldTableViewCell).validations = surveyQuestions.validations(for: indexPath)
       case "add_text_field":
          (tableCell as! AddTextFieldTableViewCell).dataDelegate = self.tableCellDataDelegate
          (tableCell as! AddTextFieldTableViewCell).updateId = surveyQuestions.id(for: indexPath)

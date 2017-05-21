@@ -806,7 +806,7 @@ open class SurveyQuestions {
    func validations(for indexPath: IndexPath) -> [[String : Any]] {
       let questionPath = self.questionPath(for: indexPath)
       let type = self.type(for: questionPath)
-      if type != "text_field" {
+      if type != "text_field" && type != "dynamic_label_text_field" {
          return []
       }
       let question = self.question(for: questionPath)

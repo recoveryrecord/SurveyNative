@@ -19,10 +19,10 @@
       "id": "birthyear",
       "question": "Enter the year of your birth.",
       "question_type": "year_picker",
-      "max_year" : "current_year",
-      "num_years" : "125",
-      "initial_year" : "1990",
-      "sort_order" : "DESC"
+      "max_year": "current_year",
+      "num_years": "125",
+      "initial_year": "1990",
+      "sort_order": "DESC"
     },
     {
       "id": "sports",
@@ -98,9 +98,15 @@
         "No"
       ],
       "show_if": {
-        "ids": ["age", "birthyear"],
-        "operation" : "custom",
-        "extra": {"id": "check_age", "wiggle_room": 1}
+        "ids": [
+          "age",
+          "birthyear"
+        ],
+        "operation": "custom",
+        "extra": {
+          "id": "check_age",
+          "wiggle_room": 1
+        }
       }
     },
     {
@@ -145,8 +151,8 @@
       ],
       "show_if": {
         "id": "music_types",
-        "operation" : "contains",
-        "value" : "Pop"
+        "operation": "contains",
+        "value": "Pop"
       }
     },
     {
@@ -168,7 +174,33 @@
           "metric"
         ]
       },
-      "input_type": "number"
+      "input_type": "number",
+      "validations": [
+        {
+          "for_label": "Feet",
+          "operation": "greater than",
+          "value": 3,
+          "on_fail_message": "Height must be at least 4 feet"
+        },
+        {
+          "for_label": "Feet",
+          "operation": "less than",
+          "value": 10,
+          "on_fail_message": "Height must be less than 10 feet"
+        },
+        {
+          "for_label": "Centimeters",
+          "operation": "greater than",
+          "value": 100,
+          "on_fail_message": "Height must be at least 100cm"
+        },
+        {
+          "for_label": "Centimeters",
+          "operation": "less than",
+          "value": 250,
+          "on_fail_message": "Weight must be less than 250cm"
+        }
+      ]
     },
     {
       "id": "weight",
@@ -186,6 +218,38 @@
           "metric"
         ]
       },
+      "validations": [
+        {
+          "for_label": "Kilograms",
+          "operation": "greater than",
+          "value": 35,
+          "on_fail_message": "Weight must be at least 35kg"
+        },
+        {
+          "for_label": "Kilograms",
+          "operation": "less than",
+          "value": 635,
+          "on_fail_message": "Weight must be less than 645kg"
+        },
+        {
+          "for_label": "Kilograms",
+          "operation": "greater than",
+          "value": 35,
+          "on_fail_message": "Weight must be at least 35kg"
+        },
+        {
+          "for_label": "Pounds",
+          "operation": "greater than",
+          "value": 78,
+          "on_fail_message": "Weight must be at least 78lb"
+        },
+        {
+          "for_label": "Pounds",
+          "operation": "less than",
+          "value": 1400,
+          "on_fail_message": "Weight must be less than 1,400lb"
+        }
+      ],
       "input_type": "number"
     },
     {
@@ -288,24 +352,26 @@
       "header": "Question 12",
       "question": "What is was the best day of the last year?",
       "question_type": "date_picker",
-      "date" : "current_date",
-      "max_date" : "current_date",
-      "date_diff" : { "year" : -1 }
+      "date": "current_date",
+      "max_date": "current_date",
+      "date_diff": {
+        "year": -1
+      }
     },
     {
-      "id":"pets",
+      "id": "pets",
       "header": "Question 12",
       "question": "How many pets do you have?",
       "question_type": "multi_text_field",
       "fields": [
-         {
-            "label" : "Dogs",
-            "input_type" : "number"
-         },
-         {
-            "label" : "Cats",
-            "input_type" : "number"
-         }
+        {
+          "label": "Dogs",
+          "input_type": "number"
+        },
+        {
+          "label": "Cats",
+          "input_type": "number"
+        }
       ]
     }
   ],
@@ -313,5 +379,5 @@
     "button_title": "Submit Answers",
     "url": "https://www.example.com"
   },
-  "auto_focus_text" : true
+  "auto_focus_text": true
 }
