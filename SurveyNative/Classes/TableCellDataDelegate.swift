@@ -14,4 +14,6 @@ public protocol TableCellDataDelegate {
    func updateUI()
    func submitData()
    func updateActiveTextView(_ view: UIView)
+   func validationFailed(message : String)
+   func answerForQuestion(id: String) -> Any
 }

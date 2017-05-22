@@ -30,7 +30,9 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
             return
          }
          if optionText != oldValue {
-            sendUpdate()
+            if (validate().0) {
+               sendUpdate()
+            }
          }
       }
    }
@@ -60,6 +62,8 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
          updateButtonImages()
       }
    }
+
+   var validations: [[String : Any]]?
    
    override func awakeFromNib() {
       super.awakeFromNib()
@@ -96,6 +100,14 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
    }
    
    @IBAction func tappedNextButton(_ sender: UIButton) {
+      if (textField != nil) {
+         let v = validate()
+         if (!v.0) {
+            self.dataDelegate?.validationFailed(message: v.1)
+            return
+         }
+      }
+
       self.optionText = textField?.text ?? ""
       textField?.resignFirstResponder()
    }
@@ -108,7 +120,9 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
       optionButton.isSelected = selected
       isSelectedOption = selected
       if selected {
-         textField?.becomeFirstResponder()
+         if (textField.text == "") {
+            textField?.becomeFirstResponder()
+         }
       } else {
          textField?.resignFirstResponder()
       }
@@ -136,6 +150,44 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
          nextButton?.isHidden = !shouldShowNextButton
       } else {
          nextButton?.isHidden = true
+      }
+   }
+
+   func validate() -> (Bool, String) {
+      if validations != nil {
+         for validation in self.validations! {
+            if (textField != nil) {
+               if (!conditionMet(validation, answer: (textField?.text)!)) {
+                  let message : String = validation["on_fail_message"] as! String
+                  return (false, message)
+               }
+            }
+         }
+      }
+      return (true, "")
+   }
+
+   func conditionMet(_ condition : [String : Any], answer : String ) -> Bool {
+
+      let operationType : String = condition["operation"] as! String
+      var value : Any? = condition["value"]
+      let questionId : String? = condition["answer_to_question_id"] as! String?
+
+      if (questionId != nil) {
+         value = self.dataDelegate?.answerForQuestion(id : questionId!)
+      }
+
+      if (value == nil) {
+         Logger.log("Unable to check condition for unknown operation \"\(operationType)\" as value is nil, assuming false", level: .error)
+         return false
+      }
+
+      switch operationType {
+      case "greater than", "greater than or equal to", "less than", "less than or equal to":
+         return SurveyQuestions.numberComparison(answer: answer, value: value!, operation: operationType)
+      default:
+         Logger.log("Unable to check condition for unknown operation \"\(operationType)\", assuming false", level: .error)
+         return false
       }
    }
 }

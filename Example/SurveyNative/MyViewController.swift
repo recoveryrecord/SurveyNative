@@ -9,12 +9,13 @@
 import UIKit
 import SurveyNative
 
-class MyViewController: SurveyViewController, SurveyAnswerDelegate, CustomConditionDelegate {
+class MyViewController: SurveyViewController, SurveyAnswerDelegate, CustomConditionDelegate, ValidationFailedDelegate {
    
    override func viewDidLoad() {
       super.viewDidLoad()
       self.setSurveyAnswerDelegate(self)
       self.setCustomConditionDelegate(self)
+      self.setValidationFailedDelegate(self)
    }
    
    override func surveyJsonFile() -> String {
@@ -48,6 +49,12 @@ class MyViewController: SurveyViewController, SurveyAnswerDelegate, CustomCondit
          Logger.log("Unknown custom condition check: \(id)")
          return false
       }
+   }
+
+   func validationFailed(message: String) {
+      let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
    }
 }
 

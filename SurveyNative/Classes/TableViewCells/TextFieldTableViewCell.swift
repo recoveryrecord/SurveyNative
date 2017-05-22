@@ -26,7 +26,9 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCel
             return
          }
          if textFieldText != oldValue {
-            sendUpdate()
+            if (validate().0) {
+               sendUpdate()
+            }
          }
       }
    }
@@ -36,6 +38,7 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCel
       }
    }
    var maxCharacters: Int?
+   var validations: [[String : Any]]?
    
    override func awakeFromNib() {
       super.awakeFromNib()
@@ -46,12 +49,16 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCel
    
    override func setSelected(_ selected: Bool, animated: Bool) {
       if selected {
-         textField?.becomeFirstResponder()
+         if (textField.text == "") {
+            textField?.becomeFirstResponder()
+         }
       }
    }
    
    func cellDidActivate() {
-      self.textField!.becomeFirstResponder()
+      if (self.textField.text == "") {
+         self.textField!.becomeFirstResponder()
+      }
    }
    
    func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -84,10 +91,52 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCel
    func sendUpdate() {
       dataDelegate?.update(updateId: updateId!, data: self.textFieldText ?? "")
    }
-  
+
+   func validate() -> (Bool, String) {
+      if validations != nil {
+         for validation in self.validations! {
+            if (!conditionMet(validation, answer: textField.text!)) {
+               let message : String = validation["on_fail_message"] as! String
+               return (false, message)
+            }
+         }
+      }
+      return (true, "")
+   }
+
    @IBAction func tappedNextButton(_ sender: UIButton) {
+      let v = validate()
+      if (!v.0) {
+         self.dataDelegate?.validationFailed(message: v.1)
+         return
+      }
+
       dataDelegate?.markFinished(updateId: updateId!)
       self.textFieldText = textField?.text ?? ""
       textField?.resignFirstResponder()
+   }
+
+   func conditionMet(_ condition : [String : Any], answer : String ) -> Bool {
+
+      let operationType : String = condition["operation"] as! String
+      var value : Any? = condition["value"]
+      let questionId : String? = condition["answer_to_question_id"] as! String?
+
+      if (questionId != nil) {
+         value = self.dataDelegate?.answerForQuestion(id : questionId!)
+      }
+
+      if (value == nil) {
+         Logger.log("Unable to check condition for unknown operation \"\(operationType)\" as value is nil, assuming false", level: .error)
+         return false
+      }
+
+      switch operationType {
+      case "greater than", "greater than or equal to", "less than", "less than or equal to":
+         return SurveyQuestions.numberComparison(answer: answer, value: value!, operation: operationType)
+      default:
+         Logger.log("Unable to check condition for unknown operation \"\(operationType)\", assuming false", level: .error)
+         return false
+      }
    }
 }

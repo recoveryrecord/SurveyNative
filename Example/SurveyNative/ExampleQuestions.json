@@ -19,10 +19,10 @@
       "id": "birthyear",
       "question": "Enter the year of your birth.",
       "question_type": "year_picker",
-      "max_year" : "current_year",
-      "num_years" : "125",
-      "initial_year" : "1990",
-      "sort_order" : "DESC"
+      "max_year": "current_year",
+      "num_years": "125",
+      "initial_year": "1990",
+      "sort_order": "DESC"
     },
     {
       "id": "sports",
@@ -54,10 +54,69 @@
       "question_type": "single_text_field",
       "label": "Years",
       "input_type": "number",
-      "max_chars" : "2",
+      "max_chars": "2",
+      "validations": [
+        {
+          "operation": "greater than",
+          "value": 10,
+          "on_fail_message": "Age must be at least 10"
+        },
+        {
+          "operation": "less than or equal to",
+          "value": 80,
+          "on_fail_message": "You must be 80 or younger"
+        }
+      ]
+    },
+    {
+      "id": "age_of_first_kiss",
+      "header": "Question 5",
+      "question": "Age when you had your first kiss?",
+      "question_type": "single_text_field",
+      "label": "Years",
+      "input_type": "number",
+      "max_chars": "2",
+      "validations": [
+        {
+          "operation": "greater than",
+          "value": 8,
+          "on_fail_message": "That doesn't count (older than 8)"
+        },
+        {
+          "operation": "less than or equal to",
+          "answer_to_question_id": "age",
+          "on_fail_message": "Time machines not invented yet"
+        }
+      ]
+    },
+    {
+      "id": "felt_like_adult",
+      "header": "Question 6",
+      "question": "How old were you when you felt like an adult?",
+      "question_type": "single_select",
+      "options": [
+        {
+          "title": "Years old",
+          "type": "number",
+          "validations": [
+            {
+              "operation": "greater than",
+              "value": 5,
+              "on_fail_message": "Age must be at least 10"
+            },
+            {
+              "operation": "less than or equal to",
+              "answer_to_question_id": "age",
+              "on_fail_message": "Greater than your current age"
+            }
+          ]
+        },
+        "Don't know"
+      ]
     },
     {
       "id": "lie_about_age",
+      "header": "Question 7",
       "question": "Do you ever lie about your age?",
       "question_type": "single_select",
       "options": [
@@ -65,14 +124,20 @@
         "No"
       ],
       "show_if": {
-        "ids": ["age", "birthyear"],
-        "operation" : "custom",
-        "extra": {"id": "check_age", "wiggle_room": 1}
+        "ids": [
+          "age",
+          "birthyear"
+        ],
+        "operation": "custom",
+        "extra": {
+          "id": "check_age",
+          "wiggle_room": 1
+        }
       }
     },
     {
       "id": "like_music",
-      "header": "Question 5",
+      "header": "Question 8",
       "question": "Do you like music?",
       "question_type": "single_select",
       "options": [
@@ -82,7 +147,7 @@
     },
     {
       "id": "music_types",
-      "header": "Question 6",
+      "header": "Question 9",
       "question": "What types of music do you like?",
       "question_type": "multi_select",
       "options": [
@@ -103,7 +168,7 @@
     },
     {
       "id": "go_to_concerts",
-      "header": "Question 5",
+      "header": "Question 10",
       "question": "Do you go to concerts?",
       "question_type": "single_select",
       "options": [
@@ -112,13 +177,13 @@
       ],
       "show_if": {
         "id": "music_types",
-        "operation" : "contains",
-        "value" : "Pop"
+        "operation": "contains",
+        "value": "Pop"
       }
     },
     {
       "id": "height",
-      "header": "Question 7",
+      "header": "Question 11",
       "question": "How tall are you?",
       "question_type": "dynamic_label_text_field",
       "label_options": [
@@ -135,11 +200,37 @@
           "metric"
         ]
       },
-      "input_type": "number"
+      "input_type": "number",
+      "validations": [
+        {
+          "for_label": "Feet",
+          "operation": "greater than",
+          "value": 3,
+          "on_fail_message": "Height must be at least 4 feet"
+        },
+        {
+          "for_label": "Feet",
+          "operation": "less than",
+          "value": 10,
+          "on_fail_message": "Height must be less than 10 feet"
+        },
+        {
+          "for_label": "Centimeters",
+          "operation": "greater than",
+          "value": 100,
+          "on_fail_message": "Height must be at least 100cm"
+        },
+        {
+          "for_label": "Centimeters",
+          "operation": "less than",
+          "value": 250,
+          "on_fail_message": "Weight must be less than 250cm"
+        }
+      ]
     },
     {
       "id": "weight",
-      "header": "Question 6",
+      "header": "Question 12",
       "question": "How much do you weigh?",
       "question_type": "dynamic_label_text_field",
       "label_options": [
@@ -153,11 +244,37 @@
           "metric"
         ]
       },
+      "validations": [
+        {
+          "for_label": "Kilograms",
+          "operation": "greater than",
+          "value": 35,
+          "on_fail_message": "Weight must be at least 35kg"
+        },
+        {
+          "for_label": "Kilograms",
+          "operation": "less than",
+          "value": 635,
+          "on_fail_message": "Weight must be less than 645kg"
+        },
+        {
+          "for_label": "Pounds",
+          "operation": "greater than",
+          "value": 78,
+          "on_fail_message": "Weight must be at least 78lb"
+        },
+        {
+          "for_label": "Pounds",
+          "operation": "less than",
+          "value": 1400,
+          "on_fail_message": "Weight must be less than 1,400lb"
+        }
+      ],
       "input_type": "number"
     },
     {
       "id": "happiness",
-      "header": "Question 9",
+      "header": "Question 13",
       "question": "How happy are you?",
       "question_type": "segment_select",
       "low_tag": "1. Not happy",
@@ -174,7 +291,7 @@
     },
     {
       "id": "weekend_activities",
-      "header": "Question 10",
+      "header": "Question 14",
       "question": "On the weekends, do you:",
       "question_type": "table_select",
       "options": [
@@ -203,7 +320,7 @@
     },
     {
       "id": "prefer_tv_books",
-      "header": "Question 11",
+      "header": "Question 15",
       "question": "Do you like to read the book of the movie before you see it?",
       "question_type": "single_select",
       "options": [
@@ -252,27 +369,29 @@
     },
     {
       "id": "date",
-      "header": "Question 12",
+      "header": "Question 16",
       "question": "What is was the best day of the last year?",
       "question_type": "date_picker",
-      "date" : "current_date",
-      "max_date" : "current_date",
-      "date_diff" : { "year" : -1 }
+      "date": "current_date",
+      "max_date": "current_date",
+      "date_diff": {
+        "year": -1
+      }
     },
     {
-      "id":"pets",
-      "header": "Question 12",
+      "id": "pets",
+      "header": "Question 17",
       "question": "How many pets do you have?",
       "question_type": "multi_text_field",
       "fields": [
-         {
-            "label" : "Dogs",
-            "input_type" : "number"
-         },
-         {
-            "label" : "Cats",
-            "input_type" : "number"
-         }
+        {
+          "label": "Dogs",
+          "input_type": "number"
+        },
+        {
+          "label": "Cats",
+          "input_type": "number"
+        }
       ]
     }
   ],
@@ -280,5 +399,5 @@
     "button_title": "Submit Answers",
     "url": "https://www.example.com"
   },
-  "auto_focus_text" : true
+  "auto_focus_text": true
 }

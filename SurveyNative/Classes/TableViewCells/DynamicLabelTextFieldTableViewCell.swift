@@ -29,6 +29,8 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, 
          }
       }
    }
+
+   var validations: [[String : Any]]?
    
    var labelOptions : [AnyHashable]?
    var optionsMetadata: [String : Any]?
@@ -75,7 +77,9 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, 
    
    func cellDidActivate() {
       if textFields.count > 0 {
-         textFields[0].becomeFirstResponder()
+         if (textFields[0].text == "") {
+            textFields[0].becomeFirstResponder()
+         }
       }
    }
    
@@ -153,7 +157,9 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, 
    }
    
    func textFieldDidEndEditing(_ textField: UITextField) {
-      sendUpdate()
+      if (validate().0) {
+         sendUpdate()
+      }
    }
    
    func sendUpdate() {
@@ -162,11 +168,19 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, 
    }
    
    @IBAction func tappedNextButton(_ sender: UIButton) {
+      let v = validate()
+      if (!v.0) {
+         self.dataDelegate?.validationFailed(message: v.1)
+         return
+      }
+
       sendUpdate()
    }
    
    @IBAction func actionTriggered(_ sender: UITextField) {
-      sendUpdate()
+      if (validate().0) {
+         sendUpdate()
+      }
    }
    
    func getData() -> [String : String] {
@@ -206,7 +220,56 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, 
          DynamicLabelTextFieldTableViewCell.metadataDefaults[self.metadataOptionsId()!] = self.metadataOptionsTypes()?[selectedIndex!]
       }
    }
-   
+
+   func textFieldWithLabel(label : String) -> UITextField? {
+      for (index, button) in self.buttons.enumerated() {
+         if button.title(for: UIControlState.normal) == label {
+            return self.textFields[index]
+         }
+      }
+      return nil
+   }
+
+   func validate() -> (Bool, String) {
+      if validations != nil {
+         for validation in self.validations! {
+            let textField : UITextField? = textFieldWithLabel(label: validation["for_label"] as! String)
+
+            if (textField != nil) {
+               if (!conditionMet(validation, answer: (textField?.text)!)) {
+                  let message : String = validation["on_fail_message"] as! String
+                  return (false, message)
+               }
+            }
+         }
+      }
+      return (true, "")
+   }
+
+   func conditionMet(_ condition : [String : Any], answer : String ) -> Bool {
+
+      let operationType : String = condition["operation"] as! String
+      var value : Any? = condition["value"]
+      let questionId : String? = condition["answer_to_question_id"] as! String?
+
+      if (questionId != nil) {
+         value = self.dataDelegate?.answerForQuestion(id : questionId!)
+      }
+
+      if (value == nil) {
+         Logger.log("Unable to check condition for unknown operation \"\(operationType)\" as value is nil, assuming false", level: .error)
+         return false
+      }
+
+      switch operationType {
+      case "greater than", "greater than or equal to", "less than", "less than or equal to":
+         return SurveyQuestions.numberComparison(answer: answer, value: value!, operation: operationType)
+      default:
+         Logger.log("Unable to check condition for unknown operation \"\(operationType)\", assuming false", level: .error)
+         return false
+      }
+   }
+
    @IBAction func labelTapped(_ sender: UIButton) {
       let alertController = UIAlertController(title: "Choose", message: nil, preferredStyle: .actionSheet)
       
