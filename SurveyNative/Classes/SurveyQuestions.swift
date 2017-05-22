@@ -674,16 +674,16 @@ open class SurveyQuestions {
    func optionText(option: AnyHashable) -> String {
       if let title = option as? String {
          return title
-      } else if let optionDict = option as? [String : String] {
-         return optionDict["title"]!
+      } else if let optionDict = option as? [String : Any] {
+         return optionDict["title"] as! String
       } else {
          return ""
       }
    }
    
    func otherOptionType(option: AnyHashable) -> String {
-      if let optionDict = option as? [String : String] {
-         return optionDict["type"]!
+      if let optionDict = option as? [String : Any] {
+         return optionDict["type"] as! String
       } else {
          return ""
       }
@@ -696,7 +696,7 @@ open class SurveyQuestions {
    
    func isOtherOption(for questionPath: QuestionPath) -> Bool {
       let option = self.option(for: questionPath)
-      return (option as? [String : String]) != nil
+      return (option as? [String : Any]) != nil
    }
    
    public func isOptionSelected(_ indexPath: IndexPath) -> Bool {
@@ -806,15 +806,20 @@ open class SurveyQuestions {
    func validations(for indexPath: IndexPath) -> [[String : Any]] {
       let questionPath = self.questionPath(for: indexPath)
       let type = self.type(for: questionPath)
-      if type != "text_field" && type != "dynamic_label_text_field" {
+      if type != "text_field" && type != "dynamic_label_text_field" && type != "other_option" {
          return []
       }
       let question = self.question(for: questionPath)
+
+      if type == "other_option" {
+         let option = self.option(for: questionPath) as! [String : Any]
+         return validations(option)
+      }
       return validations(question)
    }
 
-   func validations(_ textField: [String : Any?]) -> [[String : Any]] {
-      if let validations = textField["validations"] as? [[String : Any]] {
+   func validations(_ question: [String : Any?]) -> [[String : Any]] {
+      if let validations = question["validations"] as? [[String : Any]] {
          return validations
       } else {
          return []

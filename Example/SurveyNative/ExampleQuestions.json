@@ -62,7 +62,7 @@
           "on_fail_message": "Age must be at least 10"
         },
         {
-          "operation": "less than",
+          "operation": "less than or equal to",
           "value": 80,
           "on_fail_message": "You must be 80 or younger"
         }
@@ -90,7 +90,33 @@
       ]
     },
     {
+      "id": "felt_like_adult",
+      "header": "Question 6",
+      "question": "How old were you when you felt like an adult?",
+      "question_type": "single_select",
+      "options": [
+        {
+          "title": "Years old",
+          "type": "number",
+          "validations": [
+            {
+              "operation": "greater than",
+              "value": 5,
+              "on_fail_message": "Age must be at least 10"
+            },
+            {
+              "operation": "less than or equal to",
+              "answer_to_question_id": "age",
+              "on_fail_message": "Greater than your current age"
+            }
+          ]
+        },
+        "Don't know"
+      ]
+    },
+    {
       "id": "lie_about_age",
+      "header": "Question 7",
       "question": "Do you ever lie about your age?",
       "question_type": "single_select",
       "options": [
@@ -111,7 +137,7 @@
     },
     {
       "id": "like_music",
-      "header": "Question 5",
+      "header": "Question 8",
       "question": "Do you like music?",
       "question_type": "single_select",
       "options": [
@@ -121,7 +147,7 @@
     },
     {
       "id": "music_types",
-      "header": "Question 6",
+      "header": "Question 9",
       "question": "What types of music do you like?",
       "question_type": "multi_select",
       "options": [
@@ -142,7 +168,7 @@
     },
     {
       "id": "go_to_concerts",
-      "header": "Question 5",
+      "header": "Question 10",
       "question": "Do you go to concerts?",
       "question_type": "single_select",
       "options": [
@@ -157,7 +183,7 @@
     },
     {
       "id": "height",
-      "header": "Question 7",
+      "header": "Question 11",
       "question": "How tall are you?",
       "question_type": "dynamic_label_text_field",
       "label_options": [
@@ -204,7 +230,7 @@
     },
     {
       "id": "weight",
-      "header": "Question 6",
+      "header": "Question 12",
       "question": "How much do you weigh?",
       "question_type": "dynamic_label_text_field",
       "label_options": [
@@ -248,7 +274,7 @@
     },
     {
       "id": "happiness",
-      "header": "Question 9",
+      "header": "Question 13",
       "question": "How happy are you?",
       "question_type": "segment_select",
       "low_tag": "1. Not happy",
@@ -265,7 +291,7 @@
     },
     {
       "id": "weekend_activities",
-      "header": "Question 10",
+      "header": "Question 14",
       "question": "On the weekends, do you:",
       "question_type": "table_select",
       "options": [
@@ -294,7 +320,7 @@
     },
     {
       "id": "prefer_tv_books",
-      "header": "Question 11",
+      "header": "Question 15",
       "question": "Do you like to read the book of the movie before you see it?",
       "question_type": "single_select",
       "options": [
@@ -343,7 +369,7 @@
     },
     {
       "id": "date",
-      "header": "Question 12",
+      "header": "Question 16",
       "question": "What is was the best day of the last year?",
       "question_type": "date_picker",
       "date": "current_date",
@@ -354,7 +380,7 @@
     },
     {
       "id": "pets",
-      "header": "Question 12",
+      "header": "Question 17",
       "question": "How many pets do you have?",
       "question_type": "multi_text_field",
       "fields": [
