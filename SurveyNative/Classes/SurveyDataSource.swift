@@ -58,6 +58,9 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          (tableCell as! OtherOptionTableViewCell).isSelectedOption = selected
          if selected {
             (tableCell as! OtherOptionTableViewCell).optionText = surveyQuestions.otherAnswer(for: indexPath)
+            (tableCell as! OtherOptionTableViewCell).setSelectionState(true)
+         } else {
+            (tableCell as! OtherOptionTableViewCell).optionText = ""
          }
          (tableCell as! OtherOptionTableViewCell).textField?.keyboardType = surveyQuestions.keyboardType(for: indexPath)
          (tableCell as! OtherOptionTableViewCell).shouldShowNextButton = surveyQuestions.showNextButton(for: indexPath)
