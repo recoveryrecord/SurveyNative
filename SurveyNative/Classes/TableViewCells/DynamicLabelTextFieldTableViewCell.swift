@@ -77,7 +77,9 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, 
    
    func cellDidActivate() {
       if textFields.count > 0 {
-         textFields[0].becomeFirstResponder()
+         if (textFields[0].text == "") {
+            textFields[0].becomeFirstResponder()
+         }
       }
    }
    

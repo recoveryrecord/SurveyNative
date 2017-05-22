@@ -49,12 +49,16 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCel
    
    override func setSelected(_ selected: Bool, animated: Bool) {
       if selected {
-         textField?.becomeFirstResponder()
+         if (textField.text == "") {
+            textField?.becomeFirstResponder()
+         }
       }
    }
    
    func cellDidActivate() {
-      self.textField!.becomeFirstResponder()
+      if (self.textField.text == "") {
+         self.textField!.becomeFirstResponder()
+      }
    }
    
    func textFieldDidBeginEditing(_ textField: UITextField) {

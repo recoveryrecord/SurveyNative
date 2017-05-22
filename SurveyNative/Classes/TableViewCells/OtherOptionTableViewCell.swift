@@ -120,7 +120,9 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
       optionButton.isSelected = selected
       isSelectedOption = selected
       if selected {
-         textField?.becomeFirstResponder()
+         if (textField.text == "") {
+            textField?.becomeFirstResponder()
+         }
       } else {
          textField?.resignFirstResponder()
       }

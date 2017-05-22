@@ -45,7 +45,9 @@ class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableView
    
    func cellDidActivate() {
       if extraTextFields.count > 0 {
-         extraTextFields[0].becomeFirstResponder()
+         if (extraTextFields[0].text == "") {
+            extraTextFields[0].becomeFirstResponder()
+         }
       }
    }
    
@@ -81,7 +83,9 @@ class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableView
          dataDelegate?.updateUI()
       }
       if let nextField = nextTextField(sender) {
-         nextField.becomeFirstResponder()
+         if (nextField.text == "") {
+            nextField.becomeFirstResponder()
+         }
       }
    }
    
