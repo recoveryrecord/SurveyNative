@@ -641,7 +641,7 @@ open class SurveyQuestions {
       for i in 0 ..< questionPath.subQuestionIndex! {
          rowCount = rowCount + self.numberOfRows(for: subQuestions[i])
       }
-      rowCount = rowCount + questionPath.subQuestionIndex!
+      rowCount = rowCount + questionPath.rowToSub!
       return IndexPath(row: rowCount, section: self.section(for: questionPath.primaryQuestionIndex))
    }
    
@@ -745,7 +745,9 @@ open class SurveyQuestions {
          if index == questionPath.row() {
             continue
          }
-         let indexQP = QuestionPath(primaryQuestionIndex: questionPath.primaryQuestionIndex, rowToPrimary: index)
+         let indexQP = questionPath.subQuestionIndex == nil
+            ? QuestionPath(primaryQuestionIndex: questionPath.primaryQuestionIndex, rowToPrimary: index)
+            : QuestionPath(primaryQuestionIndex: questionPath.primaryQuestionIndex, subQuestionIndex: questionPath.subQuestionIndex!, rowToSub: index)
          if isOptionSelected(questionPath: indexQP) {
             deselectPaths.append(self.indexPath(for: indexQP))
          }
