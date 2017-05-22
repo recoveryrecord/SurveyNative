@@ -13,7 +13,6 @@ open class SurveyQuestions {
    var surveyTheme : SurveyTheme
    var surveyAnswerDelegate: SurveyAnswerDelegate?
    var customConditionDelegate: CustomConditionDelegate?
-   var validationFailedDelegate: ValidationFailedDelegate?
    
    var questions : [[String : Any?]]
    var submitData : [String : String]
@@ -67,10 +66,6 @@ open class SurveyQuestions {
    
    public func setCustomConditionDelegate(_ customConditionDelegate: CustomConditionDelegate) {
       self.customConditionDelegate = customConditionDelegate
-   }
-
-   public func setValidationFailedDelegate(_ validationFailedDelegate: ValidationFailedDelegate) {
-      self.validationFailedDelegate = validationFailedDelegate
    }
    
    class func calculateSubQToParentIdMap(_ questions: [[String: Any?]]) -> [String : String] {
@@ -134,14 +129,6 @@ open class SurveyQuestions {
       }
 
       return result
-   }
-
-   func validationFailed(message: String) {
-      if validationFailedDelegate == nil {
-         Logger.log("ValidationFailedDelegate is not set", level: .error)
-         return
-      }
-      validationFailedDelegate?.validationFailed(message: message)
    }
 
    // MARK: submission

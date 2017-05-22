@@ -7,80 +7,82 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05A05160D7F013481AFFB05A4210C3B2 /* OtherOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33605DFA1024AD92A5396846994DEDF7 /* OtherOptionTableViewCell.swift */; };
-		05C70331A20365D9DEBA77897FE89995 /* SubmitButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C83012372F62682DD38E0A157252A93 /* SubmitButtonTableViewCell.xib */; };
-		0DB1125A4DDDB340CDBD151D2D101EBE /* TableRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4911C051B1D354885B16FF0E2A99D5 /* TableRowTableViewCell.xib */; };
+		01C25A0F37F2A54698883A20E65914AE /* SelectSegmentTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = BD9E2AB650787DEB0DED97D4AE7EC8FB /* SelectSegmentTableViewCell.xib */; };
+		03C97831507D8087366B83A0C6F27AA7 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2998B685395A15AB2C0950AB02BAD5DF /* TextFieldTableViewCell.swift */; };
+		05C70331A20365D9DEBA77897FE89995 /* SubmitButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B890A99562687E39956E7C76367AD3F4 /* SubmitButtonTableViewCell.xib */; };
+		0DB1125A4DDDB340CDBD151D2D101EBE /* TableRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE528EEA75C0C7F26F4853B1E9E34FC /* TableRowTableViewCell.xib */; };
 		129B09CA12CF36CB8979C44E6CB817EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		13D498F23038EE5CBF06204DFDDE3A96 /* Pods-SurveyNative_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F387F892D5436E82C08E4106EE28C98F /* Pods-SurveyNative_Example-dummy.m */; };
 		15A2B4C51A4C7F6EFB483327A7DE94C7 /* Pods-SurveyNative_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E4ADCCDD0D4E2EEAF2D66E1B7F28A9 /* Pods-SurveyNative_Tests-dummy.m */; };
-		173F3C441ED2290E00FAA3C8 /* ValidationFailedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F3C421ED2290500FAA3C8 /* ValidationFailedDelegate.swift */; };
 		1B5DF8642DEB4502F4DA220D0A9001E0 /* blue-radio-button-selected-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03C04790489E971700B6631A4290D31 /* blue-radio-button-selected-white@2x.png */; };
-		20454952E50A4B4F3D6ECDD29C1699C6 /* TableUIUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3E7E36E3151983394137A24599FBAE /* TableUIUpdater.swift */; };
-		32C1BBC1FBE090BB8D82799099073398 /* SelectSegmentTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = CE73342EF8F75C076F8828308DEDE6B0 /* SelectSegmentTableViewCell.xib */; };
-		34D5396C1EC7AB7922D8B88DD6265A4C /* SelectSegmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE73342EF8F75C076F8828308DEDE6B0 /* SelectSegmentTableViewCell.xib */; };
+		1BB5461F951FA42089CBF4F7CE520EBA /* OtherOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE07642592F7DC67B2FFE4B09E4D22F3 /* OtherOptionTableViewCell.swift */; };
+		1CB7A53D5EE0364E2D86FEB18300C495 /* TableRowHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64624B095441D9CEEB55097E9AA7A00B /* TableRowHeaderTableViewCell.swift */; };
+		22F2EFCC8FC8F17F28C12199286217E9 /* TableRowTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4EE528EEA75C0C7F26F4853B1E9E34FC /* TableRowTableViewCell.xib */; };
+		24D2640D1AB028B7E943FF91D0BA9858 /* DynamicLabelTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = C88D6303D03B2C575412ED0427FCEFC8 /* DynamicLabelTableViewCell.xib */; };
+		2C53E58CF7ACDAEDB375017C329526B0 /* DynamicLabelTextFieldTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 324491ED61A917C2D8B1C03DF5E72D5D /* DynamicLabelTextFieldTableViewCell.xib */; };
+		34D5396C1EC7AB7922D8B88DD6265A4C /* SelectSegmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD9E2AB650787DEB0DED97D4AE7EC8FB /* SelectSegmentTableViewCell.xib */; };
 		34F880A0061564BA083A93FD131B83EB /* SurveyNative.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8DB4B3D1CF721AA47DF55EC67932E89B /* SurveyNative.bundle */; };
-		3EED970D6A833FF8FF5ACE66301FFFF8 /* TableRowHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B39298E14C5754FB11A2381D5DD12C7 /* TableRowHeaderTableViewCell.swift */; };
-		40E42ED5C9CE4DFD0D8BC7E4B42912CA /* DynamicLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB8526B6BBCE6FA2A8E4AA93FE92516 /* DynamicLabelTableViewCell.swift */; };
-		42A36508B5D27D92B76ABE9317F94152 /* DefaultTableCellDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A850EE5E1E4B95B0A16344D01756BDD /* DefaultTableCellDataDelegate.swift */; };
-		4497F48FAFEAC10202F91478F9BCC0D4 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23562665B29F2A80FDB205C106ECE6A4 /* SurveyViewController.swift */; };
-		45DA8F6F8E1A3E587AAF5D0839612294 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645DF81E7112130AC5679544A74133D2 /* OptionTableViewCell.swift */; };
+		366F50246F4664ECDFE7C6D3F08879FE /* SubmitButtonTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = B890A99562687E39956E7C76367AD3F4 /* SubmitButtonTableViewCell.xib */; };
+		3F5AF3FFF96E27AD42EA0DFA11C1F17B /* TableCellDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691308FF111DBF1A92A6B47A545FE24 /* TableCellDataDelegate.swift */; };
+		42F8D06E35802B369A6F6737DC75763A /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB227BC1BE7A895AE09725F844196EA /* PickerViewController.swift */; };
+		49E5D04BA02511878D992DBB18413138 /* SurveyBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487A0F34E744A89E3EBFDB400815DF7 /* SurveyBundle.swift */; };
 		4B3EBE24C5A2C7141E3677C4687EFB8E /* blue-radio-button-deselected-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5FC1540096AE864CA7DFEDAE18C33 /* blue-radio-button-deselected-white.png */; };
-		4C4799507DDDA35F157E8C22B06152CB /* TableRowHeaderTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 810E17C7C6B45497F27689ED01B68514 /* TableRowHeaderTableViewCell.xib */; };
-		5561B22BF088AEFED7A047F092BD0E2F /* SurveyNative-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C4DC58C15CAAEDA19A66E6CFCD6E3 /* SurveyNative-dummy.m */; };
-		5BAAE6CEBA6CB57F4D4C99DE4B7383FD /* OtherOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CB9D3AE628C8C4548E99C7C85A5C10 /* OtherOptionTableViewCell.xib */; };
-		5C05FC609FCB3227D28A54818E35281E /* SurveyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932402A4A3A4DDD5EBC4B3B239D77D8 /* SurveyTheme.swift */; };
-		5E9BF60E2796E5459AE579F8797E1F21 /* SurveyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAFAC40C771398DB5FA0C6035648563 /* SurveyTableViewDelegate.swift */; };
-		60BB49A8C9C733BDCDD9548A3371BD5D /* DynamicLabelTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486E451EDA6B21DFD45679819B7760FA /* DynamicLabelTextFieldTableViewCell.swift */; };
-		6BAA2ACC75F8766F49086A3F05A4EE02 /* AddTextFieldTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6115A95EFCE4755893EF7CF4EB93BC2A /* AddTextFieldTableViewCell.xib */; };
-		6BDB7DA7ABBCEE0B7D1814DA2273D79B /* TextFieldTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = A1CDC47A38F4253A2357C8FACAC2DF44 /* TextFieldTableViewCell.xib */; };
-		70290711182B7770A51DD99CCD98778E /* OptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CFA0C65165D3181082E734661459E80 /* OptionTableViewCell.xib */; };
-		74F7CB2A8CAEF4FD533BB5C822864F26 /* PickerViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 9108F6C4CE749085977C699B399D0E16 /* PickerViewController.xib */; };
-		7C512652EDD5A33B5C791BE28472C358 /* DatePickerViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 114C9F198EE319609D4FE51C62D135D6 /* DatePickerViewController.xib */; };
-		7FF73E6A720FDC11180DC21F67DC14A9 /* HasSelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49786ACD913CEEFC6A9EB40415C5BC /* HasSelectionState.swift */; };
-		81D2705ABC1A0AF96995C431A45B6892 /* CustomConditionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3504ADAC201B9A87669B2721CDCB49 /* CustomConditionDelegate.swift */; };
-		82C32E3D0BB25F2FD541CD3DF81FBFD0 /* SurveyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348D3C9E9FD492807A6968AA235D365 /* SurveyDataSource.swift */; };
-		87A95A4CAEEC8368004AD7322E5A28C2 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA777EDC4FDA1491F55D500B31AAB6AB /* TextFieldTableViewCell.swift */; };
-		87C1AA0DC04BFA6F0F664D6E490C39EC /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A30ABFFA5E8C7384A7B17BC2764444 /* Logger.swift */; };
+		52BD1DB828CF39EA5DDF61E5C0E6CED9 /* TableRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795B49C9DB213D2A98293BAF2E74F9B5 /* TableRowTableViewCell.swift */; };
+		5550D41675B011CD69DF0E98FD996643 /* OtherOptionTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 145DF698441534B8FA27E5C5C1849E9E /* OtherOptionTableViewCell.xib */; };
+		5BAAE6CEBA6CB57F4D4C99DE4B7383FD /* OtherOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145DF698441534B8FA27E5C5C1849E9E /* OtherOptionTableViewCell.xib */; };
+		5EC2952C29228051FFFB80AFE1BFC840 /* TableViewCellActivating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAB0407C80A506FF0E2E894A34E47B7 /* TableViewCellActivating.swift */; };
+		70290711182B7770A51DD99CCD98778E /* OptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6641F40345D146B3384764C03D9C576B /* OptionTableViewCell.xib */; };
+		70B34631D3A305801C3D7A4184531037 /* DynamicLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16791F8DE13AE4C7DDD8E9510D0AA5ED /* DynamicLabelTableViewCell.swift */; };
+		716A6C2027BD841C3E8FE6014D29B42B /* AddTextFieldTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = D31F2274C4988D3C9249B7C6CB8E983E /* AddTextFieldTableViewCell.xib */; };
+		7245C5937D7D3C59602B06C44848FA91 /* DefaultTableCellDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6D793AB1F73C4B374FCCB3E8621F6E /* DefaultTableCellDataDelegate.swift */; };
+		7252935025062431D30D9C8D0D564A64 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1B66739FDEAC925D458012FB9DD833 /* Logger.swift */; };
+		7280CC01CC663B7DD17551318E539499 /* SelectSegmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5A595603246068206F0D597F36C82 /* SelectSegmentTableViewCell.swift */; };
+		8B465F17B668FD0725D2A88F74151918 /* HasSelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9039FF6A0F761ECC35DAF2FDFB4893 /* HasSelectionState.swift */; };
+		91636B82CA9E74AC7C53748FA6A4E6C4 /* AddTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AFA3E74043C907BBAB2F54DADC3FFF /* AddTextFieldTableViewCell.swift */; };
+		930F7498C92A1939CF53E6451F76DFD5 /* TextFieldTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = FC6CBB58079906B68AE1E01EE31B4C1F /* TextFieldTableViewCell.xib */; };
 		942ABC7E704A09C27EFCF06BD8B0072D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		986BF9FE0A244BB8ADF0850762BA13AE /* DynamicLabelTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 2613CA03B84E87C96CB4643068CBD0E3 /* DynamicLabelTableViewCell.xib */; };
 		987A054FB38230CDC0579EE66A61C852 /* Pods-SurveyNative_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 18801D5C4A630618B4006A7A50A9ED96 /* Pods-SurveyNative_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A7FF4018A9B771135FD77449D26DD44 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114C9F198EE319609D4FE51C62D135D6 /* DatePickerViewController.xib */; };
-		9AB0AE5CF13DC262364567C83D097C37 /* SurveyAnswerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBE067A181628502D2C813F91656D03 /* SurveyAnswerDelegate.swift */; };
+		9A7FF4018A9B771135FD77449D26DD44 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A5CCEA8EEE06D6371AD2762E860C4C6 /* DatePickerViewController.xib */; };
+		9B7D811C27FA2FB18F27568B0E82E50C /* SurveyTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD862AB3AC26BBC08334FE9A45AA3D23 /* SurveyTableViewDelegate.swift */; };
 		9BEFBCB4BF70574D9782C69C3F49B53C /* blue-tick-box-ticked-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B179999695ED92EE4DA6E351D2C69E37 /* blue-tick-box-ticked-white@2x.png */; };
-		9FD74473A5D96E7C1581F0B89E0E5B6E /* YearPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB274F52DCBD9EFA40A707D12B95428 /* YearPickerTableViewCell.swift */; };
+		9C09E9FA339E54651F3577019DBA0255 /* SurveyAnswerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9990F3345D971358B888761AC98753F /* SurveyAnswerDelegate.swift */; };
+		9E15832B51E90A6FD9AA13EA2DC6A9A1 /* YearPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F9FDC17C9801089A5472BDDE4056E /* YearPickerTableViewCell.swift */; };
+		9F63A8EFEA3A586598C3E28AD1E3CC13 /* DynamicLabelTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DB490AAE6CC233E2307C9FDD527450 /* DynamicLabelTextFieldTableViewCell.swift */; };
 		A321FD069AA61965B8B49BE1E9689C6C /* blue-down-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CE405F14421C5AAFBC6EF948F905C9 /* blue-down-button@2x.png */; };
+		A62CE7F01152584B332B2C4D1C0645AD /* DatePickerViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CCEA8EEE06D6371AD2762E860C4C6 /* DatePickerViewController.xib */; };
 		A6749520F2CE2199CB11C7824B4953B3 /* blue-radio-button-deselected-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D620188B0E9D4601CC4277284A65AB4 /* blue-radio-button-deselected-white@2x.png */; };
-		A68ED0FCBD96062546070CC9AF546628 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1CDC47A38F4253A2357C8FACAC2DF44 /* TextFieldTableViewCell.xib */; };
-		AD621CB2709FA1F659B657A43DB7C0ED /* SubmitButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299998BE8E190FD6BDB85A7A3B82A22B /* SubmitButtonTableViewCell.swift */; };
-		ADA449ED4472E4589D2586E4CCB793A6 /* SubmitButtonTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4C83012372F62682DD38E0A157252A93 /* SubmitButtonTableViewCell.xib */; };
-		AE8987C0F39C0468BA531AA30F91FAF0 /* SurveyBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD319C7F3C911614AD99225ED4C8E90A /* SurveyBundle.swift */; };
+		A68ED0FCBD96062546070CC9AF546628 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC6CBB58079906B68AE1E01EE31B4C1F /* TextFieldTableViewCell.xib */; };
+		B13B299661BCB1282A789C979F006F71 /* TableUIUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A6E4015D9EB453CE997CEBD5AED72D /* TableUIUpdater.swift */; };
 		B1A25B92D8793987DD5F6DAC286CF981 /* blue-tick-box-not-ticked-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E6FA90B8F6C6D2D2EDBDE1E335785C3 /* blue-tick-box-not-ticked-white@2x.png */; };
-		B28AE6D6F56035471A893D4D9F45E720 /* TableRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DC2A6E63522EFE4533982C963C0D8 /* TableRowTableViewCell.swift */; };
-		B55A2D8C49967D65BC8FD78CA8808122 /* TableViewCellActivating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDEF2A4628FD9DA66BD4D0861E7444 /* TableViewCellActivating.swift */; };
-		BA766F9ADBE41857210AA341103E2724 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918364A0E846A8B409349497F29C8BFB /* DatePickerViewController.swift */; };
-		C27A45BF1C60780CACC7705D9E8DB66A /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9108F6C4CE749085977C699B399D0E16 /* PickerViewController.xib */; };
-		C28B338FA785805F40182B54BDCC5F96 /* AddTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6115A95EFCE4755893EF7CF4EB93BC2A /* AddTextFieldTableViewCell.xib */; };
-		C328509BE746BD9A04EF7B9EAB183830 /* DynamicLabelTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB23E7E7C2E780114DDA670BFC4E44E3 /* DynamicLabelTextFieldTableViewCell.xib */; };
-		C334E485C736FD3795F9DDDF035BD519 /* TableRowTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 5B4911C051B1D354885B16FF0E2A99D5 /* TableRowTableViewCell.xib */; };
-		C9564FCFFA43DDA42E4CB298286AEDB3 /* AddTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51130A1DE61C5234266ADF82B5C8AE13 /* AddTextFieldTableViewCell.swift */; };
-		CC1B1A93AAF456914D8F73B642F91348 /* DynamicLabelTextFieldTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = FB23E7E7C2E780114DDA670BFC4E44E3 /* DynamicLabelTextFieldTableViewCell.xib */; };
-		CD315C1222E69E3579A552210ADDF978 /* OtherOptionTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 60CB9D3AE628C8C4548E99C7C85A5C10 /* OtherOptionTableViewCell.xib */; };
+		BFED5177834F161C8A0A5E397443AB98 /* SurveyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C6B1C6DCE37F72FBC67F66913EA9A /* SurveyDataSource.swift */; };
+		C0FF53B076A1878454A0FE542A5EC5B8 /* SurveyQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6036AF47B30E653873376632270F2DF /* SurveyQuestions.swift */; };
+		C125667FEBD431B4526B69C925044885 /* PickerViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = A515D59AB371C2AB2DBC51F9BDE24E09 /* PickerViewController.xib */; };
+		C27A45BF1C60780CACC7705D9E8DB66A /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A515D59AB371C2AB2DBC51F9BDE24E09 /* PickerViewController.xib */; };
+		C28B338FA785805F40182B54BDCC5F96 /* AddTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31F2274C4988D3C9249B7C6CB8E983E /* AddTextFieldTableViewCell.xib */; };
+		C2CC615D7BB2E00E46827221350522CD /* SurveyNative-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C4DC58C15CAAEDA19A66E6CFCD6E3 /* SurveyNative-dummy.m */; };
+		C328509BE746BD9A04EF7B9EAB183830 /* DynamicLabelTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 324491ED61A917C2D8B1C03DF5E72D5D /* DynamicLabelTextFieldTableViewCell.xib */; };
+		C7F7A2667914526DDC09C706ACF2DF5E /* CustomConditionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5C69B9DCA6DE320774E923A2913A2 /* CustomConditionDelegate.swift */; };
+		C91FC9E8713F779B282CC4A073FB82A9 /* ValidationFailedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB626E347A3C4822E27F16EF0FDEC70 /* ValidationFailedDelegate.swift */; };
 		D0BD6538C7D76A3DEFFBF50147EFC675 /* SurveyNative-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C7BCB14C33D698C222334857764EC2A /* SurveyNative-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D115B431A4E561656FA810DF739EEC79 /* blue-radio-button-selected-white.png in Resources */ = {isa = PBXBuildFile; fileRef = AE359B55F542C59189F8D4D361C2B6AF /* blue-radio-button-selected-white.png */; };
-		D2678CBD02BD41C6ABE2E89DCF150A05 /* DynamicLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2613CA03B84E87C96CB4643068CBD0E3 /* DynamicLabelTableViewCell.xib */; };
+		D2678CBD02BD41C6ABE2E89DCF150A05 /* DynamicLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88D6303D03B2C575412ED0427FCEFC8 /* DynamicLabelTableViewCell.xib */; };
 		D5145779D4B9246E00B8A50F6E1AB061 /* blue-tick-box-ticked-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EA6FD199DC3A70121CBA58E030B0149 /* blue-tick-box-ticked-white.png */; };
-		DE365614383B505798222CB7E9C2DAD4 /* OptionTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA0C65165D3181082E734661459E80 /* OptionTableViewCell.xib */; };
+		D5DCBD9072F81CE4E711DD00BE0EE0A4 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C279268845045F7FC4C88A35B0F4A48 /* DatePickerTableViewCell.swift */; };
+		D7BAF47A28FB311EA41FB077939F7EAB /* OptionTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6641F40345D146B3384764C03D9C576B /* OptionTableViewCell.xib */; };
+		DC35081F9F1DB6B3079290093C6009FE /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE9B9D44010A5B66447324525FB0C02 /* Validator.swift */; };
 		DEA46DC8AC971208352850534D2B3C10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		E228FC7C379E49F29D5B86079F6A9718 /* Pods-SurveyNative_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8320C1731CAF10D6C86745C883C38967 /* Pods-SurveyNative_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E51E0ADA1B5CD71110163663BA9A081E /* blue-down-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 134112B391F508FB47F64BEB7E4B28E2 /* blue-down-button.png */; };
+		E65176D880445E09B2D0487E04F1E3C9 /* DefaultSurveyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74DA008CE7D8582E9B37E3C83C3711F /* DefaultSurveyTheme.swift */; };
 		E755B116CC215EDF10BC30A644BEABAD /* blue-tick-box-not-ticked-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 1470C7C3123993658FEF7CA40D42C2FA /* blue-tick-box-not-ticked-white.png */; };
-		E84D839B18F635AF1751BEDA95B34AEC /* DefaultSurveyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0A760DEB54F8CBEBB813E81A219B78 /* DefaultSurveyTheme.swift */; };
-		E87587EAD3F3531B7C4D8434D5B5ADA0 /* SelectSegmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2461E7047F03986AD1496058BA4B35A /* SelectSegmentTableViewCell.swift */; };
-		E8C7C078D02BA07A75EDA6EB3D840AF4 /* SurveyQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFD44B35F1D9C0E5C3A9E7121E9DDA /* SurveyQuestions.swift */; };
-		E8D137069332C99203C59204F6F575F4 /* TableCellDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F1701B19CE7D27E521237C8000409 /* TableCellDataDelegate.swift */; };
-		F4EDC80CFD20909EC2D261E447B6FEEF /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D9F30BA56441380BCE16A211A5AB87 /* DatePickerTableViewCell.swift */; };
-		F6D86E5DCCC0161B29863808A1FDEFFF /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B6C20BA15718AD5C6813FAD2AC9CB /* PickerViewController.swift */; };
-		F9A5E07D05DEF8E8CC182B28DBF98B31 /* TableRowHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810E17C7C6B45497F27689ED01B68514 /* TableRowHeaderTableViewCell.xib */; };
+		E9E40249C3E546E11B0BC029E48D16CE /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F14FFD77AA6549BE6329E9D1545E89 /* DatePickerViewController.swift */; };
+		EEBB70CFB65F80C79615C9FE22A02F30 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C59FF28985FC7209D093E7DB4BFFF2 /* OptionTableViewCell.swift */; };
+		F291F76DC635614395A457679C9FB1F2 /* TableRowHeaderTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6F7681AC4D0E915EE7A448F50AFC58A4 /* TableRowHeaderTableViewCell.xib */; };
+		F5CF813D421F9EF1C1640085ECE7F479 /* SurveyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B5F94DBB0FC2643E567DD22FD88AB8 /* SurveyTheme.swift */; };
+		F78B238843550B25D552E7CCB48E3790 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D26C6FBABEF30302ED3752864391FFF /* SurveyViewController.swift */; };
+		F832913391CFD4CE02784ADFB772ECE6 /* SubmitButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7BF3D67289ED03C99CAF1F9BD6D88 /* SubmitButtonTableViewCell.swift */; };
+		F9A5E07D05DEF8E8CC182B28DBF98B31 /* TableRowHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F7681AC4D0E915EE7A448F50AFC58A4 /* TableRowHeaderTableViewCell.xib */; };
+		FF1217F891563EA13CFCB1D7C0C4C9D2 /* DefaultValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3FD155CC30E5E1826DFC05737BC95C /* DefaultValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,91 +103,93 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0932402A4A3A4DDD5EBC4B3B239D77D8 /* SurveyTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyTheme.swift; sourceTree = "<group>"; };
+		0487A0F34E744A89E3EBFDB400815DF7 /* SurveyBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyBundle.swift; sourceTree = "<group>"; };
 		09D90708982DA9395534AD770EBA6D84 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A5CCEA8EEE06D6371AD2762E860C4C6 /* DatePickerViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		0BA5FC1540096AE864CA7DFEDAE18C33 /* blue-radio-button-deselected-white.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-radio-button-deselected-white.png"; sourceTree = "<group>"; };
-		0E6209D03C52E896C62B770572F90E19 /* Pods_SurveyNative_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurveyNative_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6209D03C52E896C62B770572F90E19 /* Pods_SurveyNative_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SurveyNative_Example.framework; path = "Pods-SurveyNative_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA6FD199DC3A70121CBA58E030B0149 /* blue-tick-box-ticked-white.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-tick-box-ticked-white.png"; sourceTree = "<group>"; };
-		114C9F198EE319609D4FE51C62D135D6 /* DatePickerViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
+		0FA7BF3D67289ED03C99CAF1F9BD6D88 /* SubmitButtonTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SubmitButtonTableViewCell.swift; sourceTree = "<group>"; };
 		134112B391F508FB47F64BEB7E4B28E2 /* blue-down-button.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-down-button.png"; sourceTree = "<group>"; };
+		145DF698441534B8FA27E5C5C1849E9E /* OtherOptionTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OtherOptionTableViewCell.xib; sourceTree = "<group>"; };
 		1470C7C3123993658FEF7CA40D42C2FA /* blue-tick-box-not-ticked-white.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-tick-box-not-ticked-white.png"; sourceTree = "<group>"; };
-		173F3C421ED2290500FAA3C8 /* ValidationFailedDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationFailedDelegate.swift; sourceTree = "<group>"; };
+		16791F8DE13AE4C7DDD8E9510D0AA5ED /* DynamicLabelTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DynamicLabelTableViewCell.swift; sourceTree = "<group>"; };
 		18801D5C4A630618B4006A7A50A9ED96 /* Pods-SurveyNative_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SurveyNative_Example-umbrella.h"; sourceTree = "<group>"; };
-		1CCFD44B35F1D9C0E5C3A9E7121E9DDA /* SurveyQuestions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyQuestions.swift; sourceTree = "<group>"; };
-		1CFA0C65165D3181082E734661459E80 /* OptionTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OptionTableViewCell.xib; sourceTree = "<group>"; };
-		23562665B29F2A80FDB205C106ECE6A4 /* SurveyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
-		2613CA03B84E87C96CB4643068CBD0E3 /* DynamicLabelTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DynamicLabelTableViewCell.xib; sourceTree = "<group>"; };
-		299998BE8E190FD6BDB85A7A3B82A22B /* SubmitButtonTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SubmitButtonTableViewCell.swift; sourceTree = "<group>"; };
+		18C5A595603246068206F0D597F36C82 /* SelectSegmentTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectSegmentTableViewCell.swift; sourceTree = "<group>"; };
+		1B5F9FDC17C9801089A5472BDDE4056E /* YearPickerTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YearPickerTableViewCell.swift; sourceTree = "<group>"; };
+		2998B685395A15AB2C0950AB02BAD5DF /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		29D06AF7C266ABC00670D66699B343D8 /* Pods-SurveyNative_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SurveyNative_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2A41B6B46BB9A0C79C611AA847151A14 /* Pods-SurveyNative_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SurveyNative_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		2BBE067A181628502D2C813F91656D03 /* SurveyAnswerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyAnswerDelegate.swift; sourceTree = "<group>"; };
-		2D40E8E01309C7942987A017C58500C2 /* SurveyNative.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SurveyNative.modulemap; sourceTree = "<group>"; };
+		2D40E8E01309C7942987A017C58500C2 /* SurveyNative.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SurveyNative.modulemap; sourceTree = "<group>"; };
 		2E6FA90B8F6C6D2D2EDBDE1E335785C3 /* blue-tick-box-not-ticked-white@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-tick-box-not-ticked-white@2x.png"; sourceTree = "<group>"; };
 		30E08E664E1BFFF2640A1BB6FFE13B93 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33605DFA1024AD92A5396846994DEDF7 /* OtherOptionTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OtherOptionTableViewCell.swift; sourceTree = "<group>"; };
-		3B39298E14C5754FB11A2381D5DD12C7 /* TableRowHeaderTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableRowHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		324491ED61A917C2D8B1C03DF5E72D5D /* DynamicLabelTextFieldTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DynamicLabelTextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		3691308FF111DBF1A92A6B47A545FE24 /* TableCellDataDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableCellDataDelegate.swift; sourceTree = "<group>"; };
 		44C338CDB6C8025A477A2347A23E81C6 /* Pods-SurveyNative_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SurveyNative_Example-resources.sh"; sourceTree = "<group>"; };
-		486E451EDA6B21DFD45679819B7760FA /* DynamicLabelTextFieldTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DynamicLabelTextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		4C83012372F62682DD38E0A157252A93 /* SubmitButtonTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SubmitButtonTableViewCell.xib; sourceTree = "<group>"; };
+		4CE9B9D44010A5B66447324525FB0C02 /* Validator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		4EE528EEA75C0C7F26F4853B1E9E34FC /* TableRowTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TableRowTableViewCell.xib; sourceTree = "<group>"; };
 		4FF220B411FF5ED1C23CDAF360868045 /* ResourceBundle-SurveyNative-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SurveyNative-Info.plist"; sourceTree = "<group>"; };
-		51130A1DE61C5234266ADF82B5C8AE13 /* AddTextFieldTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddTextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		52A678D6C1B4D836D4ABE947FC089B33 /* Pods-SurveyNative_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SurveyNative_Example.modulemap"; sourceTree = "<group>"; };
+		52A678D6C1B4D836D4ABE947FC089B33 /* Pods-SurveyNative_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SurveyNative_Example.modulemap"; sourceTree = "<group>"; };
 		54E8EBE15AE552AD34A8D38C76D4046B /* Pods-SurveyNative_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SurveyNative_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		5B4911C051B1D354885B16FF0E2A99D5 /* TableRowTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TableRowTableViewCell.xib; sourceTree = "<group>"; };
 		5BAE457D15598C534B475D32DF2EE25D /* Pods-SurveyNative_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SurveyNative_Example.release.xcconfig"; sourceTree = "<group>"; };
+		5C279268845045F7FC4C88A35B0F4A48 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		5C52D5A461ACE1B5F0964AD126AF9833 /* Pods-SurveyNative_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SurveyNative_Example-frameworks.sh"; sourceTree = "<group>"; };
-		5C9B6C20BA15718AD5C6813FAD2AC9CB /* PickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
-		5DB8526B6BBCE6FA2A8E4AA93FE92516 /* DynamicLabelTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DynamicLabelTableViewCell.swift; sourceTree = "<group>"; };
 		5F27A1171EA0FCEF257E5C5906DC5048 /* Pods-SurveyNative_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SurveyNative_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		60CB9D3AE628C8C4548E99C7C85A5C10 /* OtherOptionTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OtherOptionTableViewCell.xib; sourceTree = "<group>"; };
-		6115A95EFCE4755893EF7CF4EB93BC2A /* AddTextFieldTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AddTextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		5F9039FF6A0F761ECC35DAF2FDFB4893 /* HasSelectionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HasSelectionState.swift; sourceTree = "<group>"; };
 		6342847CFD2BFED8D244F9CDCBED4615 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		645DF81E7112130AC5679544A74133D2 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
+		64624B095441D9CEEB55097E9AA7A00B /* TableRowHeaderTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableRowHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6A850EE5E1E4B95B0A16344D01756BDD /* DefaultTableCellDataDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultTableCellDataDelegate.swift; sourceTree = "<group>"; };
+		6641F40345D146B3384764C03D9C576B /* OptionTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OptionTableViewCell.xib; sourceTree = "<group>"; };
 		6C7BCB14C33D698C222334857764EC2A /* SurveyNative-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SurveyNative-umbrella.h"; sourceTree = "<group>"; };
-		6D0A760DEB54F8CBEBB813E81A219B78 /* DefaultSurveyTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultSurveyTheme.swift; sourceTree = "<group>"; };
-		7348D3C9E9FD492807A6968AA235D365 /* SurveyDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyDataSource.swift; sourceTree = "<group>"; };
-		77D9F30BA56441380BCE16A211A5AB87 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
-		7B3504ADAC201B9A87669B2721CDCB49 /* CustomConditionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomConditionDelegate.swift; sourceTree = "<group>"; };
-		7FB274F52DCBD9EFA40A707D12B95428 /* YearPickerTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YearPickerTableViewCell.swift; sourceTree = "<group>"; };
-		810E17C7C6B45497F27689ED01B68514 /* TableRowHeaderTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TableRowHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		6E1B66739FDEAC925D458012FB9DD833 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		6F7681AC4D0E915EE7A448F50AFC58A4 /* TableRowHeaderTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TableRowHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		73F14FFD77AA6549BE6329E9D1545E89 /* DatePickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		795B49C9DB213D2A98293BAF2E74F9B5 /* TableRowTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableRowTableViewCell.swift; sourceTree = "<group>"; };
+		7D26C6FBABEF30302ED3752864391FFF /* SurveyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		8320C1731CAF10D6C86745C883C38967 /* Pods-SurveyNative_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SurveyNative_Tests-umbrella.h"; sourceTree = "<group>"; };
-		8DB4B3D1CF721AA47DF55EC67932E89B /* SurveyNative.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyNative.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A6D793AB1F73C4B374FCCB3E8621F6E /* DefaultTableCellDataDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultTableCellDataDelegate.swift; sourceTree = "<group>"; };
+		8DB4B3D1CF721AA47DF55EC67932E89B /* SurveyNative.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SurveyNative.bundle; path = SurveyNative.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF5C69B9DCA6DE320774E923A2913A2 /* CustomConditionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomConditionDelegate.swift; sourceTree = "<group>"; };
 		90A0CC926C90C4633CCBA81B525B21A9 /* Pods-SurveyNative_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SurveyNative_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9108F6C4CE749085977C699B399D0E16 /* PickerViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
-		9182C3E8DB3410F4D42FD26F8339AB65 /* Pods_SurveyNative_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurveyNative_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		918364A0E846A8B409349497F29C8BFB /* DatePickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9ACDEF2A4628FD9DA66BD4D0861E7444 /* TableViewCellActivating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableViewCellActivating.swift; sourceTree = "<group>"; };
-		9C3E7E36E3151983394137A24599FBAE /* TableUIUpdater.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableUIUpdater.swift; sourceTree = "<group>"; };
+		9182C3E8DB3410F4D42FD26F8339AB65 /* Pods_SurveyNative_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SurveyNative_Tests.framework; path = "Pods-SurveyNative_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		96A6E4015D9EB453CE997CEBD5AED72D /* TableUIUpdater.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableUIUpdater.swift; sourceTree = "<group>"; };
 		9D620188B0E9D4601CC4277284A65AB4 /* blue-radio-button-deselected-white@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-radio-button-deselected-white@2x.png"; sourceTree = "<group>"; };
-		A1CDC47A38F4253A2357C8FACAC2DF44 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		9FB626E347A3C4822E27F16EF0FDEC70 /* ValidationFailedDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ValidationFailedDelegate.swift; sourceTree = "<group>"; };
+		A515D59AB371C2AB2DBC51F9BDE24E09 /* PickerViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
+		A74DA008CE7D8582E9B37E3C83C3711F /* DefaultSurveyTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultSurveyTheme.swift; sourceTree = "<group>"; };
+		A7C59FF28985FC7209D093E7DB4BFFF2 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		A9E4ADCCDD0D4E2EEAF2D66E1B7F28A9 /* Pods-SurveyNative_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SurveyNative_Tests-dummy.m"; sourceTree = "<group>"; };
-		AA49786ACD913CEEFC6A9EB40415C5BC /* HasSelectionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HasSelectionState.swift; sourceTree = "<group>"; };
-		AD319C7F3C911614AD99225ED4C8E90A /* SurveyBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyBundle.swift; sourceTree = "<group>"; };
+		AD862AB3AC26BBC08334FE9A45AA3D23 /* SurveyTableViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyTableViewDelegate.swift; sourceTree = "<group>"; };
+		ADB227BC1BE7A895AE09725F844196EA /* PickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		AE359B55F542C59189F8D4D361C2B6AF /* blue-radio-button-selected-white.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-radio-button-selected-white.png"; sourceTree = "<group>"; };
-		AE4DC2A6E63522EFE4533982C963C0D8 /* TableRowTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableRowTableViewCell.swift; sourceTree = "<group>"; };
 		B02C4DC58C15CAAEDA19A66E6CFCD6E3 /* SurveyNative-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SurveyNative-dummy.m"; sourceTree = "<group>"; };
 		B179999695ED92EE4DA6E351D2C69E37 /* blue-tick-box-ticked-white@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-tick-box-ticked-white@2x.png"; sourceTree = "<group>"; };
-		C2A30ABFFA5E8C7384A7B17BC2764444 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		B890A99562687E39956E7C76367AD3F4 /* SubmitButtonTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SubmitButtonTableViewCell.xib; sourceTree = "<group>"; };
+		B9990F3345D971358B888761AC98753F /* SurveyAnswerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyAnswerDelegate.swift; sourceTree = "<group>"; };
+		BD9E2AB650787DEB0DED97D4AE7EC8FB /* SelectSegmentTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SelectSegmentTableViewCell.xib; sourceTree = "<group>"; };
 		C4E955E12C69FC4F5C7304B625E1D29F /* Pods-SurveyNative_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SurveyNative_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		CA777EDC4FDA1491F55D500B31AAB6AB /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		CC2978A9A20DF759C96CC4885D7B9DA9 /* Pods-SurveyNative_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SurveyNative_Tests.modulemap"; sourceTree = "<group>"; };
-		CE73342EF8F75C076F8828308DEDE6B0 /* SelectSegmentTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SelectSegmentTableViewCell.xib; sourceTree = "<group>"; };
+		C88D6303D03B2C575412ED0427FCEFC8 /* DynamicLabelTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DynamicLabelTableViewCell.xib; sourceTree = "<group>"; };
+		CC2978A9A20DF759C96CC4885D7B9DA9 /* Pods-SurveyNative_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SurveyNative_Tests.modulemap"; sourceTree = "<group>"; };
 		D03C04790489E971700B6631A4290D31 /* blue-radio-button-selected-white@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-radio-button-selected-white@2x.png"; sourceTree = "<group>"; };
-		D04F1701B19CE7D27E521237C8000409 /* TableCellDataDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableCellDataDelegate.swift; sourceTree = "<group>"; };
 		D0B25D3C628D03BFB8564083CC574D9A /* Pods-SurveyNative_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SurveyNative_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		D2461E7047F03986AD1496058BA4B35A /* SelectSegmentTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectSegmentTableViewCell.swift; sourceTree = "<group>"; };
+		D31F2274C4988D3C9249B7C6CB8E983E /* AddTextFieldTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AddTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		D3CE405F14421C5AAFBC6EF948F905C9 /* blue-down-button@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "blue-down-button@2x.png"; sourceTree = "<group>"; };
 		D84A4BA9E67AD057B930A23BA5E7E745 /* SurveyNative.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SurveyNative.xcconfig; sourceTree = "<group>"; };
-		DEAFAC40C771398DB5FA0C6035648563 /* SurveyTableViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyTableViewDelegate.swift; sourceTree = "<group>"; };
+		D9AFA3E74043C907BBAB2F54DADC3FFF /* AddTextFieldTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		DE07642592F7DC67B2FFE4B09E4D22F3 /* OtherOptionTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OtherOptionTableViewCell.swift; sourceTree = "<group>"; };
+		E6036AF47B30E653873376632270F2DF /* SurveyQuestions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyQuestions.swift; sourceTree = "<group>"; };
 		EB8FDD7ADE76AF77F08D342E9DA70FE3 /* SurveyNative-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SurveyNative-prefix.pch"; sourceTree = "<group>"; };
+		EF0C6B1C6DCE37F72FBC67F66913EA9A /* SurveyDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyDataSource.swift; sourceTree = "<group>"; };
+		F2B5F94DBB0FC2643E567DD22FD88AB8 /* SurveyTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SurveyTheme.swift; sourceTree = "<group>"; };
 		F34E3FAAC45DBCDC20758968CA7B98A8 /* Pods-SurveyNative_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SurveyNative_Tests-resources.sh"; sourceTree = "<group>"; };
 		F387F892D5436E82C08E4106EE28C98F /* Pods-SurveyNative_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SurveyNative_Example-dummy.m"; sourceTree = "<group>"; };
 		F7A26C0283878506B53233B07A6F1F40 /* Pods-SurveyNative_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SurveyNative_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FA06EEBC9D5C4D9F1982DB757DF1D9D6 /* SurveyNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SurveyNative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB23E7E7C2E780114DDA670BFC4E44E3 /* DynamicLabelTextFieldTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DynamicLabelTextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		F8DB490AAE6CC233E2307C9FDD527450 /* DynamicLabelTextFieldTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DynamicLabelTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		FA06EEBC9D5C4D9F1982DB757DF1D9D6 /* SurveyNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SurveyNative.framework; path = SurveyNative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAAB0407C80A506FF0E2E894A34E47B7 /* TableViewCellActivating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableViewCellActivating.swift; sourceTree = "<group>"; };
+		FC6CBB58079906B68AE1E01EE31B4C1F /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		FD3FD155CC30E5E1826DFC05737BC95C /* DefaultValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,28 +227,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1738CD87BBB45CA5785B60F848987815 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				7B3504ADAC201B9A87669B2721CDCB49 /* CustomConditionDelegate.swift */,
-				173F3C421ED2290500FAA3C8 /* ValidationFailedDelegate.swift */,
-				6D0A760DEB54F8CBEBB813E81A219B78 /* DefaultSurveyTheme.swift */,
-				6A850EE5E1E4B95B0A16344D01756BDD /* DefaultTableCellDataDelegate.swift */,
-				C2A30ABFFA5E8C7384A7B17BC2764444 /* Logger.swift */,
-				2BBE067A181628502D2C813F91656D03 /* SurveyAnswerDelegate.swift */,
-				AD319C7F3C911614AD99225ED4C8E90A /* SurveyBundle.swift */,
-				7348D3C9E9FD492807A6968AA235D365 /* SurveyDataSource.swift */,
-				1CCFD44B35F1D9C0E5C3A9E7121E9DDA /* SurveyQuestions.swift */,
-				DEAFAC40C771398DB5FA0C6035648563 /* SurveyTableViewDelegate.swift */,
-				0932402A4A3A4DDD5EBC4B3B239D77D8 /* SurveyTheme.swift */,
-				23562665B29F2A80FDB205C106ECE6A4 /* SurveyViewController.swift */,
-				D04F1701B19CE7D27E521237C8000409 /* TableCellDataDelegate.swift */,
-				9C3E7E36E3151983394137A24599FBAE /* TableUIUpdater.swift */,
-				6B28FCF85E5D01567B27D0C8105EB97F /* TableViewCells */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		299504510E5E58D338C774E831054FC4 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,42 +250,8 @@
 				0EA6FD199DC3A70121CBA58E030B0149 /* blue-tick-box-ticked-white.png */,
 				B179999695ED92EE4DA6E351D2C69E37 /* blue-tick-box-ticked-white@2x.png */,
 			);
+			name = Assets;
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		6B28FCF85E5D01567B27D0C8105EB97F /* TableViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				51130A1DE61C5234266ADF82B5C8AE13 /* AddTextFieldTableViewCell.swift */,
-				6115A95EFCE4755893EF7CF4EB93BC2A /* AddTextFieldTableViewCell.xib */,
-				77D9F30BA56441380BCE16A211A5AB87 /* DatePickerTableViewCell.swift */,
-				918364A0E846A8B409349497F29C8BFB /* DatePickerViewController.swift */,
-				114C9F198EE319609D4FE51C62D135D6 /* DatePickerViewController.xib */,
-				5DB8526B6BBCE6FA2A8E4AA93FE92516 /* DynamicLabelTableViewCell.swift */,
-				2613CA03B84E87C96CB4643068CBD0E3 /* DynamicLabelTableViewCell.xib */,
-				486E451EDA6B21DFD45679819B7760FA /* DynamicLabelTextFieldTableViewCell.swift */,
-				FB23E7E7C2E780114DDA670BFC4E44E3 /* DynamicLabelTextFieldTableViewCell.xib */,
-				AA49786ACD913CEEFC6A9EB40415C5BC /* HasSelectionState.swift */,
-				645DF81E7112130AC5679544A74133D2 /* OptionTableViewCell.swift */,
-				1CFA0C65165D3181082E734661459E80 /* OptionTableViewCell.xib */,
-				33605DFA1024AD92A5396846994DEDF7 /* OtherOptionTableViewCell.swift */,
-				60CB9D3AE628C8C4548E99C7C85A5C10 /* OtherOptionTableViewCell.xib */,
-				5C9B6C20BA15718AD5C6813FAD2AC9CB /* PickerViewController.swift */,
-				9108F6C4CE749085977C699B399D0E16 /* PickerViewController.xib */,
-				D2461E7047F03986AD1496058BA4B35A /* SelectSegmentTableViewCell.swift */,
-				CE73342EF8F75C076F8828308DEDE6B0 /* SelectSegmentTableViewCell.xib */,
-				299998BE8E190FD6BDB85A7A3B82A22B /* SubmitButtonTableViewCell.swift */,
-				4C83012372F62682DD38E0A157252A93 /* SubmitButtonTableViewCell.xib */,
-				3B39298E14C5754FB11A2381D5DD12C7 /* TableRowHeaderTableViewCell.swift */,
-				810E17C7C6B45497F27689ED01B68514 /* TableRowHeaderTableViewCell.xib */,
-				AE4DC2A6E63522EFE4533982C963C0D8 /* TableRowTableViewCell.swift */,
-				5B4911C051B1D354885B16FF0E2A99D5 /* TableRowTableViewCell.xib */,
-				9ACDEF2A4628FD9DA66BD4D0861E7444 /* TableViewCellActivating.swift */,
-				CA777EDC4FDA1491F55D500B31AAB6AB /* TextFieldTableViewCell.swift */,
-				A1CDC47A38F4253A2357C8FACAC2DF44 /* TextFieldTableViewCell.xib */,
-				7FB274F52DCBD9EFA40A707D12B95428 /* YearPickerTableViewCell.swift */,
-			);
-			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		6D69A2AD6E54766140624A635837CCD3 /* Products */ = {
@@ -322,6 +270,7 @@
 			children = (
 				C28492D8FE3F2DD133C3EC0D53091E9E /* TableViewCells */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -336,13 +285,59 @@
 			);
 			sourceTree = "<group>";
 		};
+		927CE161021141F06AB32F3CD0987875 /* SurveyNative */ = {
+			isa = PBXGroup;
+			children = (
+				EA63A37072DADFF1A2FAEBE3B963FD95 /* Classes */,
+			);
+			name = SurveyNative;
+			path = SurveyNative;
+			sourceTree = "<group>";
+		};
 		A80B4637BEF71CD57A02737A0EAACBF1 /* SurveyNative */ = {
 			isa = PBXGroup;
 			children = (
 				583C17512D69BF9D3353DD4FEC6E03B9 /* Assets */,
 				714873E511BCA692D3B126605EC93A5E /* Classes */,
 			);
+			name = SurveyNative;
 			path = SurveyNative;
+			sourceTree = "<group>";
+		};
+		AA496198C7D84F464E9931377D625BA0 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				D9AFA3E74043C907BBAB2F54DADC3FFF /* AddTextFieldTableViewCell.swift */,
+				D31F2274C4988D3C9249B7C6CB8E983E /* AddTextFieldTableViewCell.xib */,
+				5C279268845045F7FC4C88A35B0F4A48 /* DatePickerTableViewCell.swift */,
+				73F14FFD77AA6549BE6329E9D1545E89 /* DatePickerViewController.swift */,
+				0A5CCEA8EEE06D6371AD2762E860C4C6 /* DatePickerViewController.xib */,
+				16791F8DE13AE4C7DDD8E9510D0AA5ED /* DynamicLabelTableViewCell.swift */,
+				C88D6303D03B2C575412ED0427FCEFC8 /* DynamicLabelTableViewCell.xib */,
+				F8DB490AAE6CC233E2307C9FDD527450 /* DynamicLabelTextFieldTableViewCell.swift */,
+				324491ED61A917C2D8B1C03DF5E72D5D /* DynamicLabelTextFieldTableViewCell.xib */,
+				5F9039FF6A0F761ECC35DAF2FDFB4893 /* HasSelectionState.swift */,
+				A7C59FF28985FC7209D093E7DB4BFFF2 /* OptionTableViewCell.swift */,
+				6641F40345D146B3384764C03D9C576B /* OptionTableViewCell.xib */,
+				DE07642592F7DC67B2FFE4B09E4D22F3 /* OtherOptionTableViewCell.swift */,
+				145DF698441534B8FA27E5C5C1849E9E /* OtherOptionTableViewCell.xib */,
+				ADB227BC1BE7A895AE09725F844196EA /* PickerViewController.swift */,
+				A515D59AB371C2AB2DBC51F9BDE24E09 /* PickerViewController.xib */,
+				18C5A595603246068206F0D597F36C82 /* SelectSegmentTableViewCell.swift */,
+				BD9E2AB650787DEB0DED97D4AE7EC8FB /* SelectSegmentTableViewCell.xib */,
+				0FA7BF3D67289ED03C99CAF1F9BD6D88 /* SubmitButtonTableViewCell.swift */,
+				B890A99562687E39956E7C76367AD3F4 /* SubmitButtonTableViewCell.xib */,
+				64624B095441D9CEEB55097E9AA7A00B /* TableRowHeaderTableViewCell.swift */,
+				6F7681AC4D0E915EE7A448F50AFC58A4 /* TableRowHeaderTableViewCell.xib */,
+				795B49C9DB213D2A98293BAF2E74F9B5 /* TableRowTableViewCell.swift */,
+				4EE528EEA75C0C7F26F4853B1E9E34FC /* TableRowTableViewCell.xib */,
+				FAAB0407C80A506FF0E2E894A34E47B7 /* TableViewCellActivating.swift */,
+				2998B685395A15AB2C0950AB02BAD5DF /* TextFieldTableViewCell.swift */,
+				FC6CBB58079906B68AE1E01EE31B4C1F /* TextFieldTableViewCell.xib */,
+				1B5F9FDC17C9801089A5472BDDE4056E /* YearPickerTableViewCell.swift */,
+			);
+			name = TableViewCells;
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -358,7 +353,7 @@
 			children = (
 				F93F0CA38CD858D9CA97F2DD18A8FD9C /* Resources */,
 				C8CCB849ECC147B1058AAD6D6D2052DB /* Support Files */,
-				D47AA9EF15021316EF01FC174E0876F5 /* SurveyNative */,
+				927CE161021141F06AB32F3CD0987875 /* SurveyNative */,
 			);
 			name = SurveyNative;
 			path = ../..;
@@ -368,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 			);
+			name = TableViewCells;
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
@@ -420,14 +416,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		D47AA9EF15021316EF01FC174E0876F5 /* SurveyNative */ = {
-			isa = PBXGroup;
-			children = (
-				1738CD87BBB45CA5785B60F848987815 /* Classes */,
-			);
-			path = SurveyNative;
-			sourceTree = "<group>";
-		};
 		DDFCAC4658D17F52770462393A2683F4 /* Pods-SurveyNative_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +432,31 @@
 			);
 			name = "Pods-SurveyNative_Example";
 			path = "Target Support Files/Pods-SurveyNative_Example";
+			sourceTree = "<group>";
+		};
+		EA63A37072DADFF1A2FAEBE3B963FD95 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8DF5C69B9DCA6DE320774E923A2913A2 /* CustomConditionDelegate.swift */,
+				A74DA008CE7D8582E9B37E3C83C3711F /* DefaultSurveyTheme.swift */,
+				8A6D793AB1F73C4B374FCCB3E8621F6E /* DefaultTableCellDataDelegate.swift */,
+				FD3FD155CC30E5E1826DFC05737BC95C /* DefaultValidator.swift */,
+				6E1B66739FDEAC925D458012FB9DD833 /* Logger.swift */,
+				B9990F3345D971358B888761AC98753F /* SurveyAnswerDelegate.swift */,
+				0487A0F34E744A89E3EBFDB400815DF7 /* SurveyBundle.swift */,
+				EF0C6B1C6DCE37F72FBC67F66913EA9A /* SurveyDataSource.swift */,
+				E6036AF47B30E653873376632270F2DF /* SurveyQuestions.swift */,
+				AD862AB3AC26BBC08334FE9A45AA3D23 /* SurveyTableViewDelegate.swift */,
+				F2B5F94DBB0FC2643E567DD22FD88AB8 /* SurveyTheme.swift */,
+				7D26C6FBABEF30302ED3752864391FFF /* SurveyViewController.swift */,
+				3691308FF111DBF1A92A6B47A545FE24 /* TableCellDataDelegate.swift */,
+				96A6E4015D9EB453CE997CEBD5AED72D /* TableUIUpdater.swift */,
+				9FB626E347A3C4822E27F16EF0FDEC70 /* ValidationFailedDelegate.swift */,
+				4CE9B9D44010A5B66447324525FB0C02 /* Validator.swift */,
+				AA496198C7D84F464E9931377D625BA0 /* TableViewCells */,
+			);
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		F93F0CA38CD858D9CA97F2DD18A8FD9C /* Resources */ = {
@@ -488,7 +501,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3896A6194205AF0727CD8F0959DBA8A3 /* Build configuration list for PBXNativeTarget "SurveyNative" */;
 			buildPhases = (
-				8F81625E99B63F0E0720B115726DB51D /* Sources */,
+				F212C9CDC4110B20FC55C9D152416042 /* Sources */,
 				A7BCB2E5E9E880548EF3DF37B6F09D84 /* Frameworks */,
 				57A3F078964B09F7634E3322DD594106 /* Resources */,
 				7FFF59B3FB6CE777A727F41059664548 /* Headers */,
@@ -563,11 +576,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					71F74C42CE91F8AEB22C2E281A26F2D5 = {
-						LastSwiftMigration = 0830;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -645,53 +653,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8F81625E99B63F0E0720B115726DB51D /* Sources */ = {
+		F212C9CDC4110B20FC55C9D152416042 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9564FCFFA43DDA42E4CB298286AEDB3 /* AddTextFieldTableViewCell.swift in Sources */,
-				6BAA2ACC75F8766F49086A3F05A4EE02 /* AddTextFieldTableViewCell.xib in Sources */,
-				173F3C441ED2290E00FAA3C8 /* ValidationFailedDelegate.swift in Sources */,
-				81D2705ABC1A0AF96995C431A45B6892 /* CustomConditionDelegate.swift in Sources */,
-				F4EDC80CFD20909EC2D261E447B6FEEF /* DatePickerTableViewCell.swift in Sources */,
-				BA766F9ADBE41857210AA341103E2724 /* DatePickerViewController.swift in Sources */,
-				7C512652EDD5A33B5C791BE28472C358 /* DatePickerViewController.xib in Sources */,
-				E84D839B18F635AF1751BEDA95B34AEC /* DefaultSurveyTheme.swift in Sources */,
-				42A36508B5D27D92B76ABE9317F94152 /* DefaultTableCellDataDelegate.swift in Sources */,
-				40E42ED5C9CE4DFD0D8BC7E4B42912CA /* DynamicLabelTableViewCell.swift in Sources */,
-				986BF9FE0A244BB8ADF0850762BA13AE /* DynamicLabelTableViewCell.xib in Sources */,
-				60BB49A8C9C733BDCDD9548A3371BD5D /* DynamicLabelTextFieldTableViewCell.swift in Sources */,
-				CC1B1A93AAF456914D8F73B642F91348 /* DynamicLabelTextFieldTableViewCell.xib in Sources */,
-				7FF73E6A720FDC11180DC21F67DC14A9 /* HasSelectionState.swift in Sources */,
-				87C1AA0DC04BFA6F0F664D6E490C39EC /* Logger.swift in Sources */,
-				45DA8F6F8E1A3E587AAF5D0839612294 /* OptionTableViewCell.swift in Sources */,
-				DE365614383B505798222CB7E9C2DAD4 /* OptionTableViewCell.xib in Sources */,
-				05A05160D7F013481AFFB05A4210C3B2 /* OtherOptionTableViewCell.swift in Sources */,
-				CD315C1222E69E3579A552210ADDF978 /* OtherOptionTableViewCell.xib in Sources */,
-				F6D86E5DCCC0161B29863808A1FDEFFF /* PickerViewController.swift in Sources */,
-				74F7CB2A8CAEF4FD533BB5C822864F26 /* PickerViewController.xib in Sources */,
-				E87587EAD3F3531B7C4D8434D5B5ADA0 /* SelectSegmentTableViewCell.swift in Sources */,
-				32C1BBC1FBE090BB8D82799099073398 /* SelectSegmentTableViewCell.xib in Sources */,
-				AD621CB2709FA1F659B657A43DB7C0ED /* SubmitButtonTableViewCell.swift in Sources */,
-				ADA449ED4472E4589D2586E4CCB793A6 /* SubmitButtonTableViewCell.xib in Sources */,
-				9AB0AE5CF13DC262364567C83D097C37 /* SurveyAnswerDelegate.swift in Sources */,
-				AE8987C0F39C0468BA531AA30F91FAF0 /* SurveyBundle.swift in Sources */,
-				82C32E3D0BB25F2FD541CD3DF81FBFD0 /* SurveyDataSource.swift in Sources */,
-				5561B22BF088AEFED7A047F092BD0E2F /* SurveyNative-dummy.m in Sources */,
-				E8C7C078D02BA07A75EDA6EB3D840AF4 /* SurveyQuestions.swift in Sources */,
-				5E9BF60E2796E5459AE579F8797E1F21 /* SurveyTableViewDelegate.swift in Sources */,
-				5C05FC609FCB3227D28A54818E35281E /* SurveyTheme.swift in Sources */,
-				4497F48FAFEAC10202F91478F9BCC0D4 /* SurveyViewController.swift in Sources */,
-				E8D137069332C99203C59204F6F575F4 /* TableCellDataDelegate.swift in Sources */,
-				3EED970D6A833FF8FF5ACE66301FFFF8 /* TableRowHeaderTableViewCell.swift in Sources */,
-				4C4799507DDDA35F157E8C22B06152CB /* TableRowHeaderTableViewCell.xib in Sources */,
-				B28AE6D6F56035471A893D4D9F45E720 /* TableRowTableViewCell.swift in Sources */,
-				C334E485C736FD3795F9DDDF035BD519 /* TableRowTableViewCell.xib in Sources */,
-				20454952E50A4B4F3D6ECDD29C1699C6 /* TableUIUpdater.swift in Sources */,
-				B55A2D8C49967D65BC8FD78CA8808122 /* TableViewCellActivating.swift in Sources */,
-				87A95A4CAEEC8368004AD7322E5A28C2 /* TextFieldTableViewCell.swift in Sources */,
-				6BDB7DA7ABBCEE0B7D1814DA2273D79B /* TextFieldTableViewCell.xib in Sources */,
-				9FD74473A5D96E7C1581F0B89E0E5B6E /* YearPickerTableViewCell.swift in Sources */,
+				91636B82CA9E74AC7C53748FA6A4E6C4 /* AddTextFieldTableViewCell.swift in Sources */,
+				716A6C2027BD841C3E8FE6014D29B42B /* AddTextFieldTableViewCell.xib in Sources */,
+				C7F7A2667914526DDC09C706ACF2DF5E /* CustomConditionDelegate.swift in Sources */,
+				D5DCBD9072F81CE4E711DD00BE0EE0A4 /* DatePickerTableViewCell.swift in Sources */,
+				E9E40249C3E546E11B0BC029E48D16CE /* DatePickerViewController.swift in Sources */,
+				A62CE7F01152584B332B2C4D1C0645AD /* DatePickerViewController.xib in Sources */,
+				E65176D880445E09B2D0487E04F1E3C9 /* DefaultSurveyTheme.swift in Sources */,
+				7245C5937D7D3C59602B06C44848FA91 /* DefaultTableCellDataDelegate.swift in Sources */,
+				FF1217F891563EA13CFCB1D7C0C4C9D2 /* DefaultValidator.swift in Sources */,
+				70B34631D3A305801C3D7A4184531037 /* DynamicLabelTableViewCell.swift in Sources */,
+				24D2640D1AB028B7E943FF91D0BA9858 /* DynamicLabelTableViewCell.xib in Sources */,
+				9F63A8EFEA3A586598C3E28AD1E3CC13 /* DynamicLabelTextFieldTableViewCell.swift in Sources */,
+				2C53E58CF7ACDAEDB375017C329526B0 /* DynamicLabelTextFieldTableViewCell.xib in Sources */,
+				8B465F17B668FD0725D2A88F74151918 /* HasSelectionState.swift in Sources */,
+				7252935025062431D30D9C8D0D564A64 /* Logger.swift in Sources */,
+				EEBB70CFB65F80C79615C9FE22A02F30 /* OptionTableViewCell.swift in Sources */,
+				D7BAF47A28FB311EA41FB077939F7EAB /* OptionTableViewCell.xib in Sources */,
+				1BB5461F951FA42089CBF4F7CE520EBA /* OtherOptionTableViewCell.swift in Sources */,
+				5550D41675B011CD69DF0E98FD996643 /* OtherOptionTableViewCell.xib in Sources */,
+				42F8D06E35802B369A6F6737DC75763A /* PickerViewController.swift in Sources */,
+				C125667FEBD431B4526B69C925044885 /* PickerViewController.xib in Sources */,
+				7280CC01CC663B7DD17551318E539499 /* SelectSegmentTableViewCell.swift in Sources */,
+				01C25A0F37F2A54698883A20E65914AE /* SelectSegmentTableViewCell.xib in Sources */,
+				F832913391CFD4CE02784ADFB772ECE6 /* SubmitButtonTableViewCell.swift in Sources */,
+				366F50246F4664ECDFE7C6D3F08879FE /* SubmitButtonTableViewCell.xib in Sources */,
+				9C09E9FA339E54651F3577019DBA0255 /* SurveyAnswerDelegate.swift in Sources */,
+				49E5D04BA02511878D992DBB18413138 /* SurveyBundle.swift in Sources */,
+				BFED5177834F161C8A0A5E397443AB98 /* SurveyDataSource.swift in Sources */,
+				C2CC615D7BB2E00E46827221350522CD /* SurveyNative-dummy.m in Sources */,
+				C0FF53B076A1878454A0FE542A5EC5B8 /* SurveyQuestions.swift in Sources */,
+				9B7D811C27FA2FB18F27568B0E82E50C /* SurveyTableViewDelegate.swift in Sources */,
+				F5CF813D421F9EF1C1640085ECE7F479 /* SurveyTheme.swift in Sources */,
+				F78B238843550B25D552E7CCB48E3790 /* SurveyViewController.swift in Sources */,
+				3F5AF3FFF96E27AD42EA0DFA11C1F17B /* TableCellDataDelegate.swift in Sources */,
+				1CB7A53D5EE0364E2D86FEB18300C495 /* TableRowHeaderTableViewCell.swift in Sources */,
+				F291F76DC635614395A457679C9FB1F2 /* TableRowHeaderTableViewCell.xib in Sources */,
+				52BD1DB828CF39EA5DDF61E5C0E6CED9 /* TableRowTableViewCell.swift in Sources */,
+				22F2EFCC8FC8F17F28C12199286217E9 /* TableRowTableViewCell.xib in Sources */,
+				B13B299661BCB1282A789C979F006F71 /* TableUIUpdater.swift in Sources */,
+				5EC2952C29228051FFFB80AFE1BFC840 /* TableViewCellActivating.swift in Sources */,
+				03C97831507D8087366B83A0C6F27AA7 /* TextFieldTableViewCell.swift in Sources */,
+				930F7498C92A1939CF53E6451F76DFD5 /* TextFieldTableViewCell.xib in Sources */,
+				C91FC9E8713F779B282CC4A073FB82A9 /* ValidationFailedDelegate.swift in Sources */,
+				DC35081F9F1DB6B3079290093C6009FE /* Validator.swift in Sources */,
+				9E15832B51E90A6FD9AA13EA2DC6A9A1 /* YearPickerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,7 +735,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5BAE457D15598C534B475D32DF2EE25D /* Pods-SurveyNative_Example.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -997,7 +1006,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90A0CC926C90C4633CCBA81B525B21A9 /* Pods-SurveyNative_Example.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

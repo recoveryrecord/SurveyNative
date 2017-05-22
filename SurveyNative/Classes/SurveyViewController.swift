@@ -39,7 +39,7 @@ open class SurveyViewController: UIViewController {
    }
 
    open func setValidationFailedDelegate(_ validationFailedDelegate: ValidationFailedDelegate) {
-      surveyQuestions?.validationFailedDelegate = validationFailedDelegate
+      self.cellDataDelegate?.setValidationFailedDelegate(validationFailedDelegate)
    }
 
    override open func viewDidLoad() {

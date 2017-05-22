@@ -93,50 +93,23 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCel
    }
 
    func validate() -> (Bool, String) {
-      if validations != nil {
-         for validation in self.validations! {
-            if (!conditionMet(validation, answer: textField.text!)) {
-               let message : String = validation["on_fail_message"] as! String
-               return (false, message)
-            }
-         }
+      if let validator = self.dataDelegate?.getValidator() {
+         return validator.validate(validations: validations, answer: textField.text ?? "")
+      } else {
+         Logger.log("Validator or ValidationFailedDelegate is not set.  Validation will not be done.", level: .error)
+         return (true, "")
       }
-      return (true, "")
    }
 
    @IBAction func tappedNextButton(_ sender: UIButton) {
       let v = validate()
       if (!v.0) {
-         self.dataDelegate?.validationFailed(message: v.1)
+         self.dataDelegate?.getValidator()?.validationFailed(message: v.1)
          return
       }
 
       dataDelegate?.markFinished(updateId: updateId!)
       self.textFieldText = textField?.text ?? ""
       textField?.resignFirstResponder()
-   }
-
-   func conditionMet(_ condition : [String : Any], answer : String ) -> Bool {
-
-      let operationType : String = condition["operation"] as! String
-      var value : Any? = condition["value"]
-      let questionId : String? = condition["answer_to_question_id"] as! String?
-
-      if (questionId != nil) {
-         value = self.dataDelegate?.answerForQuestion(id : questionId!)
-      }
-
-      if (value == nil) {
-         Logger.log("Unable to check condition for unknown operation \"\(operationType)\" as value is nil, assuming false", level: .error)
-         return false
-      }
-
-      switch operationType {
-      case "greater than", "greater than or equal to", "less than", "less than or equal to":
-         return SurveyQuestions.numberComparison(answer: answer, value: value!, operation: operationType)
-      default:
-         Logger.log("Unable to check condition for unknown operation \"\(operationType)\", assuming false", level: .error)
-         return false
-      }
    }
 }

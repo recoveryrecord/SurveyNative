@@ -8,12 +8,12 @@
 
 import Foundation
 
-open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
-   
+open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {   
    var surveyQuestions : SurveyQuestions
    var tableView : UITableView
    var submitCompletionHandler: (Data?, URLResponse?, Error?) -> Void
    var activeTextView: UIView?
+   var validator: Validator?
    
    public init(_ surveyQuestions : SurveyQuestions, tableView: UITableView, submitCompletionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
       self.surveyQuestions = surveyQuestions
@@ -30,13 +30,13 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
    public func markFinished(updateId: String) {
       TableUIUpdater.updateTable(surveyQuestions.markFinished(updateId: updateId), tableView: tableView, autoFocus: surveyQuestions.autoFocusText)
    }
-
-   public func validationFailed(message : String) {
-      surveyQuestions.validationFailed(message: message)
+   
+   public func setValidationFailedDelegate(_ validationFailedDelegate: ValidationFailedDelegate) {
+      self.validator = DefaultValidator(surveyQuestions: surveyQuestions, failedDelegate: validationFailedDelegate)
    }
 
-   public func answerForQuestion(id: String) -> Any {
-      return surveyQuestions.answer(for: id)!
+   public func getValidator() -> Validator? {
+      return self.validator
    }
 
    public func updateUI() {
