@@ -311,7 +311,7 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
       "for_label": "Centimeters",
       "operation": "less than",
       "value": 250,
-      "on_fail_message": "Weight must be less than 250cm"
+      "on_fail_message": "Height must be less than 250cm"
     }
   ]
 }
