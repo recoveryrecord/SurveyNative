@@ -12,6 +12,7 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    
    var surveyQuestions : SurveyQuestions
    var heightAtIndexPath: [AnyHashable : CGFloat] = [:]
+   var isScrolling : Bool = false
    
    public init(_ surveyQuestions : SurveyQuestions) {
       self.surveyQuestions = surveyQuestions
@@ -55,7 +56,11 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
    open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
       let height = cell.frame.size.height
       let cellKey = key(indexPath)
+      if isScrolling, self.heightAtIndexPath[cellKey] == nil {
+         self.heightAtIndexPath[cellKey] = UITableViewAutomaticDimension
+      } else if !isScrolling {
       self.heightAtIndexPath[cellKey] = height
+      }
    }
    
    private func key(_ indexPath: IndexPath) -> AnyHashable {
@@ -63,5 +68,14 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
          return "SubmitQuestion"
       }
       return self.surveyQuestions.questionPath(for: indexPath).description
+   }
+   
+   // Fixes issue, but creates another issue
+   public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      isScrolling = true
+   }
+   
+   public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+      isScrolling = false
    }
 }
