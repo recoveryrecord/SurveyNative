@@ -119,6 +119,12 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
    public func setSelectionState(_ selected: Bool) {
       optionButton.isSelected = selected
       isSelectedOption = selected
+
+      if updateId == nil {
+         // updateId will be nil during setup of cell
+         return
+      }
+
       if selected {
          if (textField.text == "") {
             textField?.becomeFirstResponder()
