@@ -1215,16 +1215,24 @@ open class SurveyQuestions {
    
    // Mark: Update data and inform which how data should be re-calculated
    
-   public func selectedRowAt(_ indexPath: IndexPath) -> SectionChanges {
+   public func selectedRowAt(_ indexPath: IndexPath, tableView: UITableView) -> SectionChanges {
       var sectionChanges = SectionChanges()
       let questionPath = self.questionPath(for: indexPath)
       let question = self.question(for: questionPath)
       let questionType = self.questionType(for: question)
       let type = self.type(for: questionPath)
       if questionType == "single_select" && isOptionType(questionPath) {
-         let data : Any = type == "option" ? self.text(for: questionPath) : [self.optionText(for: questionPath) : ""]
+         if type == "option" {
+            let data : Any = self.text(for: questionPath)
+            self.answerQuestion(questionPath, data: data)
+         } else {
+            if let otherOptionCell = tableView.cellForRow(at: indexPath) as? OtherOptionTableViewCell {
+               let text = otherOptionCell.textField.text ?? ""
+               let data : Any = [self.optionText(for: questionPath) : text]
+               self.answerQuestion(questionPath, data: data)
+            }
+         }
          let numRows = self.numberOfRows(for: questionPath.primaryQuestionIndex)
-         self.answerQuestion(questionPath, data: data)
          let (skipped, unSkippedQ) = updateSkippedQuestions(self.id(for: question))
          sectionChanges.removeSections = skipped
          var unSkippedSet = self.activeIndexSet(for: unSkippedQ)

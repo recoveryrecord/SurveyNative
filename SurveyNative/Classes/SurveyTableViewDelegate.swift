@@ -34,7 +34,7 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
             selectedCell.setSelectionState(!selectedCell.selectionState())
          }
       }
-      TableUIUpdater.updateTable(self.surveyQuestions.selectedRowAt(indexPath), tableView: tableView, autoFocus: surveyQuestions.autoFocusText)
+      TableUIUpdater.updateTable(self.surveyQuestions.selectedRowAt(indexPath, tableView: tableView), tableView: tableView, autoFocus: surveyQuestions.autoFocusText)
       tableView.deselectRow(at: indexPath, animated: false)
    }
    
