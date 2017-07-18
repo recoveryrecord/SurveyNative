@@ -1222,9 +1222,10 @@ open class SurveyQuestions {
       let questionType = self.questionType(for: question)
       let type = self.type(for: questionPath)
       if questionType == "single_select" && isOptionType(questionPath) {
-         let data : Any = type == "option" ? self.text(for: questionPath) : [self.optionText(for: questionPath) : ""]
          let numRows = self.numberOfRows(for: questionPath.primaryQuestionIndex)
-         self.answerQuestion(questionPath, data: data)
+         if type == "option" {
+            self.answerQuestion(questionPath, data: self.text(for: questionPath))
+         }
          let (skipped, unSkippedQ) = updateSkippedQuestions(self.id(for: question))
          sectionChanges.removeSections = skipped
          var unSkippedSet = self.activeIndexSet(for: unSkippedQ)
