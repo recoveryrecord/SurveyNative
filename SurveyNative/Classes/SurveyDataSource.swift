@@ -139,6 +139,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          tableCell.imageView?.image = surveyQuestions.image(for: indexPath)
          tableCell.selectionStyle = UITableViewCellSelectionStyle.none
       }
+      tableCell.setNeedsLayout()
       return tableCell
    }
 
