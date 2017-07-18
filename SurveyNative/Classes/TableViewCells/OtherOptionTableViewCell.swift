@@ -130,6 +130,7 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
             textField?.becomeFirstResponder()
          }
       } else {
+         self.optionText = ""
          textField?.resignFirstResponder()
       }
    }
