@@ -26,6 +26,45 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
       let cellIdentifier = surveyQuestions.type(for: indexPath)
       let tableCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
       return configure(tableCell, for: cellIdentifier, indexPath: indexPath)
+
+      /*
+       If any strangeness happens with cells then uncomment this part as first thing to do with testing. Disables the reusue of cells.
+
+      var cell : UITableViewCell?
+
+      let surveyBundle = SurveyBundle.bundle
+
+      switch cellIdentifier {
+      case "year_picker":
+         cell = YearPickerTableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellIdentifier)
+      case "date_picker":
+         cell = DatePickerTableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellIdentifier)
+      case "option":
+         cell = UINib(nibName: "OptionTableViewCell", bundle: SurveyBundle.bundle).instantiate(withOwner: tableView, options: nil)[0] as! OptionTableViewCell
+      case "other_option":
+         cell = UINib(nibName: "OtherOptionTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! OtherOptionTableViewCell
+      case "text_field":
+         cell = UINib(nibName: "TextFieldTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! TextFieldTableViewCell
+      case "question":
+         cell = UINib(nibName: "DynamicLabelTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! DynamicLabelTableViewCell
+      case "segment_select":
+         cell = UINib(nibName: "SelectSegmentTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! SelectSegmentTableViewCell
+      case "row_header":
+         cell = UINib(nibName: "TableRowHeaderTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! TableRowHeaderTableViewCell
+      case "row_select":
+         cell = UINib(nibName: "TableRowTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! TableRowTableViewCell
+      case "dynamic_label_text_field":
+         cell = UINib(nibName: "DynamicLabelTextFieldTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! DynamicLabelTextFieldTableViewCell
+      case "add_text_field":
+         cell = UINib(nibName: "AddTextFieldTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! AddTextFieldTableViewCell
+      case "submit":
+         cell = UINib(nibName: "SubmitButtonTableViewCell", bundle: surveyBundle).instantiate(withOwner: tableView, options: nil)[0] as! SubmitButtonTableViewCell
+      default:
+         cell = UITableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellIdentifier)
+      }
+
+      return configure(cell!, for: cellIdentifier, indexPath: indexPath)
+      */
    }
 
    func configure(_ tableCell : UITableViewCell, for cellIdentifier: String, indexPath: IndexPath) -> UITableViewCell {
@@ -139,6 +178,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          tableCell.imageView?.image = surveyQuestions.image(for: indexPath)
          tableCell.selectionStyle = UITableViewCellSelectionStyle.none
       }
+      tableCell.setNeedsLayout()
       return tableCell
    }
 

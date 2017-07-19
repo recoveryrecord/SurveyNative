@@ -169,6 +169,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
 }
 ```
 
+![](/README/ice_cream_0.png "single_select example")
+
 #### multi_select
 
 ```
@@ -190,6 +192,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
 }
 ```
 
+![](/README/music_types_0.png "multi_select example")
+
 #### year_picker
 
 ```
@@ -203,6 +207,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
   "sort_order" : "DESC"
 }
 ```
+
+![](/README/birthyear_0.png "year_picker example")
 
 #### date_picker
 
@@ -244,6 +250,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
 }
 ```
 
+![](/README/age_0.png "single_text_field example")
+
 #### multi_text_field
 ```
 {
@@ -263,6 +271,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
   ]
 }
 ```
+
+![](/README/pets_0.png "multi_text_field example")
 
 
 #### dynamic_label_text_field
@@ -311,11 +321,13 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
       "for_label": "Centimeters",
       "operation": "less than",
       "value": 250,
-      "on_fail_message": "Weight must be less than 250cm"
+      "on_fail_message": "Height must be less than 250cm"
     }
   ]
 }
 ```
+
+![](/README/height_0.png "dynamic_label_text_field example")
 
 #### add_text_field
 
@@ -327,6 +339,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
   "input_type": "default"
 }
 ```
+
+![](/README/which_sports_0.png "add_text_field example")
 
 #### segment_select
 
@@ -349,6 +363,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
   ]
 }
 ```
+
+![](/README/happiness_0.png "segment_select example")
 
 #### table_select
 
@@ -383,6 +399,8 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
   ]
 }
 ```
+
+![](/README/weekend_activities_0.png "table_select example")
 
 ### Contributing
 
