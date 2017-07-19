@@ -1,5 +1,5 @@
 PODS:
-  - SurveyNative (0.1.13)
+  - SurveyNative (0.1.14)
 
 DEPENDENCIES:
   - SurveyNative (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SurveyNative: 2a5bd9ea10403d8495220c519312f428e029e58b
+  SurveyNative: c2e63e4c9a267a2d069e209c2f983216cc2388df
 
 PODFILE CHECKSUM: 6a6c214ca782e222cfd8f6674041ea0627ed7b2c
 

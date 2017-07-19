@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SurveyNative'
-  s.version          = '0.1.13'
+  s.version          = '0.1.14'
   s.summary          = 'SurveyNative is a library for creating surveys.'
 
 # This description is used to generate tags and improve search results.
