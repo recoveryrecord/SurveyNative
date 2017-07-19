@@ -80,18 +80,24 @@ class OtherOptionTableViewCell: UITableViewCell, UITextFieldDelegate, HasSelecti
    }
    
    func textFieldDidEndEditing(_ textField: UITextField) {
-      self.optionText = textField.text ?? ""
+      if !shouldShowNextButton {
+         self.optionText = textField.text ?? ""
+      }
       textField.resignFirstResponder()
    }
    
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      self.optionText = textField.text ?? ""
+      if !shouldShowNextButton {
+         self.optionText = textField.text ?? ""
+      }
       textField.resignFirstResponder()
       return true
    }
    
    @IBAction func editingDone(_ sender: Any) {
-      self.optionText = textField?.text ?? ""
+      if !shouldShowNextButton {
+         self.optionText = textField.text ?? ""
+      }
       textField?.resignFirstResponder()
    }
    
