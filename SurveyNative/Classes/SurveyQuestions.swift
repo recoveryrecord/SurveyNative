@@ -1232,17 +1232,13 @@ open class SurveyQuestions {
                self.answerQuestion(questionPath, data: data)
             }
          }
-         let numRows = self.numberOfRows(for: questionPath.primaryQuestionIndex)
          let (skipped, unSkippedQ) = updateSkippedQuestions(self.id(for: question))
          sectionChanges.removeSections = skipped
          var unSkippedSet = self.activeIndexSet(for: unSkippedQ)
          self.sectionsToInsert(questionPath: questionPath).forEach( {unSkippedSet.insert($0) })
          sectionChanges.insertSections = unSkippedSet
          sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
-         let newNumRows = self.numberOfRows(for: questionPath.primaryQuestionIndex)
-         if newNumRows != numRows {
-            sectionChanges.reloadSections = IndexSet(integer: indexPath.section)
-         }
+         sectionChanges.reloadSections = IndexSet(integer: indexPath.section)
          return sectionChanges
       } else if questionType == "multi_select" && isOptionType(questionPath) {
          let data = type == "option" ? self.text(for: questionPath) : self.otherAnswer(for: questionPath) ?? ""
