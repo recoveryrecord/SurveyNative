@@ -28,7 +28,7 @@ class YearPickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
    var sortOrder : String?
    var selectedRow: Int?
    
-   public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+   public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
       super.init(style: style, reuseIdentifier: reuseIdentifier)
       setup()
    }

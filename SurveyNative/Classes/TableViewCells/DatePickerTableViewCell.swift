@@ -28,7 +28,7 @@ class DatePickerTableViewCell: UITableViewCell, DatePickerViewControllerDelegate
    var minDate: Date?
    var maxDate: Date?
    
-   public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+   public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
       super.init(style: style, reuseIdentifier: reuseIdentifier)
       setup()
    }

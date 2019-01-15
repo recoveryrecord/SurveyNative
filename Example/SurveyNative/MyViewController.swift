@@ -52,8 +52,8 @@ class MyViewController: SurveyViewController, SurveyAnswerDelegate, CustomCondit
    }
 
    func validationFailed(message: String) {
-      let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertController.Style.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
    }
 }

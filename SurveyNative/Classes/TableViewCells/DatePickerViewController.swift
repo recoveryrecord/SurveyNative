@@ -32,7 +32,7 @@ class DatePickerViewController: UIViewController {
       super.viewDidLoad()
       
       datePickerView?.date = currentDate ?? Date()
-      datePickerView?.datePickerMode = UIDatePickerMode.date
+      datePickerView?.datePickerMode = UIDatePicker.Mode.date
       datePickerView?.minimumDate = minDate
       datePickerView?.maximumDate = maxDate
    }

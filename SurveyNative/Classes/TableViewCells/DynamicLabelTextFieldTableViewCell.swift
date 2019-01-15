@@ -223,7 +223,7 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, 
 
    func textFieldWithLabel(label : String) -> UITextField? {
       for (index, button) in self.buttons.enumerated() {
-         if button.title(for: UIControlState.normal) == label {
+         if button.title(for: UIControl.State.normal) == label {
             return self.textFields[index]
          }
       }

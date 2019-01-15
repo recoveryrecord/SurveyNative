@@ -121,15 +121,15 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          cell.shouldShowNextButton = surveyQuestions.showNextButton(for: indexPath)
          cell.updateId = surveyQuestions.id(for: indexPath)
       case "next_button":
-         let nextButton = UIButtonWithId(type: UIButtonType.system)
-         nextButton.setTitle("Next", for: UIControlState.normal)
+         let nextButton = UIButtonWithId(type: UIButton.ButtonType.system)
+         nextButton.setTitle("Next", for: UIControl.State.normal)
          let updateId = surveyQuestions.id(for: indexPath)
          nextButton.updateId = updateId
          nextButton.frame = CGRect(x: 0, y: 0, width: 100, height: 35)
-         nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+         nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: UIControl.Event.touchUpInside)
          tableCell.addSubview(nextButton)
          tableCell.accessoryView = nextButton
-         tableCell.selectionStyle = UITableViewCellSelectionStyle.none
+         tableCell.selectionStyle = UITableViewCell.SelectionStyle.none
       case "question":
          (tableCell as! DynamicLabelTableViewCell).dynamicLabel?.text = surveyQuestions.text(for: indexPath)
       case "segment_select":
@@ -176,7 +176,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          tableCell.textLabel?.text = surveyQuestions.text(for: indexPath)
          tableCell.textLabel?.numberOfLines = 0
          tableCell.imageView?.image = surveyQuestions.image(for: indexPath)
-         tableCell.selectionStyle = UITableViewCellSelectionStyle.none
+         tableCell.selectionStyle = UITableViewCell.SelectionStyle.none
       }
       tableCell.setNeedsLayout()
       return tableCell
@@ -194,7 +194,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
       return surveyQuestions.headerText(section: section)
    }
 
-   open func nextButtonTapped(_ sender: UIButton) {
+   @objc open func nextButtonTapped(_ sender: UIButton) {
       if let buttonWithId = sender as? UIButtonWithId, let updateId = buttonWithId.updateId {
          self.tableCellDataDelegate.markFinished(updateId: updateId)
       }

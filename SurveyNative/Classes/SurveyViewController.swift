@@ -49,7 +49,7 @@ open class SurveyViewController: UIViewController {
       
       self.title = surveyTitle()
       
-      self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(cancel));
+      self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(cancel));
       
       TableUIUpdater.setupTable(tableView)
       
@@ -66,14 +66,14 @@ open class SurveyViewController: UIViewController {
       tableView.delegate = self.delegate
    }
    
-   public func tableViewTapped(sender: UITapGestureRecognizer) {
+   @objc public func tableViewTapped(sender: UITapGestureRecognizer) {
       if sender.view as? UITextField == nil {
          tableView.endEditing(true)
          UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)
       }
    }
    
-   public func cancel() {
+   @objc public func cancel() {
       self.dismiss(animated: true, completion: {})
    }
 }

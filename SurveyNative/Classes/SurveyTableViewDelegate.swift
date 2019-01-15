@@ -42,7 +42,7 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
       if let height = heightAtIndexPath[key(indexPath)] {
          return height
       } else {
-         return UITableViewAutomaticDimension
+         return UITableView.automaticDimension
       }
    }
    
@@ -50,7 +50,7 @@ open class SurveyTableViewDelegate : NSObject, UITableViewDelegate {
       if let height = heightAtIndexPath[key(indexPath)] {
          return height
       } else {
-         return UITableViewAutomaticDimension
+         return UITableView.automaticDimension
       }
    }
    

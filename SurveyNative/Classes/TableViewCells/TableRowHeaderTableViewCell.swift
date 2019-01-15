@@ -57,11 +57,22 @@ class TableRowHeaderTableViewCell: UITableViewCell {
    func hasOverflow(_ label: UILabel, words: [String]) -> Bool {
       for word in words {
          let nsWord: NSString = word as NSString
-         let size: CGSize = nsWord.size(attributes: [NSFontAttributeName: label.font])
+         let size: CGSize = nsWord.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): label.font]))
          if (size.width > label.bounds.size.width) {
             return true
          }
       }
       return false
    }    
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }
