@@ -11,7 +11,7 @@ import Foundation
 // Methods for inserting, removing, and reloading sections of a UITableView
 open class TableUIUpdater {
    
-   static open func setupTable(_ tableView: UITableView) {
+   static public func setupTable(_ tableView: UITableView) {
       tableView.allowsSelection = true
       tableView.separatorStyle = .none
       

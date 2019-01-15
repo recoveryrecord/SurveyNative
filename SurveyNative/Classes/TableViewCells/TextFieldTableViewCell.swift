@@ -80,8 +80,8 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCel
       if maxCharacters == nil {
          return false
       }
-      let oldLength = textField.text?.characters.count ?? 0
-      let replacemenetLength = string.characters.count
+      let oldLength = textField.text?.count ?? 0
+      let replacemenetLength = string.count
       let rangeLength = range.length
       
       let newLength = oldLength - rangeLength + replacemenetLength

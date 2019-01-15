@@ -1220,8 +1220,10 @@ open class SurveyQuestions {
       let questionPath = self.questionPath(for: indexPath)
       let question = self.question(for: questionPath)
       let questionType = self.questionType(for: question)
+      let questionId = question["id"] as! String
       let type = self.type(for: questionPath)
       if questionType == "single_select" && isOptionType(questionPath) {
+         let subQBeforeAnswer = self.cachedSubQIds(for: questionId)
          if type == "option" {
             let data : Any = self.text(for: questionPath)
             self.answerQuestion(questionPath, data: data)
@@ -1240,7 +1242,8 @@ open class SurveyQuestions {
          sectionChanges.insertSections = unSkippedSet
          sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
          let newNumRows = self.numberOfRows(for: questionPath.primaryQuestionIndex)
-         if newNumRows != numRows {
+         let subQAfterAnswer = self.cachedSubQIds(for: questionId)
+         if (newNumRows != numRows || !containsSameElements(array1: subQBeforeAnswer, array2: subQAfterAnswer)) {
             sectionChanges.reloadSections = IndexSet(integer: indexPath.section)
          }
          return sectionChanges
@@ -1254,6 +1257,25 @@ open class SurveyQuestions {
          return sectionChanges
       }
       return sectionChanges
+   }
+   
+   func cachedSubQIds(for questionId : String) -> [String] {
+      var ids : [String] = []
+      if let cachedSubQs = self.subQsToShowCache[questionId] {
+         for subQ in cachedSubQs {
+            ids.append( subQ["id"] as! String)
+         }
+      }
+      return ids
+   }
+   
+   func containsSameElements(array1: [String], array2: [String]) -> Bool {
+      if array1.count != array2.count {
+         return false
+      }
+      let sorted1 = array1.sorted()
+      let sorted2 = array2.sorted()
+      return sorted1 == sorted2
    }
    
    func activeIndexSet(for questionIndicies: [Int]) -> IndexSet {
@@ -1292,7 +1314,7 @@ open class SurveyQuestions {
    }
    
    func questionPath(updateId: String) -> QuestionPath {
-      let idArr = updateId.characters.split(separator: ":", omittingEmptySubsequences: false).map(String.init)
+      let idArr = updateId.split(separator: ":", omittingEmptySubsequences: false).map{ String($0) }
       let primaryQuestionIndex = Int(idArr[0])
       let subQuestionIndex = Int(idArr[1])
       let row = Int(idArr[2])
