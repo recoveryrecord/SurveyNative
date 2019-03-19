@@ -48,6 +48,25 @@ open class SurveyQuestions {
       }
       return loadedQuestions
    }
+
+   class open func generateQuestions(withJson : String, surveyTheme: SurveyTheme) -> SurveyQuestions? {
+      var loadedQuestions : SurveyQuestions? = nil
+      if let data = withJson.data(using: .utf8 ) {
+         do {
+            let dict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : Any?]
+            Logger.log(dict)
+            loadedQuestions = SurveyQuestions(dict["questions"] as! [[String : Any?]], submitData: dict["submit"] as! [String : String], surveyTheme: surveyTheme)
+            if let autoFocus = dict["auto_focus_text"] as? Bool {
+               loadedQuestions?.autoFocusText = autoFocus
+            }
+         } catch {
+            Logger.log(error.localizedDescription, level: .error)
+         }
+      } else {
+         Logger.log("Error: Could not encode Data object", level: .error)
+      }
+      return loadedQuestions
+   }
    
    init(_ questions : [[String : Any?]], submitData: [String : String], surveyTheme: SurveyTheme) {
       self.questions = questions
