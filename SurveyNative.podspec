@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SurveyNative'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'SurveyNative is a library for creating surveys.'
 
 # This description is used to generate tags and improve search results.
@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.swift_version = '4.2'
 
   s.source_files = 'SurveyNative/Classes/**/*'
-  
+
   s.resource_bundles = {
     'SurveyNative' => [
       'SurveyNative/Assets/*.png',
