@@ -31,20 +31,25 @@ open class SurveyQuestions {
    // MARK: setup
    
    class open func load(_ jsonFileName : String, surveyTheme: SurveyTheme) -> SurveyQuestions? {
-      var loadedQuestions : SurveyQuestions? = nil
       if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json"), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
-         do {
-            let dict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : Any?]
-            Logger.log(dict)
-            loadedQuestions = SurveyQuestions(dict["questions"] as! [[String : Any?]], submitData: dict["submit"] as! [String : String], surveyTheme: surveyTheme)
-            if let autoFocus = dict["auto_focus_text"] as? Bool {
-               loadedQuestions?.autoFocusText = autoFocus
-            }
-         } catch {
-            Logger.log(error.localizedDescription, level: .error)
-         }
+         return SurveyQuestions.generateQuestions(withJsonData: data, surveyTheme: surveyTheme)
       } else {
          Logger.log("Error: Could not find questions file", level: .error)
+      }
+      return nil
+   }
+
+   class open func generateQuestions(withJsonData : Data, surveyTheme: SurveyTheme) -> SurveyQuestions? {
+      var loadedQuestions : SurveyQuestions? = nil
+      do {
+         let dict = try JSONSerialization.jsonObject(with: withJsonData, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : Any?]
+         Logger.log(dict)
+         loadedQuestions = SurveyQuestions(dict["questions"] as! [[String : Any?]], submitData: dict["submit"] as! [String : String], surveyTheme: surveyTheme)
+         if let autoFocus = dict["auto_focus_text"] as? Bool {
+            loadedQuestions?.autoFocusText = autoFocus
+         }
+      } catch {
+         Logger.log(error.localizedDescription, level: .error)
       }
       return loadedQuestions
    }
