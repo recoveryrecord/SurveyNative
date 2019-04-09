@@ -27,7 +27,10 @@ class MyViewController: SurveyViewController, SurveyAnswerDelegate, CustomCondit
    }
    
    func question(for id: String, answer: Any) {
-      print("Question: \(id) has answer: \(answer)")
+      print("Question: \(id) has answer (maybe is complete): \(answer)")
+      if (surveyQuestions!.isQuestionFullyAnswered(id)) {
+          print("Question: \(id) is complete")
+      }
    }
    
    func isConditionMet(answers: [String: Any], extra: [String: Any]?) -> Bool {

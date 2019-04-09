@@ -28,6 +28,8 @@ open class SurveyQuestions {
    var activeQuestion: Int = 0
    var showSubmitButton = false
    
+   var questionIdMap : [String : [String : Any?]] = [:]
+   
    // MARK: setup
    
    class open func load(_ jsonFileName : String, surveyTheme: SurveyTheme) -> SurveyQuestions? {
@@ -63,6 +65,8 @@ open class SurveyQuestions {
       self.maybeSkippedQuestions = SurveyQuestions.calculatePotentialSkippedQuestions(questions)
       Logger.log("Maybe skipped: \(self.maybeSkippedQuestions)")
       self.previousSkipCount = Array(repeating: 0, count: questions.count)
+      self.questionIdMap = SurveyQuestions.calculateQuestionIdMap(questions)
+      Logger.log("Loaded questionIdMap: \(self.questionIdMap)")
    }
    
    public func setSurveyAnswerDelegate(_ surveyAnswerDelegate: SurveyAnswerDelegate) {
@@ -134,6 +138,19 @@ open class SurveyQuestions {
       }
 
       return result
+   }
+   
+   class func calculateQuestionIdMap(_ questions: [[String: Any?]]) -> [String : [String : Any?]] {
+      var questionIdMap : [String : [String : Any?]] = [:]
+      for question in questions {
+         questionIdMap[question["id"] as! String] = question
+         if let subqs = question["sub_questions"] as? [[String : Any?]] {
+            for subq in subqs {
+               questionIdMap[subq["id"] as! String] = subq
+            }
+         }
+      }
+      return questionIdMap
    }
 
    // MARK: submission
@@ -253,6 +270,10 @@ open class SurveyQuestions {
          return self.subQuestions(for: topQuestion)[questionPath.subQuestionIndex!]
       }
       return topQuestion
+   }
+   
+   func question(for questionId: String) -> [String : Any?]? {
+      return self.questionIdMap[questionId]
    }
    
    func id(for question: [String: Any?]) -> String {
@@ -1042,8 +1063,20 @@ open class SurveyQuestions {
       return answer != nil && (answer as! String) == self.text(for: indexPath)
    }
    
+   public func isQuestionFullyAnswered(_ questionId: String) -> Bool {
+      if let question = self.question(for: questionId) {
+         return isQuestionFullyAnswered(question)
+      } else {
+         return false
+      }
+   }
+   
    func isQuestionFullyAnswered(_ primaryQuestionIndex: Int) -> Bool {
       let primaryQuestion = self.question(index: primaryQuestionIndex)
+      return isQuestionFullyAnswered(primaryQuestion)
+   }
+   
+   func isQuestionFullyAnswered(_ primaryQuestion: [String : Any?]) -> Bool {
       if !self.hasAnswer(for: primaryQuestion) {
          return false
       }
@@ -1380,6 +1413,7 @@ open class SurveyQuestions {
       }
       self.completedMultiAnswerQ.insert(questionId)
       Logger.log("multi-answer complete: \(self.completedMultiAnswerQ)")
+      surveyAnswerDelegate!.question(for: questionId, answer: answer(for: questionId)!)
       self.sectionsToInsert(questionPath: questionPath).forEach({ insertSet.insert($0) })
       sectionChanges.insertSections = insertSet
       sectionChanges.scrollPath = calculateScrollPath(sectionChanges)
@@ -1476,5 +1510,3 @@ public class QuestionPath : NSObject, NSCopying {
       }
    }
 }
-
-
