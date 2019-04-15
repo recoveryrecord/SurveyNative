@@ -120,6 +120,15 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
          cell.textFieldText = surveyQuestions.partialAnswer(for: indexPath) as! String?
          cell.shouldShowNextButton = surveyQuestions.showNextButton(for: indexPath)
          cell.updateId = surveyQuestions.id(for: indexPath)
+      case "text_area":
+         let cell = (tableCell as! TextAreaTableViewCell)
+         cell.updateId = nil
+         cell.dataDelegate = self.tableCellDataDelegate
+         cell.myTextArea?.keyboardType = surveyQuestions.keyboardType(for: indexPath)
+         cell.maxCharacters = surveyQuestions.maxChars(for: indexPath)
+         cell.validations = surveyQuestions.validations(for: indexPath)
+         cell.textFieldText = surveyQuestions.partialAnswer(for: indexPath) as! String?
+         cell.updateId = surveyQuestions.id(for: indexPath)
       case "next_button":
          let nextButton = UIButtonWithId(type: UIButton.ButtonType.system)
          nextButton.setTitle("Next", for: UIControl.State.normal)

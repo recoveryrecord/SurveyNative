@@ -235,6 +235,8 @@ open class SurveyQuestions {
          return 2
       case "single_text_field":
          return 2
+      case "single_text_area":
+         return 2
       case "multi_text_field":
          return 1 + numberOfFields(question: question)
       case "dynamic_label_text_field":
@@ -328,6 +330,8 @@ open class SurveyQuestions {
          return "year_picker"
       } else if questionType == "single_text_field" {
          return "text_field"
+      } else if questionType == "single_text_area" {
+         return "text_area"
       } else if questionType == "multi_text_field" {
          return "text_field"
       } else if questionType == "dynamic_label_text_field" {
@@ -420,7 +424,7 @@ open class SurveyQuestions {
       if questionType == "multi_text_field" {
          let textField = self.textField(for: questionPath)
          inputType = self.inputType(textField: textField)
-      } else if questionType == "single_text_field" || questionType == "dynamic_label_text_field" || questionType == "add_text_field" {
+      } else if questionType == "single_text_field" || questionType == "dynamic_label_text_field" || questionType == "add_text_field" || questionType == "single_text_area" {
          inputType = self.question(for: questionPath)["input_type"] as? String ?? "default"
       } else if questionType == "single_select" {
          let option = self.option(for: questionPath)
