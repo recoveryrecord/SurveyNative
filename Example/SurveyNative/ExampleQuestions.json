@@ -16,6 +16,12 @@
       ]
     },
     {
+      "id": "prefect_day",
+      "header": "Question 2",
+      "question": "How would you describe your perfect day?",
+      "question_type": "single_text_area"
+    },
+    {
       "id": "birthyear",
       "question": "Enter the year of your birth.",
       "question_type": "year_picker",

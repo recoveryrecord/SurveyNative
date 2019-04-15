@@ -46,6 +46,8 @@ open class TableUIUpdater {
       tableView.register(otherOptionNib, forCellReuseIdentifier: "other_option")
       let textFieldNib = UINib(nibName: "TextFieldTableViewCell", bundle: surveyBundle)
       tableView.register(textFieldNib, forCellReuseIdentifier: "text_field")
+      let textAreaNib = UINib(nibName: "TextAreaTableViewCell", bundle: surveyBundle)
+      tableView.register(textAreaNib, forCellReuseIdentifier: "text_area")
       let questionNib = UINib(nibName: "DynamicLabelTableViewCell", bundle: surveyBundle)
       tableView.register(questionNib, forCellReuseIdentifier: "question")
       let segmentNib = UINib(nibName: "SelectSegmentTableViewCell", bundle: surveyBundle)
