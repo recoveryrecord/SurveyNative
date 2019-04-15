@@ -35,6 +35,7 @@ The expected input is an array of `questions` and a `submit` object, detailing h
     - `year_picker` [screenshot](#year_picker) | [json](#year_picker)
     - `date_picker` [screenshot](#date_picker) | [json](#date_picker)
     - `single_text_field` [screenshot](#single_text_field) | [json](#single_text_field)
+    - `single_text_area` [screenshot](#single_text_area) | [json](#single_text_area)
     - `multi_text_field` [screenshot](#multi_text_field) | [json](#multi_text_field)
     - `dynamic_label_text_field` [screenshot](#dynamic_label_text_field) | [json](#dynamic_label_text_field)
     - `add_text_field` [screenshot](#add_text_field) | [json](#add_text_field)
@@ -55,9 +56,9 @@ The expected input is an array of `questions` and a `submit` object, detailing h
 
   - `input_type` (_String_): Optional for `single_text_field`, `dynamic_label_text_field`, `add_text_field` question_types. Can be set to `number` to change the default keyboard to the number keyboard for the text field(s).
 
-  - `max_chars` (_String_): Options for `single_text_field` and `multi_text_field` question_types.  Determines the max number of characters the user may enter.
+  - `max_chars` (_String_): Options for `single_text_field`, `multi_text_field`, `single_text_area` question_types.  Determines the max number of characters the user may enter.
 
-  - `validations` (_Array of Dictionaries_): Optional for `single_text_field` and `dynamic_label_text_field` question_types. Check value meets the validations when `Next` tapped. If not `validationFailed(message: String)` is called on your `ValidationFailedDelegate`. Validations consist of attributes:
+  - `validations` (_Array of Dictionaries_): Optional for `single_text_field`, `dynamic_label_text_field`, `single_text_area` question_types. Check value meets the validations when `Next` tapped. If not `validationFailed(message: String)` is called on your `ValidationFailedDelegate`. Validations consist of attributes:
   	-  `operation`
   	-  `value` or `answer_to_question_id`
   	-  `on_fail_message`
@@ -251,6 +252,18 @@ The submit object (a peer to `questions`) requires only two keys, `button_title`
 ```
 
 ![](/README/age_0.png "single_text_field example")
+
+#### single_text_area
+```
+    {
+      "id": "perfect_day",
+      "header": "Question 2",
+      "question": "How would you describe your perfect day?",
+      "question_type": "single_text_area"
+    }
+```
+
+![](/README/perfect_day_0.png "single_text_area example")
 
 #### multi_text_field
 ```
