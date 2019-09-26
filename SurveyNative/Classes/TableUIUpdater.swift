@@ -81,11 +81,11 @@ open class TableUIUpdater {
             tableView.reloadData()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
                UIView.animate(withDuration: 0.5, delay: 0.02, options: UIView.AnimationOptions.curveEaseInOut, animations: {
-                  tableView.scrollToRow(at: changes.scrollPath!, at: UITableView.ScrollPosition.top, animated: false)
+                  tableView.scrollToRow(at: changes.scrollPath!, at: UITableView.ScrollPosition.top, animated: true)
                }, completion: { (success) in
                   // Fixes a bug where sometimes rows don't appear if offscreen
                   // at beginning of scroll
-                  DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+                  DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
                      let contentOffset = tableView.contentOffset;
                      tableView.reloadData()
                      tableView.layoutIfNeeded()

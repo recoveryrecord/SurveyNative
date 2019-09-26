@@ -1451,7 +1451,7 @@ extension SectionChanges: CustomStringConvertible {
       let reloadStr = SectionChanges.string(for: reloadSections)
       let insertStr = SectionChanges.string(for: insertSections)
       let removeStr = SectionChanges.string(for: removeSections)
-      return "SectionChanges: reloadSection: \(reloadStr), insertSections:  \(insertStr),  removeSections:  \(removeStr))"
+      return "SectionChanges: reloadSection: \(reloadStr), insertSections:  \(insertStr),  removeSections:  \(removeStr)"
    }
    
    static func string(for indexSet: IndexSet?) -> String {
