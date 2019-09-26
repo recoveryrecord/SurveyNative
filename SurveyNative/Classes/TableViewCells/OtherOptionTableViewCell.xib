@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,22 +17,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-iI-ph2">
-                        <rect key="frame" x="52" y="12" width="360" height="31.666666666666664"/>
+                        <rect key="frame" x="52" y="11" width="348" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please specify" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44x-mf-DFD">
-                        <rect key="frame" x="52" y="51.333333333333329" width="310" height="34.999999999999986"/>
+                        <rect key="frame" x="52" y="49" width="298" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="XC1-iV-dRz"/>
                         </constraints>
-                        <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN9-cA-pYj">
-                        <rect key="frame" x="370" y="51.666666666666671" width="50" height="35.000000000000014"/>
+                        <rect key="frame" x="358" y="49" width="50" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Dx2-fQ-Ii9" userLabel="width = 50"/>
                             <constraint firstAttribute="height" constant="35" id="ZCe-yD-BHc"/>
@@ -67,7 +64,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="44x-mf-DFD" secondAttribute="bottom" constant="8" id="m5G-tn-cvd"/>
                     <constraint firstItem="DN9-cA-pYj" firstAttribute="top" secondItem="vSg-iI-ph2" secondAttribute="bottom" constant="8" id="nKT-oT-ugv"/>
                     <constraint firstItem="rND-Ay-IXX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="vKL-fq-dDM"/>
-                    <constraint firstAttribute="topMargin" secondItem="vSg-iI-ph2" secondAttribute="top" constant="-4" id="xpy-nj-Ifb"/>
+                    <constraint firstItem="vSg-iI-ph2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xpy-nj-Ifb"/>
                 </constraints>
             </tableViewCellContentView>
             <accessibility key="accessibilityConfiguration">
