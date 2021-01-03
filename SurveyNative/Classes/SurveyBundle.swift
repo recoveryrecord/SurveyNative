@@ -14,7 +14,14 @@ public class SurveyBundle {
    
    class func initBundle() -> Bundle {
       let podBundle = Bundle(for: SurveyBundle.self)
-      let bundleURL = podBundle.url(forResource: "SurveyNative", withExtension: "bundle")
-      return Bundle(url: bundleURL!)!
+      if let bundleURL = podBundle.url(forResource: "SurveyNative",
+                                       withExtension: "bundle") {
+          return Bundle(url: bundleURL)!
+      }
+      if let bundleURL = podBundle.url(forResource: "SurveyNative_SurveyNative",
+                                       withExtension: "bundle") {
+          return Bundle(url: bundleURL)!
+      }
+      return podBundle
    }
 }

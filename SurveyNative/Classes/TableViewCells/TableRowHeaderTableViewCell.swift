@@ -57,7 +57,7 @@ class TableRowHeaderTableViewCell: UITableViewCell {
    func hasOverflow(_ label: UILabel, words: [String]) -> Bool {
       for word in words {
          let nsWord: NSString = word as NSString
-         let size: CGSize = nsWord.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): label.font]))
+        let size: CGSize = nsWord.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): label.font as Any]))
          if (size.width > label.bounds.size.width) {
             return true
          }

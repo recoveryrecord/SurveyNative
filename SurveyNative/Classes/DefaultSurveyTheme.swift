@@ -6,7 +6,7 @@
 //  Copyright © 2017 recoveryrecord. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 open class DefaultSurveyTheme : SurveyTheme {
    

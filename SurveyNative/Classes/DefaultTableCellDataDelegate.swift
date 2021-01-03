@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {   
    var surveyQuestions : SurveyQuestions

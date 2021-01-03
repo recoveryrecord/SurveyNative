@@ -58,7 +58,9 @@ open class SurveyViewController: UIViewController {
       tableView.addGestureRecognizer(tapRecognizer)
       
       self.cellDataDelegate = DefaultTableCellDataDelegate(surveyQuestions!, tableView: tableView, submitCompletionHandler: { data, response, error -> Void in
-         self.dismiss(animated: true, completion: nil)
+         DispatchQueue.main.async {
+           self.dismiss(animated: true, completion: nil)
+         }
       })
       self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: cellDataDelegate!, presentationDelegate: self)
       tableView.dataSource = dataSource

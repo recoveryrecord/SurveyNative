@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 // Methods for inserting, removing, and reloading sections of a UITableView
 open class TableUIUpdater {
