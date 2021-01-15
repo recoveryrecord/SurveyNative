@@ -9,9 +9,9 @@
 import UIKit
 
 open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {   
-   var surveyQuestions : SurveyQuestions
+   public var surveyQuestions : SurveyQuestions
    var tableView : UITableView
-   var submitCompletionHandler: (Data?, URLResponse?, Error?) -> Void
+   public var submitCompletionHandler: (Data?, URLResponse?, Error?) -> Void
    var activeTextView: UIView?
    var validator: Validator?
    
