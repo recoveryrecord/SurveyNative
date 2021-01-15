@@ -16,7 +16,13 @@ open class SurveyViewController: UIViewController {
    
    open var dataSource: UITableViewDataSource?
    open var delegate : UITableViewDelegate?
-   open var cellDataDelegate : TableCellDataDelegate?
+   open var cellDataDelegate : TableCellDataDelegate? {
+     didSet {
+       if let cellDataDelegate = cellDataDelegate {
+         (dataSource as? SurveyDataSource)?.tableCellDataDelegate = cellDataDelegate
+       }
+     }
+   }
    
    open func surveyJsonFile() -> String {
       preconditionFailure("This method must be overridden")

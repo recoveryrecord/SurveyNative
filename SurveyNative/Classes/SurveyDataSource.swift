@@ -12,7 +12,7 @@ open class SurveyDataSource : NSObject, UITableViewDataSource {
 
    var surveyQuestions : SurveyQuestions
    var surveyTheme : SurveyTheme
-   var tableCellDataDelegate : TableCellDataDelegate
+   public var tableCellDataDelegate : TableCellDataDelegate
    weak var presentationDelegate : UIViewController?
 
    public init(_ surveyQuestions : SurveyQuestions, surveyTheme : SurveyTheme, tableCellDataDelegate : TableCellDataDelegate, presentationDelegate: UIViewController) {
