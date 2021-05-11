@@ -23,7 +23,7 @@ class SelectSegmentTableViewCell: UITableViewCell {
    }
    
    public func setSelectedValue(_ value : String) {
-      if let selectedIndex = values?.index(of: value) {
+    if let selectedIndex = values?.firstIndex(of: value) {
          segmentedControl?.selectedSegmentIndex = selectedIndex
       }
    }

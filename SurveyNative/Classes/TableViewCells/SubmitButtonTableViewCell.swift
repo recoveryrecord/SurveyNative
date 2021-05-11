@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubmitButtonTableViewCell: UITableViewCell {
+open class SubmitButtonTableViewCell: UITableViewCell {
 
    @IBOutlet var submitButton : UIButton?
    

@@ -35,7 +35,7 @@ class TableRowTableViewCell: UITableViewCell {
          if selectedHeader == nil {
             return
          }
-         if let index = headers?.index(of: selectedHeader!) {
+        if let index = headers?.firstIndex(of: selectedHeader!) {
             selectImageUI(index: index)
          }
       }

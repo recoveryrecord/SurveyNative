@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCellActivating {
+open class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableViewCellActivating {
    
    @IBOutlet var verticalStack : UIStackView?
    @IBOutlet var firstTextField : UITextField?
@@ -30,12 +30,12 @@ class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableView
       }
    }
    
-   override func awakeFromNib() {
+  open override func awakeFromNib() {
       super.awakeFromNib()
       firstTextField?.delegate = self
    }
    
-   override func prepareForReuse() {
+  open override func prepareForReuse() {
       for textField in extraTextFields {
          verticalStack?.removeArrangedSubview(textField)
          textField.removeFromSuperview()
@@ -43,7 +43,7 @@ class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableView
       extraTextFields = []
    }
    
-   func cellDidActivate() {
+  public func cellDidActivate() {
       if extraTextFields.count > 0 {
          if (extraTextFields[0].text == "") {
             extraTextFields[0].becomeFirstResponder()
@@ -89,7 +89,7 @@ class AddTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, TableView
       }
    }
    
-   func textFieldDidBeginEditing(_ textField: UITextField) {
+  public func textFieldDidBeginEditing(_ textField: UITextField) {
       self.dataDelegate?.updateActiveTextView(textField)
    }
    

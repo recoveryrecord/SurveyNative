@@ -16,7 +16,13 @@ open class SurveyViewController: UIViewController {
    
    open var dataSource: UITableViewDataSource?
    open var delegate : UITableViewDelegate?
-   open var cellDataDelegate : TableCellDataDelegate?
+   open var cellDataDelegate : TableCellDataDelegate? {
+     didSet {
+       if let cellDataDelegate = cellDataDelegate {
+         (dataSource as? SurveyDataSource)?.tableCellDataDelegate = cellDataDelegate
+       }
+     }
+   }
    
    open func surveyJsonFile() -> String {
       preconditionFailure("This method must be overridden")
@@ -58,7 +64,9 @@ open class SurveyViewController: UIViewController {
       tableView.addGestureRecognizer(tapRecognizer)
       
       self.cellDataDelegate = DefaultTableCellDataDelegate(surveyQuestions!, tableView: tableView, submitCompletionHandler: { data, response, error -> Void in
-         self.dismiss(animated: true, completion: nil)
+         DispatchQueue.main.async {
+           self.dismiss(animated: true, completion: nil)
+         }
       })
       self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: cellDataDelegate!, presentationDelegate: self)
       tableView.dataSource = dataSource
