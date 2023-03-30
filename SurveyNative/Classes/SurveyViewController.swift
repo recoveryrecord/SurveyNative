@@ -75,7 +75,7 @@ open class SurveyViewController: UIViewController {
       
       self.cellDataDelegate = DefaultTableCellDataDelegate(surveyQuestions!, tableView: tableView, submitCompletionHandler: { data, response, error -> Void in
           DispatchQueue.main.async {
-              self.dismiss(animated: true, completion: nil)
+             self.dismiss(animated: true, completion: nil)
           }
       })
       self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: cellDataDelegate!, presentationDelegate: self)
