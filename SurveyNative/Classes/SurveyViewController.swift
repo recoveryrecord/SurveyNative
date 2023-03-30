@@ -30,6 +30,10 @@ open class SurveyViewController: UIViewController {
       preconditionFailure("This method must be overridden")
    }
    
+    open func previousAnswers() -> [String : Any]? {
+       return nil
+    }
+    
    open func surveyTheme() -> SurveyTheme {
       return DefaultSurveyTheme()
    }
@@ -57,6 +61,9 @@ open class SurveyViewController: UIViewController {
           preconditionFailure("Must return non-nil from surveyJsonFile or surveyJsonURL")
       }
       self.title = surveyTitle()
+      if let previousAnswers = previousAnswers() {
+         self.surveyQuestions!.answers = previousAnswers
+      }
       
       self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(cancel));
       
