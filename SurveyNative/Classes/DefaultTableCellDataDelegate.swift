@@ -45,8 +45,12 @@ open class DefaultTableCellDataDelegate : NSObject, TableCellDataDelegate {
    }
    
    open func submitData() {
+      guard let urlString = surveyQuestions.submitUrl() else {
+         self.submitCompletionHandler(nil, nil, nil)
+         return
+      }
+      let url = URL(string: urlString)
       let session = URLSession.shared
-      let url = URL(string: surveyQuestions.submitUrl())
       var request = URLRequest(url: url!)
       let jsonData = try? JSONSerialization.data(withJSONObject: surveyQuestions.submitJson())
       request.httpMethod = "POST"

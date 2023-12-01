@@ -18,14 +18,22 @@ open class SurveyViewController: UIViewController {
    open var delegate : UITableViewDelegate?
    open var cellDataDelegate : TableCellDataDelegate?
    
-   open func surveyJsonFile() -> String {
-      preconditionFailure("This method must be overridden")
+   open func surveyJsonFile() -> String? {
+      return nil // must override this or surveyJson()
    }
    
+   open func surveyJson() -> Data? {
+      return nil // must override this or surveyJsonFile()
+   }
+    
    open func surveyTitle() -> String {
       preconditionFailure("This method must be overridden")
    }
    
+    open func previousAnswers() -> [String : Any]? {
+       return nil
+    }
+    
    open func surveyTheme() -> SurveyTheme {
       return DefaultSurveyTheme()
    }
@@ -45,9 +53,17 @@ open class SurveyViewController: UIViewController {
    override open func viewDidLoad() {
       super.viewDidLoad()
       
-      surveyQuestions = SurveyQuestions.load(surveyJsonFile(), surveyTheme: surveyTheme())
-      
+      if let jsonFile = surveyJsonFile() {
+         surveyQuestions = SurveyQuestions.load(jsonFile, surveyTheme: surveyTheme())
+      } else if let json = surveyJson() {
+          surveyQuestions = SurveyQuestions.load(json, surveyTheme: surveyTheme())
+      } else {
+          preconditionFailure("Must return non-nil from surveyJsonFile or surveyJsonURL")
+      }
       self.title = surveyTitle()
+      if let previousAnswers = previousAnswers() {
+         self.surveyQuestions!.answers = previousAnswers
+      }
       
       self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(cancel));
       
@@ -58,7 +74,9 @@ open class SurveyViewController: UIViewController {
       tableView.addGestureRecognizer(tapRecognizer)
       
       self.cellDataDelegate = DefaultTableCellDataDelegate(surveyQuestions!, tableView: tableView, submitCompletionHandler: { data, response, error -> Void in
-         self.dismiss(animated: true, completion: nil)
+          DispatchQueue.main.async {
+             self.dismiss(animated: true, completion: nil)
+          }
       })
       self.dataSource = SurveyDataSource(surveyQuestions!, surveyTheme: self.surveyTheme(), tableCellDataDelegate: cellDataDelegate!, presentationDelegate: self)
       tableView.dataSource = dataSource

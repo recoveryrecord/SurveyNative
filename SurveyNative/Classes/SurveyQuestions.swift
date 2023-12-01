@@ -41,6 +41,10 @@ open class SurveyQuestions {
       return nil
    }
 
+   class open func load(_ json : Data, surveyTheme: SurveyTheme) -> SurveyQuestions? {
+      return SurveyQuestions.generateQuestions(withJsonData: json, surveyTheme: surveyTheme)
+   }
+
    class open func generateQuestions(withJsonData : Data, surveyTheme: SurveyTheme) -> SurveyQuestions? {
       var loadedQuestions : SurveyQuestions? = nil
       do {
@@ -172,8 +176,8 @@ open class SurveyQuestions {
       return self.submitData["button_title"]!
    }
    
-   public func submitUrl() -> String {
-      return self.submitData["url"]!
+   public func submitUrl() -> String? {
+      return self.submitData["url"]
    }
    
    public func submitJson() -> [String : Any] {

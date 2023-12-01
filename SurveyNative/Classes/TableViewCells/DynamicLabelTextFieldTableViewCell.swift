@@ -248,7 +248,7 @@ class DynamicLabelTextFieldTableViewCell: UITableViewCell, UITextFieldDelegate, 
 
    @IBAction func labelTapped(_ sender: UIButton) {
       let alertController = UIAlertController(title: "Choose", message: nil, preferredStyle: .actionSheet)
-      
+      alertController.popoverPresentationController?.sourceView = self.contentView
       for option in labelOptions! {
          var title: String?
          if let stringOption = option as? String {
